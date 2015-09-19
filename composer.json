@@ -30,7 +30,8 @@
     "squizlabs/php_codesniffer": "^2.3"
   },
   "require": {
-    "php": ">=5.4"
+    "php": ">=5.4",
+    "raveren/kint": "^1.0.10"
   },
   "suggest": {
     "aloframework/aloframework": "The complete stack with all the components",
