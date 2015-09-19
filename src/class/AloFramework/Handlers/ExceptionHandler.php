@@ -5,7 +5,26 @@
     use Exception;
     use Psr\Log\LoggerInterface;
 
+    /**
+     * Exception handling class
+     * @author Art <a.molcanovas@gmail.com>
+     */
     class ExceptionHandler extends AbstractHandler {
+
+        /**
+         * Whether this handler has been enabled
+         * @var bool
+         */
+        private static $registered = false;
+
+        /**
+         * Checks whether the handler has been registered
+         * @author Art <a.molcanovas@gmail.com>
+         * @return bool
+         */
+        static function isRegistered() {
+            return self::$registered;
+        }
 
         /**
          * Echoes previous exceptions if applicable
@@ -89,7 +108,7 @@
          * @return callable The return value of set_exception_handler()
          */
         static function register(LoggerInterface $logger = null) {
-            self::$exceptionsRegistered = true;
+            self::$registered = true;
 
             return set_exception_handler([new ExceptionHandler($logger), 'handle']);
         }

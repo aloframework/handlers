@@ -25,18 +25,6 @@
         protected $logger;
 
         /**
-         * Whether the exception handler has been registered
-         * @var bool
-         */
-        protected static $exceptionsRegistered = false;
-
-        /**
-         * Whether the error handler has been registered
-         * @var bool
-         */
-        protected static $errorsRegistered = false;
-
-        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -45,24 +33,6 @@
          */
         function __construct(LoggerInterface $logger = null) {
             $this->logger = $logger;
-        }
-
-        /**
-         * Returns whether the exception handler has been registered
-         * @author Art <a.molcanovas@gmail.com>
-         * @return bool
-         */
-        static function exceptionHandlerRegistered() {
-            return self::$exceptionsRegistered;
-        }
-
-        /**
-         * Returns whether the error handler has been registered
-         * @author Art <a.molcanovas@gmail.com>
-         * @return bool
-         */
-        static function errorHandlerRegistered() {
-            return self::$errorsRegistered;
         }
 
         /**

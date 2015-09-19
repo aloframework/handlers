@@ -11,6 +11,21 @@
     class ErrorHandler extends AbstractHandler {
 
         /**
+         * Whether this handler has been enabled
+         * @var bool
+         */
+        private static $registered = false;
+
+        /**
+         * Checks whether the handler has been registered
+         * @author Art <a.molcanovas@gmail.com>
+         * @return bool
+         */
+        static function isRegistered() {
+            return self::$registered;
+        }
+
+        /**
          * The error handler
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -85,7 +100,7 @@
          * @return callable The return value of set_error_handler()
          */
         static function register(LoggerInterface $logger = null) {
-            self::$errorsRegistered = true;
+            self::$registered = true;
 
             return set_error_handler([new ErrorHandler($logger), 'handle'], ALO_HANDLERS_ERROR_LEVEL);
         }
