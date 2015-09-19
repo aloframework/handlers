@@ -3,7 +3,7 @@
     namespace AloFramework\Handlers;
 
     use Psr\Log\LoggerInterface;
-    use Kint;
+    use Symfony\Component\VarDumper\VarDumper;
 
     /**
      * Abstract error/exception handling things
@@ -50,36 +50,6 @@
                     echo 'The AloFramework handlers\' CSS file could not be found: ' . ALO_HANDLERS_CSS_PATH . PHP_EOL;
                 }
             }
-        }
-
-        /**
-         * Echoes a debug output
-         * @author Art <a.molcanovas@gmail.com>
-         * @return string
-         */
-        protected function debugLite() {
-            ob_start();
-            $argv = func_get_args();
-            if (!Kint::enabled()) {
-                echo 'The Kint module is not enabled! Debugging output will be more difficult to read' . PHP_EOL;
-                echo '<pre>';
-                foreach ($argv as $k => $v) {
-                    echo $k . '=>' . PHP_EOL;
-                    var_dump($v);
-                    echo PHP_EOL . PHP_EOL;
-                }
-            } else {
-                echo '<pre>';
-                foreach ($argv as $k => $v) {
-                    $k && print(PHP_EOL . PHP_EOL);
-                    echo s($v);
-                }
-
-            }
-
-            echo '</pre>' . PHP_EOL;
-
-            return ob_get_clean();
         }
 
         /**
@@ -140,7 +110,7 @@
                      .
                      '<td>' .
                      //BEGIN args
-                     (isset($v['args']) && !empty($v['args']) ? self::debugLite($v['args']) :
+                     (isset($v['args']) && !empty($v['args']) ? VarDumper::dump($v['args']) :
                          '<span class="label label-default">NONE</span>') .
                      '</td>'
                      //END args
@@ -189,5 +159,16 @@
          */
         static function register(LoggerInterface $logger = null) {
             return [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
+        }
+
+        /**
+         * Returns a string representation of the object
+         * @return string
+         */
+        function __toString() {
+            ob_start();
+            VarDumper::dump($this);
+
+            return ob_get_clean();
         }
     }
