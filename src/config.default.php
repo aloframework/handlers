@@ -9,3 +9,8 @@
         /** The error level to register the error handler for */
         define('ALO_HANDLERS_ERROR_LEVEL', ini_get('error_reporting'));
     }
+
+    if (!defined('ALO_HANDLERS_BACKGROUND')) {
+        /** CLI output background colour */
+        define('ALO_HANDLERS_BACKGROUND', 'black');
+    }

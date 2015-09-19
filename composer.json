@@ -32,7 +32,8 @@
   },
   "require": {
     "php": ">=5.4",
-    "symfony/var-dumper": "^2.7"
+    "symfony/var-dumper": "^2.7",
+    "symfony/console": "^2.7"
   },
   "suggest": {
     "aloframework/aloframework": "The complete stack with all the components",

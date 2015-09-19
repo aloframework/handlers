@@ -36,7 +36,7 @@
          * @param int    $errline The line number the error was raised at
          */
         function handle($errno, $errstr, $errfile, $errline) {
-            self::injectCss();
+            $this->injectCss();
             $type  = $errno;
             $label = 'warning';
 
@@ -65,13 +65,34 @@
                     break;
             }
 
-            $f = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));
+            $file = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));
 
+            if ($this->isCLI) {
+                $this->handleCLI($type, $label, $errno, $errstr, $file, $errline);
+            } else {
+                $this->handleHTML($type, $label, $errno, $errstr, $file, $errline);
+            }
+
+            $this->log($errno, $errstr);
+        }
+
+        /**
+         * @param $type
+         * @param $label
+         * @param $errno
+         * @param $errstr
+         * @param $errfile
+         * @param $errline
+         */
+        private function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
             echo '<div class="text-center">' //BEGIN outer container
                  . '<div class="alo-err alert alert-' . $label . '">' //BEGIN inner container
                  . '<div>' //BEGIN header
-                 . '<span class="alo-bold">' . $type . ': ' . '</span><span>' . $errstr . '</span></div>'//END header
-                 . '<div><span class="alo-bold">Raised in </span>' . '<span class="alo-uline">' . $f . '</span>';
+                 . '<span
+class="alo-bold">' . $type . ': ' . '</span><span>[' . $errno . '] ' . $errstr . '</span></div>'//END header
+                 . '<div><span
+class="alo-bold">Raised
+in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
 
             if ($errline) {
                 echo '<span> @ line </span><span class="alo-uline">' . $errline . '</span>';
@@ -82,12 +103,24 @@
             $trace = array_reverse(debug_backtrace());
             array_pop($trace);
 
-            self::echoTrace($trace);
+            $this->echoTrace($trace);
 
             echo '</div>'//END inner
                  . '</div>'; //END outer
 
-            $this->log($errno, $errstr);
+        }
+
+        /**
+         * @param $type
+         * @param $label
+         * @param $errno
+         * @param $errstr
+         * @param $errfile
+         * @param $errline
+         */
+        private function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+
+            $this->console->write('<header>' . $type . '</>');
         }
 
         /**

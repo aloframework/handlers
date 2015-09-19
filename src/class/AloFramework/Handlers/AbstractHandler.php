@@ -2,8 +2,11 @@
 
     namespace AloFramework\Handlers;
 
+    use AloFramework\Handlers\OutputFormatters\Bold;
+    use AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter;
     use Psr\Log\LoggerInterface;
     use Symfony\Component\VarDumper\VarDumper;
+    use AloFramework\Handlers\Output\ConsoleOutput;
 
     /**
      * Abstract error/exception handling things
@@ -28,7 +31,39 @@
          * Whether we're dealing with a command-line request
          * @var bool
          */
-        private static $isCLI = null;
+        protected $isCLI;
+
+        /**
+         * ConsoleOutput object
+         * @var ConsoleOutput
+         */
+        protected $console;
+
+        /**
+         * Defines error output as "warning"
+         * @var string
+         */
+        const LABEL_WARNING = 'warning';
+
+        /**
+         * Defines error output as "info"
+         * @var string
+         */
+        const LABEL_INFO = 'info';
+
+        /**
+         * Defines error output as "danger"
+         * @var string
+         */
+        const LABEL_DANGER = 'danger';
+
+        /**
+         * How to colour output depending on error severity
+         * @var array
+         */
+        protected static $labelColours = [self::LABEL_WARNING => 'yellow',
+                                          self::LABEL_INFO    => 'cyan',
+                                          self::LABEL_DANGER  => 'red'];
 
         /**
          * Constructor
@@ -39,20 +74,35 @@
          */
         function __construct(LoggerInterface $logger = null) {
             $this->logger = $logger;
+            $this->isCLI  = php_sapi_name() == 'cli' || defined('STDIN');
+
+            if ($this->isCLI) {
+                $this->initConsole();
+            }
+        }
+
+        /**
+         * Initialises the console and sets its styles
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        private function initConsole() {
+            $this->console = new ConsoleOutput();
+            $formatter     = $this->console->getFormatter();
+
+            $styles = ['bold' => new Bold()];
+
+            /** @var AbstractOutputFormatter $object */
+            foreach ($styles as $label => $object) {
+                $formatter->setStyle($label, $object->getFormatter());
+            }
         }
 
         /**
          * Injects the error handler CSS if it hasn't been injected yet
          * @author Art <a.molcanovas@gmail.com>
          */
-        protected static function injectCSS() {
-            if (self::$isCLI === null) {
-                self::$isCLI = php_sapi_name() == 'cli' || defined('STDIN');
-            }
-
-            if (!self::$isCLI && !self::$cssInjected) {
-                // Check if we're in CLI mode while we're at it
-
+        protected function injectCSS() {
+            if (!$this->isCLI && !self::$cssInjected) {
                 self::$cssInjected = true;
                 if (file_exists(ALO_HANDLERS_CSS_PATH)) {
                     echo '<style type="text/css">';
@@ -71,11 +121,11 @@
          *
          * @param array $trace The debug backtrace
          */
-        protected static function echoTrace($trace) {
-            if (self::$isCLI) {
-                self::traceCLI($trace);
+        protected function echoTrace($trace) {
+            if ($this->isCLI) {
+                $this->traceCLI($trace);
             } else {
-                self::traceHTML($trace);
+                $this->traceHTML($trace);
             }
         }
 
@@ -85,7 +135,7 @@
          *
          * @param array $trace The debug backtrace
          */
-        private static function traceHTML($trace) {
+        private function traceHTML($trace) {
             echo '<table class="table" border="1">'//BEGIN table
                  . '<thead>'//BEGIN head
                  . '<tr>'//BEGIN head row
@@ -161,8 +211,10 @@
             echo '</tbody>' . '</table>';
         }
 
-        private static function traceCLI($trace) {
-            print_r($trace);
+        private function traceCLI($trace) {
+            foreach ($trace as $t) {
+                $this->console->write('<fg=red>' . $t['file'] . '</>');
+            }
         }
 
         /**
