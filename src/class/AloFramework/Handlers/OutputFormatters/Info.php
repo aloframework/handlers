@@ -2,10 +2,10 @@
 
     namespace AloFramework\Handlers\OutputFormatters;
 
-    class Bold extends AbstractOutputFormatter {
+    class Info extends AbstractOutputFormatter {
 
         function __construct() {
             parent::__construct();
-            $this->formatter->setOption('bold');
+            $this->formatter->setForeground();
         }
     }

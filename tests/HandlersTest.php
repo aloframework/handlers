@@ -5,7 +5,12 @@
     class HandlersTest extends \PHPUnit_Framework_TestCase {
 
         function testDefined() {
-            $req = ['ALO_HANDLERS_CSS_PATH', 'ALO_HANDLERS_ERROR_LEVEL', 'ALO_HANDLERS_BACKGROUND'];
+            $req = ['ALO_HANDLERS_CSS_PATH',
+                    'ALO_HANDLERS_ERROR_LEVEL',
+                    'ALO_HANDLERS_BACKGROUND',
+                    'ALO_HANDLERS_FOREGROUND_NOTICE',
+                    'ALO_HANDLERS_FOREGROUND_WARNING',
+                    'ALO_HANDLERS_FOREGROUND_ERROR'];
 
             foreach ($req as $r) {
                 $this->assertTrue(defined($r), $r . ' wasn\'t defined');

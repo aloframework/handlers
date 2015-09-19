@@ -2,7 +2,6 @@
 
     namespace AloFramework\Handlers;
 
-    use AloFramework\Handlers\OutputFormatters\Bold;
     use AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter;
     use Psr\Log\LoggerInterface;
     use Symfony\Component\VarDumper\VarDumper;
@@ -89,12 +88,6 @@
             $this->console = new ConsoleOutput();
             $formatter     = $this->console->getFormatter();
 
-            $styles = ['bold' => new Bold()];
-
-            /** @var AbstractOutputFormatter $object */
-            foreach ($styles as $label => $object) {
-                $formatter->setStyle($label, $object->getFormatter());
-            }
         }
 
         /**

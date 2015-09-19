@@ -14,3 +14,18 @@
         /** CLI output background colour */
         define('ALO_HANDLERS_BACKGROUND', 'black');
     }
+
+    if (!defined('ALO_HANDLERS_FOREGROUND_NOTICE')) {
+        /** CLI output foreground colour for notices */
+        define('ALO_HANDLERS_FOREGROUND_NOTICE', 'cyan');
+    }
+
+    if (!defined('ALO_HANDLERS_FOREGROUND_WARNING')) {
+        /** CLI output foreground colour for warnings */
+        define('ALO_HANDLERS_FOREGROUND_WARNING', 'yellow');
+    }
+
+    if (!defined('ALO_HANDLERS_FOREGROUND_ERROR')) {
+        /** CLI output foreground colour for errors */
+        define('ALO_HANDLERS_FOREGROUND_ERROR', 'red');
+    }
