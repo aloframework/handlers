@@ -22,3 +22,18 @@ Installation is available via Composer:
  - To enable only the error handler call `\AloFramework\Handlers\ErrorHandler::register()`
  - To enable both handlers call `\AloFramework\Handlers\AbstractHandler::register()`
 
+### Enabling logging ###
+
+You can enable automatic logging by passing an instance of [\Psr\Log\LoggerInterface](https://packagist.org/packages/psr/log) to the `register()` method. The [AloFramework logger](https://packagist.org/packages/aloframework/log) implements this.
+
+## Configuration ##
+
+Any configuration must be made before calling composer's autoloader.
+
+### Error levels ###
+
+You can control which errors will be handled by defining **ALO_HANDLERS_ERROR_LEVEL**. This defaults to `ini_get('error_reporting')`.
+
+### CSS ###
+
+If you wish to change the CSS used for error output you can check **src/error.css**. Edit the values there to suit your needs, save the file in one of your project's directories and set the **ALO_HANDLERS_CSS_PATH** constant to point to that file's location **on your file system**, as its contents are read by PHP instead of pointing the browser to its location.
