@@ -25,6 +25,12 @@
         protected $logger;
 
         /**
+         * Whether we're dealing with a command-line request
+         * @var bool
+         */
+        private static $isCLI = null;
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -40,9 +46,15 @@
          * @author Art <a.molcanovas@gmail.com>
          */
         protected static function injectCSS() {
-            if (!self::$cssInjected) {
+            if (self::$isCLI === null) {
+                self::$isCLI = php_sapi_name() == 'cli' || defined('STDIN');
+            }
+
+            if (!self::$isCLI && !self::$cssInjected) {
+                // Check if we're in CLI mode while we're at it
+
+                self::$cssInjected = true;
                 if (file_exists(ALO_HANDLERS_CSS_PATH)) {
-                    self::$cssInjected = true;
                     echo '<style type="text/css">';
                     include ALO_HANDLERS_CSS_PATH;
                     echo '</style>';
@@ -60,6 +72,20 @@
          * @param array $trace The debug backtrace
          */
         protected static function echoTrace($trace) {
+            if (self::$isCLI) {
+                self::traceCLI($trace);
+            } else {
+                self::traceHTML($trace);
+            }
+        }
+
+        /**
+         * Echoes a HTML debug backtrace
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param array $trace The debug backtrace
+         */
+        private static function traceHTML($trace) {
             echo '<table class="table" border="1">'//BEGIN table
                  . '<thead>'//BEGIN head
                  . '<tr>'//BEGIN head row
@@ -133,6 +159,10 @@
             }
 
             echo '</tbody>' . '</table>';
+        }
+
+        private static function traceCLI($trace) {
+            print_r($trace);
         }
 
         /**
