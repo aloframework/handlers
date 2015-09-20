@@ -1,15 +1,11 @@
 # Source file or directory to parse
-source: '.'
+source: 'src'
 # Directory where to save the generated documentation
 destination: 'docs'
 # List of allowed file extensions
 extensions: [php]
 # Character set of source files
 charset: auto
-# Mask to exclude file or directory from processing
-exclude: ['*/tests/*','*/Test/*', '*/phpunit.php', '*/vendor/composer/*', '*/local-test.php']
-# Don't generate documentation for classes from file or directory with this mask
-skipDocPath: ['*/tests/*','*/Test/*', '*/phpunit.php', '*/vendor/composer/*', '*/local-test.php']
 
 # Title of generated documentation
 title: 'AloFramework Logger'

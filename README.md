@@ -1,14 +1,14 @@
 # AloFramework | Handlers #
 
-A powerful error and exception handler of [AloFramework](https://github.com/aloframework/aloframework). It can automatically log errors and exceptions if an object implementing the [\Psr\Log\LoggerInterface](%5B%5CPsr%5CLog%5CLoggerInterface%5D%28https://packagist.org/packages/psr/log%29) is passed on and will echo output based on your server's error reporting settings, altering its format depending on whether an error is raised during a HTTP or CLI call.
+A powerful error and exception handler of [AloFramework](https://github.com/aloframework/aloframework). It can automatically log errors and exceptions if an object implementing the [\Psr\Log\LoggerInterface](https://packagist.org/packages/psr/log) is passed on and will echo output based on your server's error reporting settings, altering its format depending on whether an error is raised during a HTTP or CLI call.
 
-[![License](https://poser.pugx.org/aloframework/handlers/license?format=plastic)](LICENSE)
+[![License](https://poser.pugx.org/aloframework/handlers/license?format=plastic)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Latest Stable Version](https://poser.pugx.org/aloframework/handlers/v/stable?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 [![Total Downloads](https://poser.pugx.org/aloframework/handlers/downloads?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 
 |                                                                                          dev-master                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=0.2)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.0)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -48,3 +48,7 @@ The configurable colour constants are as follows:
  - **ALO_HANDLERS_FOREGROUND_NOTICE** changes the text colour for PHP notices
  - **ALO_HANDLERS_FOREGROUND_WARNING** changes the text colour for PHP warnings
  - **ALO_HANDLERS_FOREGROUND_ERROR** changes the text colour for PHP errors and exceptions
+
+### Leak prevention ###
+
+As a failsafe against infinite looping, you can define the **ALO_HANDLERS_EXCEPTION_DEPTH** constant to limit the maximum amount of previous exceptions reported (defaults to **10**) and **ALO_HANDLERS_TRACE_MAX_DEPTH** to limit the maximum number of debug backtrace items (defaults to **50**).

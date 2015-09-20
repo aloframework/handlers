@@ -192,7 +192,10 @@
             }
 
             if (isset($traceLine['file'])) {
-                $file = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $traceLine['file']), -2));
+                $file = '[...]' . implode(DIRECTORY_SEPARATOR,
+                                          array_slice(explode(DIRECTORY_SEPARATOR,
+                                                              $traceLine['file']),
+                                                      -4));
             }
 
             if (array_key_exists('line', $traceLine)) {
@@ -214,24 +217,18 @@
 
                 self::formatTraceLine($v, $func, $loc, $line);
 
-                $this->console->write('<' . $label . 'b>#: </>')
-                    ->write('<' . $label . '>' . $k . '</>', true)
-                    ->write('<' . $label . 'b>Method: </>')
-                    ->write('<' . $label . '>' . $func . '</>', true)
-                    ->write('<' . $label . 'b>Args:</>', $argsPresent);
+                $this->console->write('<' . $label . 'b>#' . $k . ': </>')
+                    ->write('<' . $label . '>' . ($loc ? $loc : '<<unknown file>>') . '</> ')
+                    ->write('<' . $label . '>(' . ($line ? 'line ' . $line : 'unknown line') . ')</>')
+                    ->write('<' . $label . '> | </>')
+                    ->write('<' . $label . '>' . $func . '</>', true);
 
                 if ($argsPresent) {
+                    $this->console->write('<' . $label . 'b>Arguments:</>', true);
                     VarDumper::dump($v['args']);
-                } else {
-                    $this->console->write('<' . $label . '> [none]</>', true);
                 }
 
-                $this->console->write('<' . $label . 'b>File: </>')
-                    ->write('<' . $label . '>' . ($loc ? $loc : '<<unknown>>') . '</>',
-                            true)
-                    ->write('<' . $label . 'b>Line: </>')
-                    ->write('<' . $label . '>' . ($line ? $line : '<<unknown>>') . '</>', true)
-                    ->write('', true);
+                $this->console->writeln('');
             }
         }
 

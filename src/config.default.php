@@ -17,7 +17,7 @@
 
     if (!defined('ALO_HANDLERS_TRACE_MAX_DEPTH')) {
         /** Maximum number of items to appear in the debug backtrace */
-        define('ALO_HANDLERS_TRACE_MAX_DEPTH', 100);
+        define('ALO_HANDLERS_TRACE_MAX_DEPTH', 50);
     }
 
     if (!defined('ALO_HANDLERS_BACKGROUND')) {
