@@ -71,7 +71,7 @@
         function __construct(LoggerInterface $logger = null) {
             $this->logger       = $logger;
             $this->isCLI        = php_sapi_name() == 'cli' || defined('STDIN');
-            $this->maxTraceSize = (int)ALO_HANDLERS_TRACE_MAX_DEPTH;
+            $this->maxTraceSize = ((int)ALO_HANDLERS_TRACE_MAX_DEPTH) * -1;
 
             if ($this->isCLI) {
                 $this->console = new ConsoleOutput();
@@ -107,6 +107,7 @@
          */
         protected function getTrace($trace, $label) {
             ob_start();
+            $trace = array_slice($trace, $this->maxTraceSize);
 
             if ($this->isCLI) {
                 $this->traceCLI($trace, $label);
