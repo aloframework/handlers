@@ -6,11 +6,10 @@ The logging component, implementing the PSR-3 logging interface.
 [![Latest Stable Version](https://poser.pugx.org/aloframework/handlers/v/stable?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 [![Total Downloads](https://poser.pugx.org/aloframework/handlers/downloads?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 
-Development code quality:
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/small.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1)
-
-Dev: [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)
-Release: [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=0.1.2)](https://travis-ci.org/aloframework/handlers)
+|                                                                                          dev-master                                                                                          |                                                             Latest release                                                            |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=0.1.1)](https://travis-ci.org/aloframework/handlers)  |
+| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
 Installation is available via Composer:
