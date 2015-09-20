@@ -107,7 +107,6 @@
          */
         protected function getTrace($trace, $label) {
             ob_start();
-            array_pop($trace);
 
             if ($this->isCLI) {
                 $this->traceCLI($trace, $label);

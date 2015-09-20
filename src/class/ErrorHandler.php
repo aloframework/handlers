@@ -93,8 +93,6 @@
          * @param int    $errline Line where the error occurred
          */
         protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
-            $trace = array_reverse(debug_backtrace());
-            array_pop($trace);
             ?>
             <div class="text-center">
                 <div class="alo-err alert alert-<?= $label ?>">
@@ -110,7 +108,7 @@
                     </div>
                     <div>
                         <span class="alo-bold">Backtrace:</span>
-                        <?= $this->getTrace($trace, $label) ?>
+                        <?= $this->getTrace(debug_backtrace(), $label) ?>
                     </div>
                 </div>
             </div>
