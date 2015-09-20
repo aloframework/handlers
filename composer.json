@@ -39,7 +39,7 @@
       "src/config.default.php"
     ],
     "psr-4": {
-      "AloFramework\\Handlers\\": "src/class/AloFramework/Handlers"
+      "AloFramework\\Handlers\\": "src/class"
     }
   }
 }

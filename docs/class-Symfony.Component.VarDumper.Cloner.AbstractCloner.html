@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Symfony\Component\VarDumper\Cloner\AbstractCloner | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?2716554987"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Symfony.Component.VarDumper.Cloner.html" title="Summary of Symfony\Component\VarDumper\Cloner"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Psr.html">Psr<span></span></a>
+						<ul>
+				<li><a href="namespace-Psr.Log.html">Log</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Symfony.html">Symfony<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.html">Component<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.html">Console<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Question.html">Question</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tester.html">Tester</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Fixtures.html">Fixtures</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Tester.html">Tester</a>
+						</li>
+							</ul></li></ul></li>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.html">VarDumper<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Fixture.html">Fixture</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html">AbstractCloner</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.Cursor.html">Cursor</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.Data.html">Data</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Stub</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.VarCloner.html">VarCloner</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.ClonerInterface.html">ClonerInterface</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Cloner.DumperInterface.html">DumperInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class AbstractCloner</h1>
+
+
+	<div class="description">
+	
+<p>AbstractCloner implements a generic caster mechanism for objects and
+resources.</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+<b><span>Symfony\Component\VarDumper\Cloner\AbstractCloner</span></b>			
+			 implements 
+				<a href="class-Symfony.Component.VarDumper.Cloner.ClonerInterface.html"><span>Symfony\Component\VarDumper\Cloner\ClonerInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-Symfony.Component.VarDumper.Cloner.VarCloner.html">Symfony\Component\VarDumper\Cloner\VarCloner</a></code>
+		</p>
+	</div>
+
+
+
+
+
+
+	<div class="alert alert-info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-Symfony.html">Symfony</a>\<a href="namespace-Symfony.Component.html">Component</a>\<a href="namespace-Symfony.Component.VarDumper.html">VarDumper</a>\<a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a><br>
+		
+
+				<b>Author:</b>
+				Nicolas Grekas &lt;<a
+href="mailto:p&#64;tchwork.com">p&#64;<!-- -->tchwork.com</a>&gt;<br>
+		<b>Located at</b> <a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#17-304" title="Go to source code">vendor/symfony/var-dumper/Cloner/AbstractCloner.php</a><br>
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#109-121" title="Go to source code">__construct</a>( <span>array <var>$casters</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$casters</var></dt>
+						<dd><code>callable[]|null</code><br>$casters A map of casters.</dd>
+					</dl></div>
+
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#_addCasters">Symfony\Component\VarDumper\Cloner\AbstractCloner::addCasters()</a></code></code><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addCasters" id="_addCasters">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addCasters">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#123-138" title="Go to source code">addCasters</a>( <span>array <var>$casters</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Adds casters for resources and objects.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Adds casters for resources and objects.</p>
+
+<p>Maps resources or objects types to a callback. Types are in the key, with a
+callable caster for value. Resource types are to be prefixed with a
+<code>:</code>, see e.g. static::$defaultCasters.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$casters</var></dt>
+						<dd><code>callable[]</code><br>$casters A map of casters.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setMaxItems" id="_setMaxItems">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setMaxItems">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#140-148" title="Go to source code">setMaxItems</a>( <span>integer <var>$maxItems</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets the maximum number of items to clone past the first level in nested
+structures.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets the maximum number of items to clone past the first level in nested
+structures.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$maxItems</var></dt>
+						<dd><code>integer</code><br>$maxItems</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setMaxString" id="_setMaxString">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setMaxString">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#150-158" title="Go to source code">setMaxString</a>( <span>integer <var>$maxString</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets the maximum cloned length for strings.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets the maximum cloned length for strings.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$maxString</var></dt>
+						<dd><code>integer</code><br>$maxString</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="cloneVar" id="_cloneVar">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-Symfony.Component.VarDumper.Cloner.Data.html">Symfony\Component\VarDumper\Cloner\Data</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_cloneVar">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#160-187" title="Go to source code">cloneVar</a>( <span>mixed <var>$var</var></span>, <span>integer <var>$filter</var> = <span class="php-num">0</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Clones a PHP variable.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Clones a PHP variable.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$var</var></dt>
+						<dd><code>mixed</code><br>$var Any PHP variable.</dd>
+						<dt><var>$filter</var></dt>
+						<dd><code>integer</code><br>$filter A bit field of Caster::EXCLUDE_* constants.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><code><a href="class-Symfony.Component.VarDumper.Cloner.Data.html">Symfony\Component\VarDumper\Cloner\Data</a></code></code><br>The cloned variable represented by a Data object.<br>
+					</div>
+
+
+
+
+					<h4>Implementation of</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Cloner.ClonerInterface.html#_cloneVar">Symfony\Component\VarDumper\Cloner\ClonerInterface::cloneVar()</a></code></div>
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="doClone" id="_doClone">
+
+			<td class="attributes"><code>
+				abstract protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_doClone">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#189-196" title="Go to source code">doClone</a>( <span>mixed <var>$var</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Effectively clones the PHP variable.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Effectively clones the PHP variable.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$var</var></dt>
+						<dd><code>mixed</code><br>$var Any PHP variable.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The cloned variable represented in an array.<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="castObject" id="_castObject">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_castObject">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#198-235" title="Go to source code">castObject</a>( <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code> <var>$stub</var></span>, <span>boolean <var>$isNested</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Casts an object to an array representation.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Casts an object to an array representation.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$stub</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code></code><br>$stub The Stub for the casted object.</dd>
+						<dt><var>$isNested</var></dt>
+						<dd><code>boolean</code><br>$isNested True if the object is nested in the dumped structure.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The object casted as array.<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="castResource" id="_castResource">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_castResource">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#237-258" title="Go to source code">castResource</a>( <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code> <var>$stub</var></span>, <span>boolean <var>$isNested</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Casts a resource to an array representation.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Casts a resource to an array representation.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$stub</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code></code><br>$stub The Stub for the casted resource.</dd>
+						<dt><var>$isNested</var></dt>
+						<dd><code>boolean</code><br>$isNested True if the object is nested in the dumped structure.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The resource casted as array.<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="callCaster" id="_callCaster">
+
+			<td class="attributes"><code>
+				 private 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_callCaster">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#260-284" title="Go to source code">callCaster</a>( <span>callable <var>$callback</var></span>, <span>object|resource <var>$obj</var></span>, <span>array <var>$a</var></span>, <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code> <var>$stub</var></span>, <span>boolean <var>$isNested</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Calls a custom caster.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Calls a custom caster.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$callback</var></dt>
+						<dd><code>callable</code><br>$callback The caster.</dd>
+						<dt><var>$obj</var></dt>
+						<dd><code>object|resource</code><br>$obj The object/resource being casted.</dd>
+						<dt><var>$a</var></dt>
+						<dd><code>array</code><br>$a The result of the previous cast for chained casters.</dd>
+						<dt><var>$stub</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Stub.html">Symfony\Component\VarDumper\Cloner\Stub</a></code></code><br>$stub The Stub for the casted object/resource.</dd>
+						<dt><var>$isNested</var></dt>
+						<dd><code>boolean</code><br>$isNested True if $obj is nested in the dumped structure.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The casted object/resource.<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="defaultCasters" id="$defaultCasters">
+			<td class="attributes"><code>
+				public static 
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#24-98" title="Go to source code"><var>$defaultCasters</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$defaultCasters" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="maxItems" id="$maxItems">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#100" title="Go to source code"><var>$maxItems</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$maxItems" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="maxString" id="$maxString">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#101" title="Go to source code"><var>$maxString</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$maxString" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="useExt" id="$useExt">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#102" title="Go to source code"><var>$useExt</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$useExt" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="casters" id="$casters">
+			<td class="attributes"><code>
+				private  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#104" title="Go to source code"><var>$casters</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$casters" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="prevErrorHandler" id="$prevErrorHandler">
+			<td class="attributes"><code>
+				private  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#105" title="Go to source code"><var>$prevErrorHandler</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$prevErrorHandler" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="classInfo" id="$classInfo">
+			<td class="attributes"><code>
+				private  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#106" title="Go to source code"><var>$classInfo</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$classInfo" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="filter" id="$filter">
+			<td class="attributes"><code>
+				private  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Cloner.AbstractCloner.html#107" title="Go to source code"><var>$filter</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$filter" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

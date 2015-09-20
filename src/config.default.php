@@ -10,6 +10,16 @@
         define('ALO_HANDLERS_ERROR_LEVEL', ini_get('error_reporting'));
     }
 
+    if (!defined('ALO_HANDLERS_EXCEPTION_DEPTH')) {
+        /** Maximum number of previous exceptions to output */
+        define('ALO_HANDLERS_EXCEPTION_DEPTH', 10);
+    }
+
+    if (!defined('ALO_HANDLERS_TRACE_MAX_DEPTH')) {
+        /** Maximum number of items to appear in the debug backtrace */
+        define('ALO_HANDLERS_TRACE_MAX_DEPTH', 100);
+    }
+
     if (!defined('ALO_HANDLERS_BACKGROUND')) {
         /** CLI output background colour */
         define('ALO_HANDLERS_BACKGROUND', 'default');

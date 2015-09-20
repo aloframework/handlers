@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Symfony\Component\VarDumper\Dumper\HtmlDumper | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?2716554987"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Symfony.Component.VarDumper.Dumper.html" title="Summary of Symfony\Component\VarDumper\Dumper"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Psr.html">Psr<span></span></a>
+						<ul>
+				<li><a href="namespace-Psr.Log.html">Log</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Symfony.html">Symfony<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.html">Component<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.html">Console<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Question.html">Question</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tester.html">Tester</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Fixtures.html">Fixtures</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Tester.html">Tester</a>
+						</li>
+							</ul></li></ul></li>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.html">VarDumper<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Fixture.html">Fixture</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html">AbstractDumper</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html">CliDumper</a></li>
+				<li class="active"><a href="class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html">HtmlDumper</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.VarDumper.Dumper.DataDumperInterface.html">DataDumperInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class HtmlDumper</h1>
+
+
+	<div class="description">
+	
+<p>HtmlDumper dumps variables as HTML.</p>
+
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html"><span>Symfony\Component\VarDumper\Dumper\AbstractDumper</span></a>
+			
+			 implements 
+				<a href="class-Symfony.Component.VarDumper.Dumper.DataDumperInterface.html"><span>Symfony\Component\VarDumper\Dumper\DataDumperInterface</span></a>, 
+			
+				<a href="class-Symfony.Component.VarDumper.Cloner.DumperInterface.html"><span>Symfony\Component\VarDumper\Cloner\DumperInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html"><span>Symfony\Component\VarDumper\Dumper\CliDumper</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Symfony\Component\VarDumper\Dumper\HtmlDumper</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Symfony.html">Symfony</a>\<a href="namespace-Symfony.Component.html">Component</a>\<a href="namespace-Symfony.Component.VarDumper.html">VarDumper</a>\<a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a><br>
+		
+
+				<b>Author:</b>
+				Nicolas Grekas &lt;<a
+href="mailto:p&#64;tchwork.com">p&#64;<!-- -->tchwork.com</a>&gt;<br>
+		<b>Located at</b> <a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#17-475" title="Go to source code">vendor/symfony/var-dumper/Dumper/HtmlDumper.php</a><br>
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#48-55" title="Go to source code">__construct</a>( <span>callable|resource|string|null <var>$output</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$charset</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$output</var></dt>
+						<dd><code>callable|resource|string|null</code><br>$output A line dumper callable, an opened stream or an output path, defaults to
+static::$defaultOutput.</dd>
+						<dt><var>$charset</var></dt>
+						<dd><code>string</code><br>$charset The default character encoding to use for non-UTF8 strings.</dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#___construct">Symfony\Component\VarDumper\Dumper\CliDumper::__construct</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setOutput" id="_setOutput">
+
+			<td class="attributes"><code>
+				 public 
+				callable|resource|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setOutput">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#57-67" title="Go to source code">setOutput</a>( <span>callable|resource|string <var>$output</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets the output destination of the dumps.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets the output destination of the dumps.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$output</var></dt>
+						<dd><code>callable|resource|string</code><br>$output A line dumper callable, an opened stream or an output path.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>callable|resource|string</code><br>The previous output destination.<br>
+					</div>
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_setOutput">Symfony\Component\VarDumper\Dumper\AbstractDumper::setOutput</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setStyles" id="_setStyles">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setStyles">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#69-76" title="Go to source code">setStyles</a>( <span>array <var>$styles</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Configures styles.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Configures styles.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$styles</var></dt>
+						<dd><code>array</code><br>$styles A map of style names to style definitions.</dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_setStyles">Symfony\Component\VarDumper\Dumper\CliDumper::setStyles</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setDumpHeader" id="_setDumpHeader">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setDumpHeader">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#78-86" title="Go to source code">setDumpHeader</a>( <span>string <var>$header</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets an HTML header that will be dumped once in the output stream.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets an HTML header that will be dumped once in the output stream.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$header</var></dt>
+						<dd><code>string</code><br>$header An HTML string.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setDumpBoundaries" id="_setDumpBoundaries">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setDumpBoundaries">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#88-98" title="Go to source code">setDumpBoundaries</a>( <span>string <var>$prefix</var></span>, <span>string <var>$suffix</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Sets an HTML prefix and suffix that will encapse every single dump.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Sets an HTML prefix and suffix that will encapse every single dump.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$prefix</var></dt>
+						<dd><code>string</code><br>$prefix The prepended HTML string.</dd>
+						<dt><var>$suffix</var></dt>
+						<dd><code>string</code><br>$suffix The appended HTML string.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="dump" id="_dump">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_dump">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#100-107" title="Go to source code">dump</a>( <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Data.html">Symfony\Component\VarDumper\Cloner\Data</a></code> <var>$data</var></span>, <span>callable|resource|string|null <var>$output</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Dumps a Data object.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Dumps a Data object.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Data.html">Symfony\Component\VarDumper\Cloner\Data</a></code></code><br>$data A Data object.</dd>
+						<dt><var>$output</var></dt>
+						<dd><code>callable|resource|string|null</code><br>$output A line dumper callable, an opened stream or an output path.</dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_dump">Symfony\Component\VarDumper\Dumper\AbstractDumper::dump</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getDumpHeader" id="_getDumpHeader">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getDumpHeader">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#109-334" title="Go to source code">getDumpHeader</a>( )</code>
+
+			<div class="description short">
+				
+<p>Dumps the HTML header.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Dumps the HTML header.</p>
+
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="enterHash" id="_enterHash">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_enterHash">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#336-354" title="Go to source code">enterHash</a>( <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Cursor.html">Symfony\Component\VarDumper\Cloner\Cursor</a></code> <var>$cursor</var></span>, <span>integer <var>$type</var></span>, <span>string <var>$class</var></span>, <span>boolean <var>$hasChild</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Dumps while entering an hash.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Dumps while entering an hash.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$cursor</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Cursor.html">Symfony\Component\VarDumper\Cloner\Cursor</a></code></code><br>$cursor The Cursor position in the dump.</dd>
+						<dt><var>$type</var></dt>
+						<dd><code>integer</code><br>$type A Cursor::HASH_* const for the type of hash.</dd>
+						<dt><var>$class</var></dt>
+						<dd><code>string</code><br>$class The object class, resource type or array count.</dd>
+						<dt><var>$hasChild</var></dt>
+						<dd><code>boolean</code><br>$hasChild When the dump of the hash has child item.</dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_enterHash">Symfony\Component\VarDumper\Dumper\CliDumper::enterHash</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="leaveHash" id="_leaveHash">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_leaveHash">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#356-366" title="Go to source code">leaveHash</a>( <span><code><a href="class-Symfony.Component.VarDumper.Cloner.Cursor.html">Symfony\Component\VarDumper\Cloner\Cursor</a></code> <var>$cursor</var></span>, <span>integer <var>$type</var></span>, <span>string <var>$class</var></span>, <span>boolean <var>$hasChild</var></span>, <span>integer <var>$cut</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Dumps while leaving an hash.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Dumps while leaving an hash.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$cursor</var></dt>
+						<dd><code><code><a href="class-Symfony.Component.VarDumper.Cloner.Cursor.html">Symfony\Component\VarDumper\Cloner\Cursor</a></code></code><br>$cursor The Cursor position in the dump.</dd>
+						<dt><var>$type</var></dt>
+						<dd><code>integer</code><br>$type A Cursor::HASH_* const for the type of hash.</dd>
+						<dt><var>$class</var></dt>
+						<dd><code>string</code><br>$class The object class, resource type or array count.</dd>
+						<dt><var>$hasChild</var></dt>
+						<dd><code>boolean</code><br>$hasChild When the dump of the hash has child item.</dd>
+						<dt><var>$cut</var></dt>
+						<dd><code>integer</code><br>$cut The number of items the hash has been cut by.</dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_leaveHash">Symfony\Component\VarDumper\Dumper\CliDumper::leaveHash</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="style" id="_style">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_style">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#368-426" title="Go to source code">style</a>( <span>string <var>$style</var></span>, <span>string <var>$value</var></span>, <span>array <var>$attr</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Decorates a value with some style.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Decorates a value with some style.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$style</var></dt>
+						<dd><code>string</code><br>$style The type of style being applied.</dd>
+						<dt><var>$value</var></dt>
+						<dd><code>string</code><br>$value The value being styled.</dd>
+						<dt><var>$attr</var></dt>
+						<dd><code>array</code><br>$attr Optional context information.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>string</code><br>The value with style decoration.<br>
+					</div>
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_style">Symfony\Component\VarDumper\Dumper\CliDumper::style</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="dumpLine" id="_dumpLine">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_dumpLine">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#428-474" title="Go to source code">dumpLine</a>( <span>integer <var>$depth</var></span>, <span>mixed <var>$endOfValue</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				
+<p>Dumps the current line.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Dumps the current line.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$depth</var></dt>
+						<dd><code>integer</code><br>$depth The recursive depth in the dumped structure for the line being dumped.</dd>
+						<dt><var>$endOfValue</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_dumpLine">Symfony\Component\VarDumper\Dumper\CliDumper::dumpLine</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Methods inherited from <a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#methods">Symfony\Component\VarDumper\Dumper\CliDumper</a></h3>
+		<p class="elementList">
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_dumpEllipsis">dumpEllipsis()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_dumpKey">dumpKey()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_dumpScalar">dumpScalar()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_dumpString">dumpString()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_setColors">setColors()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_setMaxStringWidth">setMaxStringWidth()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#_supportsColors">supportsColors()</a></code>
+		</p>
+		<h3>Methods inherited from <a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#methods">Symfony\Component\VarDumper\Dumper\AbstractDumper</a></h3>
+		<p class="elementList">
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_echoLine">echoLine()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_setCharset">setCharset()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_setIndentPad">setIndentPad()</a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#_utf8Encode">utf8Encode()</a></code>
+		</p>
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="defaultOutput" id="$defaultOutput">
+			<td class="attributes"><code>
+				public static 
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#24" title="Go to source code"><var>$defaultOutput</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$defaultOutput" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dumpHeader" id="$dumpHeader">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#26" title="Go to source code"><var>$dumpHeader</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dumpHeader" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dumpPrefix" id="$dumpPrefix">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#27" title="Go to source code"><var>$dumpPrefix</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dumpPrefix" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dumpSuffix" id="$dumpSuffix">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#28" title="Go to source code"><var>$dumpSuffix</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dumpSuffix" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="dumpId" id="$dumpId">
+			<td class="attributes"><code>
+				protected  
+				string
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#29" title="Go to source code"><var>$dumpId</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$dumpId" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="colors" id="$colors">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#30" title="Go to source code"><var>$colors</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$colors" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="headerIsDumped" id="$headerIsDumped">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#31" title="Go to source code"><var>$headerIsDumped</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$headerIsDumped" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="lastDepth" id="$lastDepth">
+			<td class="attributes"><code>
+				protected  
+				integer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#32" title="Go to source code"><var>$lastDepth</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$lastDepth" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="styles" id="$styles">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.VarDumper.Dumper.HtmlDumper.html#33-46" title="Go to source code"><var>$styles</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$styles" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+		<h3>Properties inherited from <a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#properties">Symfony\Component\VarDumper\Dumper\CliDumper</a></h3>
+		<p class="elementList">
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#$controlCharsMap"><var>$controlCharsMap</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#$controlCharsRx"><var>$controlCharsRx</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#$defaultColors"><var>$defaultColors</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.CliDumper.html#$maxStringWidth"><var>$maxStringWidth</var></a></code>
+		</p>
+		<h3>Properties inherited from <a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#properties">Symfony\Component\VarDumper\Dumper\AbstractDumper</a></h3>
+		<p class="elementList">
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#$decimalPoint"><var>$decimalPoint</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#$indentPad"><var>$indentPad</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#$line"><var>$line</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#$lineDumper"><var>$lineDumper</var></a></code>, 
+			<code><a href="class-Symfony.Component.VarDumper.Dumper.AbstractDumper.html#$outputStream"><var>$outputStream</var></a></code>
+		</p>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

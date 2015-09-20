@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Symfony\Component\Console\Tests\Helper\LegacyProgressHelperTest | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?2716554987"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Symfony.Component.Console.Tests.Helper.html" title="Summary of Symfony\Component\Console\Tests\Helper"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Psr.html">Psr<span></span></a>
+						<ul>
+				<li><a href="namespace-Psr.Log.html">Log</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Symfony.html">Symfony<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.html">Component<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.Console.html">Console<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Question.html">Question</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tester.html">Tester</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.Console.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Fixtures.html">Fixtures</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Formatter.html">Formatter</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Tester.html">Tester</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-Symfony.Component.VarDumper.html">VarDumper<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Fixture.html">Fixture</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.FormatterHelperTest.html">FormatterHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.HelperSetTest.html">HelperSetTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.LegacyDialogHelperTest.html">LegacyDialogHelperTest</a></li>
+				<li class="active"><a href="class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html">LegacyProgressHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.LegacyTableHelperTest.html">LegacyTableHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.ProcessHelperTest.html">ProcessHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.ProgressBarTest.html">ProgressBarTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html">QuestionHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.TableStyleTest.html">TableStyleTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.TableTest.html">TableTest</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class LegacyProgressHelperTest</h1>
+
+
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+PHPUnit_Framework_TestCase
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Symfony\Component\Console\Tests\Helper\LegacyProgressHelperTest</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Symfony.html">Symfony</a>\<a href="namespace-Symfony.Component.html">Component</a>\<a href="namespace-Symfony.Component.Console.html">Console</a>\<a href="namespace-Symfony.Component.Console.Tests.html">Tests</a>\<a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a><br>
+		
+
+				<b>Group:</b>
+				legacy<br>
+		<b>Located at</b> <a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#17-227" title="Go to source code">vendor/symfony/console/Tests/Helper/LegacyProgressHelperTest.php</a><br>
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="testAdvance" id="_testAdvance">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAdvance">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#22-30" title="Go to source code">testAdvance</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAdvanceWithStep" id="_testAdvanceWithStep">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAdvanceWithStep">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#32-40" title="Go to source code">testAdvanceWithStep</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAdvanceMultipleTimes" id="_testAdvanceMultipleTimes">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAdvanceMultipleTimes">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#42-51" title="Go to source code">testAdvanceMultipleTimes</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testCustomizations" id="_testCustomizations">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testCustomizations">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#53-66" title="Go to source code">testCustomizations</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testPercent" id="_testPercent">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testPercent">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#68-78" title="Go to source code">testPercent</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testOverwriteWithShorterLine" id="_testOverwriteWithShorterLine">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testOverwriteWithShorterLine">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#80-99" title="Go to source code">testOverwriteWithShorterLine</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testSetCurrentProgress" id="_testSetCurrentProgress">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testSetCurrentProgress">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#101-118" title="Go to source code">testSetCurrentProgress</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testSetCurrentBeforeStarting" id="_testSetCurrentBeforeStarting">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testSetCurrentBeforeStarting">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#120-128" title="Go to source code">testSetCurrentBeforeStarting</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>ExpectedException</h4>
+					<div class="list">
+							\LogicException<br>
+					</div>
+					<h4>ExpectedExceptionMessage</h4>
+					<div class="list">
+							You must start the progress bar<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testRegressProgress" id="_testRegressProgress">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testRegressProgress">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#130-140" title="Go to source code">testRegressProgress</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>ExpectedException</h4>
+					<div class="list">
+							\LogicException<br>
+					</div>
+					<h4>ExpectedExceptionMessage</h4>
+					<div class="list">
+							You can't regress the progress bar<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testRedrawFrequency" id="_testRedrawFrequency">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testRedrawFrequency">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#142-155" title="Go to source code">testRedrawFrequency</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testMultiByteSupport" id="_testMultiByteSupport">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testMultiByteSupport">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#157-170" title="Go to source code">testMultiByteSupport</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testClear" id="_testClear">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testClear">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#172-184" title="Go to source code">testClear</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testPercentNotHundredBeforeComplete" id="_testPercentNotHundredBeforeComplete">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testPercentNotHundredBeforeComplete">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#186-196" title="Go to source code">testPercentNotHundredBeforeComplete</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testNonDecoratedOutput" id="_testNonDecoratedOutput">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testNonDecoratedOutput">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#198-206" title="Go to source code">testNonDecoratedOutput</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getOutputStream" id="_getOutputStream">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getOutputStream">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#208-211" title="Go to source code">getOutputStream</a>( <span>mixed <var>$decorated</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="generateOutput" id="_generateOutput">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_generateOutput">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#215-226" title="Go to source code">generateOutput</a>( <span>mixed <var>$expected</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+		<h2>Properties summary</h2>
+		<table class="summary table table-bordered table-striped" id="properties">
+		<tr data-order="lastMessagesLength" id="$lastMessagesLength">
+			<td class="attributes"><code>
+				protected  
+				mixed
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html#213" title="Go to source code"><var>$lastMessagesLength</var></a>
+			</td>
+			<td class="description"><div>
+				<a href="#$lastMessagesLength" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

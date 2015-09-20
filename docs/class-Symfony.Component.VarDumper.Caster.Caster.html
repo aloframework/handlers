@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Symfony\Component\VarDumper\Caster\Caster | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?2716554987"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Symfony.Component.VarDumper.Caster.html" title="Summary of Symfony\Component\VarDumper\Caster"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Psr.html">Psr<span></span></a>
+						<ul>
+				<li><a href="namespace-Psr.Log.html">Log</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Symfony.html">Symfony<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.html">Component<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.html">Console<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Question.html">Question</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tester.html">Tester</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Fixtures.html">Fixtures</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Tester.html">Tester</a>
+						</li>
+							</ul></li></ul></li>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.html">VarDumper<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Fixture.html">Fixture</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.AmqpCaster.html">AmqpCaster</a></li>
+				<li class="active"><a href="class-Symfony.Component.VarDumper.Caster.Caster.html">Caster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.ConstStub.html">ConstStub</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.CutStub.html">CutStub</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.DoctrineCaster.html">DoctrineCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.DOMCaster.html">DOMCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.ExceptionCaster.html">ExceptionCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.MongoCaster.html">MongoCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.PdoCaster.html">PdoCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.ReflectionCaster.html">ReflectionCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.ResourceCaster.html">ResourceCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.SplCaster.html">SplCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.StubCaster.html">StubCaster</a></li>
+				<li><a href="class-Symfony.Component.VarDumper.Caster.XmlResourceCaster.html">XmlResourceCaster</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Caster</h1>
+
+
+	<div class="description">
+	
+<p>Helper for filtering out properties in casters.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Symfony.html">Symfony</a>\<a href="namespace-Symfony.Component.html">Component</a>\<a href="namespace-Symfony.Component.VarDumper.html">VarDumper</a>\<a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a><br>
+		
+
+				<b>Author:</b>
+				Nicolas Grekas &lt;<a
+href="mailto:p&#64;tchwork.com">p&#64;<!-- -->tchwork.com</a>&gt;<br>
+		<b>Located at</b> <a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#14-114" title="Go to source code">vendor/symfony/var-dumper/Caster/Caster.php</a><br>
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="castObject" id="_castObject">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_castObject">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#36-63" title="Go to source code">castObject</a>( <span>object <var>$obj</var></span>, <span><code><a href="class-ReflectionClass.html">ReflectionClass</a></code> <var>$reflector</var></span> )</code>
+
+			<div class="description short">
+				
+<p>Casts objects to arrays and adds the dynamic property prefix.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Casts objects to arrays and adds the dynamic property prefix.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$obj</var></dt>
+						<dd><code>object</code><br>$obj The object to cast.</dd>
+						<dt><var>$reflector</var></dt>
+						<dd><code><code><a href="class-ReflectionClass.html">ReflectionClass</a></code></code><br>$reflector The class reflector to use for inspecting the object definition.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The array-cast of the object, with prefixed dynamic properties.<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filter" id="_filter">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filter">#</a>
+			<code><a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#65-113" title="Go to source code">filter</a>( <span>array <var>$a</var></span>, <span>integer <var>$filter</var></span>, <span>array <var>$listedProperties</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+<p>Filters out the specified properties.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Filters out the specified properties.</p>
+
+<p>By default, a single match in the $filter bit field filters properties out,
+following an "or" logic. When EXCLUDE_STRICT is set, an "and" logic is applied:
+all bits must match for a property to be removed.</p>
+
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$a</var></dt>
+						<dd><code>array</code><br>$a The array containing the properties to filter.</dd>
+						<dt><var>$filter</var></dt>
+						<dd><code>integer</code><br>$filter A bit field of Caster::EXCLUDE_* constants specifying which properties
+to filter out.</dd>
+						<dt><var>$listedProperties</var></dt>
+						<dd><code>string[]</code><br>$listedProperties List of properties to exclude when Caster::EXCLUDE_VERBOSE is
+set, and to preserve when Caster::EXCLUDE_NOT_IMPORTANT is set.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code>array</code><br>The filtered array<br>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+		<h2>Constants summary</h2>
+		<table class="summary table table-bordered table-striped" id="constants">
+		<tr data-order="EXCLUDE_VERBOSE" id="EXCLUDE_VERBOSE">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#21" title="Go to source code"><b>EXCLUDE_VERBOSE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">1</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_VERBOSE" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_VIRTUAL" id="EXCLUDE_VIRTUAL">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#22" title="Go to source code"><b>EXCLUDE_VIRTUAL</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">2</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_VIRTUAL" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_DYNAMIC" id="EXCLUDE_DYNAMIC">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#23" title="Go to source code"><b>EXCLUDE_DYNAMIC</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">4</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_DYNAMIC" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_PUBLIC" id="EXCLUDE_PUBLIC">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#24" title="Go to source code"><b>EXCLUDE_PUBLIC</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">8</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_PUBLIC" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_PROTECTED" id="EXCLUDE_PROTECTED">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#25" title="Go to source code"><b>EXCLUDE_PROTECTED</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">16</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_PROTECTED" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_PRIVATE" id="EXCLUDE_PRIVATE">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#26" title="Go to source code"><b>EXCLUDE_PRIVATE</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">32</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_PRIVATE" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_NULL" id="EXCLUDE_NULL">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#27" title="Go to source code"><b>EXCLUDE_NULL</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">64</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_NULL" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_EMPTY" id="EXCLUDE_EMPTY">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#28" title="Go to source code"><b>EXCLUDE_EMPTY</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">128</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_EMPTY" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_NOT_IMPORTANT" id="EXCLUDE_NOT_IMPORTANT">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#29" title="Go to source code"><b>EXCLUDE_NOT_IMPORTANT</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">256</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_NOT_IMPORTANT" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="EXCLUDE_STRICT" id="EXCLUDE_STRICT">
+
+			<td class="attributes"><code>integer</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#30" title="Go to source code"><b>EXCLUDE_STRICT</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-num">512</span></code></td>
+			<td class="description"><div>
+				<a href="#EXCLUDE_STRICT" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="PREFIX_VIRTUAL" id="PREFIX_VIRTUAL">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#32" title="Go to source code"><b>PREFIX_VIRTUAL</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">&quot;\0~\0&quot;</span></code></td>
+			<td class="description"><div>
+				<a href="#PREFIX_VIRTUAL" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="PREFIX_DYNAMIC" id="PREFIX_DYNAMIC">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#33" title="Go to source code"><b>PREFIX_DYNAMIC</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">&quot;\0+\0&quot;</span></code></td>
+			<td class="description"><div>
+				<a href="#PREFIX_DYNAMIC" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		<tr data-order="PREFIX_PROTECTED" id="PREFIX_PROTECTED">
+
+			<td class="attributes"><code>string</code></td>
+			<td class="name"><code>
+					<a href="source-class-Symfony.Component.VarDumper.Caster.Caster.html#34" title="Go to source code"><b>PREFIX_PROTECTED</b></a>
+			</code></td>
+			<td class="value"><code><span class="php-quote">&quot;\0*\0&quot;</span></code></td>
+			<td class="description"><div>
+				<a href="#PREFIX_PROTECTED" class="anchor">#</a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>

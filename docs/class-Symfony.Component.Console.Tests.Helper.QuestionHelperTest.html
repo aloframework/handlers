@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class Symfony\Component\Console\Tests\Helper\QuestionHelperTest | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?2716554987"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-Symfony.Component.Console.Tests.Helper.html" title="Summary of Symfony\Component\Console\Tests\Helper"><span>Namespace</span></a>
+						</li>
+						<li class="active">
+<span>Class</span>						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-Psr.html">Psr<span></span></a>
+						<ul>
+				<li><a href="namespace-Psr.Log.html">Log</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-Symfony.html">Symfony<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.html">Component<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-Symfony.Component.Console.html">Console<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Formatter.html">Formatter</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Question.html">Question</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tester.html">Tester</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.Console.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Command.html">Command</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Descriptor.html">Descriptor</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Fixtures.html">Fixtures</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Formatter.html">Formatter</a>
+						</li>
+				<li class="active"><a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Input.html">Input</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Logger.html">Logger</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Style.html">Style</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.Console.Tests.Tester.html">Tester</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-Symfony.Component.VarDumper.html">VarDumper<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Cloner.html">Cloner</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Dumper.html">Dumper</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.html">Tests<span></span></a>
+						<ul>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Caster.html">Caster</a>
+						</li>
+				<li><a href="namespace-Symfony.Component.VarDumper.Tests.Fixture.html">Fixture</a>
+						</li>
+							</ul></li></ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.FormatterHelperTest.html">FormatterHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.HelperSetTest.html">HelperSetTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.LegacyDialogHelperTest.html">LegacyDialogHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.LegacyProgressHelperTest.html">LegacyProgressHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.LegacyTableHelperTest.html">LegacyTableHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.ProcessHelperTest.html">ProcessHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.ProgressBarTest.html">ProgressBarTest</a></li>
+				<li class="active"><a href="class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html">QuestionHelperTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.TableStyleTest.html">TableStyleTest</a></li>
+				<li><a href="class-Symfony.Component.Console.Tests.Helper.TableTest.html">TableTest</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class QuestionHelperTest</h1>
+
+
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+PHPUnit_Framework_TestCase
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Symfony\Component\Console\Tests\Helper\QuestionHelperTest</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Symfony.html">Symfony</a>\<a href="namespace-Symfony.Component.html">Component</a>\<a href="namespace-Symfony.Component.Console.html">Console</a>\<a href="namespace-Symfony.Component.Console.Tests.html">Tests</a>\<a href="namespace-Symfony.Component.Console.Tests.Helper.html">Helper</a><br>
+		
+
+				<b>Group:</b>
+				tty<br>
+		<b>Located at</b> <a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#22-383" title="Go to source code">vendor/symfony/console/Tests/Helper/QuestionHelperTest.php</a><br>
+	</div>
+
+
+
+		<h2>Methods summary</h2>
+		<table class="summary table table-bordered table-striped" id="methods">
+		<tr data-order="testAskChoice" id="_testAskChoice">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskChoice">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#27-85" title="Go to source code">testAskChoice</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAsk" id="_testAsk">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAsk">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#87-101" title="Go to source code">testAsk</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAskWithAutocomplete" id="_testAskWithAutocomplete">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskWithAutocomplete">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#103-135" title="Go to source code">testAskWithAutocomplete</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAskHiddenResponse" id="_testAskHiddenResponse">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskHiddenResponse">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#137-150" title="Go to source code">testAskHiddenResponse</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAskConfirmation" id="_testAskConfirmation">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskConfirmation">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#152-162" title="Go to source code">testAskConfirmation</a>( <span>mixed <var>$question</var></span>, <span>mixed <var>$expected</var></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>DataProvider</h4>
+					<div class="list">
+							getAskConfirmationData<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAskConfirmationData" id="_getAskConfirmationData">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAskConfirmationData">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#164-174" title="Go to source code">getAskConfirmationData</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAskConfirmationWithCustomTrueAnswer" id="_testAskConfirmationWithCustomTrueAnswer">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskConfirmationWithCustomTrueAnswer">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#176-185" title="Go to source code">testAskConfirmationWithCustomTrueAnswer</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAskAndValidate" id="_testAskAndValidate">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAskAndValidate">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#187-217" title="Go to source code">testAskAndValidate</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testSelectChoiceFromSimpleChoices" id="_testSelectChoiceFromSimpleChoices">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testSelectChoiceFromSimpleChoices">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#219-240" title="Go to source code">testSelectChoiceFromSimpleChoices</a>( <span>mixed <var>$providedAnswer</var></span>, <span>mixed <var>$expectedValue</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>DataProvider</h4>
+					<div class="list">
+							simpleAnswerProvider<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="simpleAnswerProvider" id="_simpleAnswerProvider">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_simpleAnswerProvider">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#242-252" title="Go to source code">simpleAnswerProvider</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testChoiceFromChoicelistWithMixedKeys" id="_testChoiceFromChoicelistWithMixedKeys">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testChoiceFromChoicelistWithMixedKeys">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#254-276" title="Go to source code">testChoiceFromChoicelistWithMixedKeys</a>( <span>mixed <var>$providedAnswer</var></span>, <span>mixed <var>$expectedValue</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>DataProvider</h4>
+					<div class="list">
+							mixedKeysChoiceListAnswerProvider<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="mixedKeysChoiceListAnswerProvider" id="_mixedKeysChoiceListAnswerProvider">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_mixedKeysChoiceListAnswerProvider">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#278-288" title="Go to source code">mixedKeysChoiceListAnswerProvider</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testSelectChoiceFromChoiceList" id="_testSelectChoiceFromChoiceList">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testSelectChoiceFromChoiceList">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#290-311" title="Go to source code">testSelectChoiceFromChoiceList</a>( <span>mixed <var>$providedAnswer</var></span>, <span>mixed <var>$expectedValue</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>DataProvider</h4>
+					<div class="list">
+							answerProvider<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testAmbiguousChoiceFromChoicelist" id="_testAmbiguousChoiceFromChoicelist">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testAmbiguousChoiceFromChoicelist">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#313-334" title="Go to source code">testAmbiguousChoiceFromChoicelist</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+					<h4>ExpectedException</h4>
+					<div class="list">
+							\InvalidArgumentException<br>
+					</div>
+					<h4>ExpectedExceptionMessage</h4>
+					<div class="list">
+							The provided answer is ambiguous. Value should be one of env<sub>2</sub> or
+env<sub>3</sub>.<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="answerProvider" id="_answerProvider">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_answerProvider">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#336-344" title="Go to source code">answerProvider</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="testNoInteraction" id="_testNoInteraction">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_testNoInteraction">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#346-351" title="Go to source code">testNoInteraction</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getInputStream" id="_getInputStream">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getInputStream">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#353-360" title="Go to source code">getInputStream</a>( <span>mixed <var>$input</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createOutputInterface" id="_createOutputInterface">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createOutputInterface">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#362-365" title="Go to source code">createOutputInterface</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createInputInterfaceMock" id="_createInputInterfaceMock">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createInputInterfaceMock">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#367-375" title="Go to source code">createInputInterfaceMock</a>( <span>mixed <var>$interactive</var> = <span class="php-keyword1">true</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hasSttyAvailable" id="_hasSttyAvailable">
+
+			<td class="attributes"><code>
+				 private 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_hasSttyAvailable">#</a>
+			<code><a href="source-class-Symfony.Component.Console.Tests.Helper.QuestionHelperTest.html#377-382" title="Go to source code">hasSttyAvailable</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		</table>
+
+
+
+		<h3>Magic methods summary</h3>
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>
