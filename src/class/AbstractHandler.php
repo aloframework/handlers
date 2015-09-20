@@ -234,15 +234,6 @@
         }
 
         /**
-         * Logs a message if the logger is enabled
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param int|string $errcode The error/exception code
-         * @param string     $msg     The error or exception message
-         */
-        abstract protected function log($errcode, $msg);
-
-        /**
          * Registers the error and exception handlers
          * @author Art <a.molcanovas@gmail.com>
          *
