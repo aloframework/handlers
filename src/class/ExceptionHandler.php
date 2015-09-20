@@ -26,9 +26,7 @@
         /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         *                                AloFramework\Log\Log extends this interface.
+         * @inheritdoc
          */
         function __construct(LoggerInterface $logger = null) {
             parent::__construct($logger);
