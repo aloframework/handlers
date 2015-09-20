@@ -90,26 +90,28 @@
          * @param $errline
          */
         protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
-            echo '<div class="text-center">' //BEGIN outer container
-                 . '<div class="alo-err alert alert-' . $label . '">' //BEGIN inner container
-                 . '<div>' //BEGIN header
-                 . '<span
-class="alo-bold">' . $type . ': ' . '</span><span>[' . $errno . '] ' . $errstr . '</span></div>'//END header
-                 . '<div><span
-class="alo-bold">Raised
-in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
-
-            echo '<span> @ line </span><span class="alo-uline">' . $errline . '</span>';
-
-            echo '</div><span class="alo-bold">Backtrace:</span>';
-
             $trace = array_reverse(debug_backtrace());
             array_pop($trace);
-
-            echo $this->getTrace($trace, $label);
-
-            echo '</div>'//END inner
-                 . '</div>'; //END outer
+            ?>
+            <div class="text-center">
+                <div class="alo-err alert alert-<?= $label ?>">
+                    <div>
+                        <span class="alo-bold"><?= $type ?>: </span>
+                        <span>[<?= $errno ?>] <?= $errstr ?></span>
+                    </div>
+                    <div>
+                        <span class="alo-bold">Raised in </span>
+                        <span class="alo-uline"><?= $errfile ?></span>
+                        <span> @ line </span>
+                        <span class="alo-uline"><?= $errline ?></span>
+                    </div>
+                    <div>
+                        <span class="alo-bold">Backtrace:</span>
+                        <?= $this->getTrace($trace, $label) ?>
+                    </div>
+                </div>
+            </div>
+            <?php
 
         }
 

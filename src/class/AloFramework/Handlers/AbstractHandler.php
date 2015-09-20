@@ -166,7 +166,8 @@
                             <td><?= $func ?></td>
                             <td><?= $args ?></td>
                             <td><?= $loc ? $loc : '<span class="label label-default">???</label>' ?></td>
-                            <td><?= $line || $line == 0 ? $line : '<span class="label label-default">???</span>' ?></td>
+                            <td><?= ($line || $line == 0) ? $line :
+                                    '<span class="label label-default">???</span>' ?></td>
                         </tr>
 
                         <?php
