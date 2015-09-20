@@ -115,80 +115,66 @@
          *
          * @param array $trace The debug backtrace
          */
-        private function traceHTML($trace) {
-            echo '<table class="table" border="1">'//BEGIN table
-                 . '<thead>'//BEGIN head
-                 . '<tr>'//BEGIN head row
-                 . '<th>#</th>'//Trace number
-                 . '<th>Method</th>'//Method used
-                 . '<th>Args</th>'//Method args
-                 . '<th>Location</th>'//File
-                 . '<th>Line</th>'//Line of code
-                 . '</tr>'//END head row
-                 . '</thead>'//END head
-                 . '<tbody>'; //BEGIN table
+        private function traceHTML(array $trace) {
+            ?>
+            <table class="table" border="1">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Method</th>
+                    <th>Args</th>
+                    <th>File</th>
+                    <th>Line</th>
+                </tr>
+                </thead>
+                <tbody><?php
+                    foreach ($trace as $k => $v) {
+                        $func = $loc = $line = '';
 
-            foreach ($trace as $k => $v) {
-                $func = $loc = $line = '';
+                        if (isset($v['class'])) {
+                            $func = $v['class'];
+                        }
+                        if (isset($v['type'])) {
+                            $func .= $v['type'];
+                        }
+                        if (isset($v['function'])) {
+                            $func .= $v['function'] . '()';
+                        }
+                        if (!$func) {
+                            $func = '[unknown]';
+                        }
 
-                if (isset($v['class'])) {
-                    $func = $v['class'];
-                }
-                if (isset($v['type'])) {
-                    $func .= $v['type'];
-                }
-                if (isset($v['function'])) {
-                    $func .= $v['function'] . '()';
-                }
-                if (!$func) {
-                    $func = '[unknown]';
-                }
+                        if (isset($v['file'])) {
+                            $loc =
+                                implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $v['file']), -2));
+                        }
+                        if (isset($v['line'])) {
+                            $line = $v['line'];
+                        }
 
-                if (isset($v['file'])) {
-                    $loc = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $v['file']), -2));
-                }
-                if (isset($v['line'])) {
-                    $line = $v['line'];
-                }
+                        if (isset($v['args']) && !empty($v['args'])) {
+                            ob_start();
+                            VarDumper::dump($v['args']);
+                            $args = ob_get_clean();
+                        } else {
+                            $args = '[none]';
+                        }
 
-                echo '<tr>'
-                     //BEGIN row
-                     .
-                     '<td>' .
-                     $k .
-                     '</td>'
-                     //Trace #
-                     .
-                     '<td>' .
-                     $func .
-                     '</td>'
-                     //Method used
-                     .
-                     '<td>' .
-                     //BEGIN args
-                     (isset($v['args']) && !empty($v['args']) ? VarDumper::dump($v['args']) :
-                         '<span class="label label-default">NONE</span>') .
-                     '</td>'
-                     //END args
-                     .
-                     '<td>'
-                     //BEGIN location
-                     .
-                     ($loc ? $loc : '<span class="label label-default">???</span>') .
-                     '</td>'
-                     //END location
-                     .
-                     '<td>'
-                     //BEGIN line
-                     .
-                     ($line || $line == '0' ? $line : '<span class="label label-default">???</span>') .
-                     '</td>'
-                     //END line
-                     .
-                     '</tr>';
-            }
+                        ?>
+                        <tr>
+                            <td><?= $k ?></td>
+                            <td><?= $func ?></td>
+                            <td><?= $args ?></td>
+                            <td><?= $loc ? $loc : '<span class="label label-default">???</label>' ?></td>
+                            <td><?= $line || $line == 0 ? $line : '<span class="label label-default">???</span>' ?></td>
+                        </tr>
 
-            echo '</tbody>' . '</table>';
+                        <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+            <?php
         }
 
         private function traceCLI($trace, $label) {
@@ -216,10 +202,10 @@
                 }
 
                 $this->console->write('<' . $label . 'b>#: </>')
-                              ->write('<' . $label . '>' . $k . '</>', true)
-                              ->write('<' . $label . 'b>Method: </>')
-                              ->write('<' . $label . '>' . $func . '</>', true)
-                              ->write('<' . $label . 'b>Args:</>', $argsPresent);
+                    ->write('<' . $label . '>' . $k . '</>', true)
+                    ->write('<' . $label . 'b>Method: </>')
+                    ->write('<' . $label . '>' . $func . '</>', true)
+                    ->write('<' . $label . 'b>Args:</>', $argsPresent);
 
                 if ($argsPresent) {
                     VarDumper::dump($v['args']);
@@ -228,15 +214,11 @@
                 }
 
                 $this->console->write('<' . $label . 'b>File: </>')
-                              ->write('<' .
-                                      $label .
-                                      '>' .
-                                      ($loc ? $loc : '<<unknown>>') .
-                                      '</>',
-                                      true)
-                              ->write('<' . $label . 'b>Line: </>')
-                              ->write('<' . $label . '>' . ($line ? $line : '<<unknown>>') . '</>', true)
-                              ->write('', true);
+                    ->write('<' . $label . '>' . ($loc ? $loc : '<<unknown>>') . '</>',
+                            true)
+                    ->write('<' . $label . 'b>Line: </>')
+                    ->write('<' . $label . '>' . ($line ? $line : '<<unknown>>') . '</>', true)
+                    ->write('', true);
             }
         }
 
