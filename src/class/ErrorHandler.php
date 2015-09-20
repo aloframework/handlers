@@ -82,6 +82,35 @@
         }
 
         /**
+         * Logs an error
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param int    $errcode The error's code
+         * @param string $errstr  The error message
+         */
+        protected function log($errcode, $errstr) {
+            if ($this->logger) {
+                switch ($errcode) {
+                    case E_NOTICE:
+                    case E_USER_NOTICE:
+                        $method = 'notice';
+                        break;
+                    case E_WARNING:
+                    case E_USER_WARNING:
+                    case E_CORE_WARNING:
+                    case E_DEPRECATED:
+                    case E_USER_DEPRECATED:
+                        $method = 'warning';
+                        break;
+                    default:
+                        $method = 'error';
+                }
+
+                $this->logger->{$method}('[' . $errcode . '] ' . $errstr);
+            }
+        }
+
+        /**
          * Generates HTML output for errors
          * @author Art <a.molcanovas@gmail.com>
          *

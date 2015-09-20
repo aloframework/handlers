@@ -92,7 +92,7 @@
                 $this->handleHTML($e);
             }
 
-            $this->log($e->getCode(), $e->getMessage());
+            $this->log($e);
         }
 
         /**
@@ -145,6 +145,18 @@
             $this->console->write('<eb>Debug backtrace:</eb>', true)->writeln('');
 
             echo $this->getTrace($e->getTrace(), 'e');
+        }
+
+        /**
+         * Logs a message if the logger is enabled
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param Exception $e The exception to log
+         */
+        protected function log(Exception $e) {
+            if ($this->logger) {
+                $this->logger->error('[' . $e->getCode() . '] ' . $e->getMessage());
+            }
         }
 
         /**

@@ -240,11 +240,7 @@
          * @param int|string $errcode The error/exception code
          * @param string     $msg     The error or exception message
          */
-        protected function log($errcode, $msg) {
-            if ($this->logger) {
-                $this->logger->error('[' . $errcode . '] ' . $msg);
-            }
-        }
+        abstract protected function log($errcode, $msg);
 
         /**
          * Registers the error and exception handlers
