@@ -1,4 +1,100 @@
-<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="ApiGen 2.8.0"><meta name="robots" content="noindex"><title>File class/ErrorHandler.php | AloFramework Logger</title><script type="text/javascript" src="resources/combined.js?2158407760"></script><script type="text/javascript" src="elementlist.js?3828954611"></script><link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822"><link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609"></head><body><div id="navigation" class="navbar navbar-fixed-top"><div class="navbar-inner"><div class="container"><a href="index.html" class="brand">AloFramework Logger</a><div class="nav-collapse"><ul class="nav"><li><a href="namespace-AloFramework.Handlers.html" title="Summary of AloFramework\Handlers"><span>Namespace</span></a></li><li><a href="class-AloFramework.Handlers.ErrorHandler.html" title="Summary of AloFramework\Handlers\ErrorHandler"><span>Class</span></a></li><li class="divider-vertical"></li><li><a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a></li><li><a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a></li><li><a href="todo.html" title="Todo list"><span>Todo</span></a></li></ul></div></div></div></div><div id="left"><div id="menu"><form id="search" class="form-search"><input type="hidden" name="cx" value=""><input type="hidden" name="ie" value="UTF-8"><input type="text" name="q" class="search-query" placeholder="Search"></form><div id="groups"><h3>Namespaces</h3><ul><li class="active"><a href="namespace-AloFramework.html">AloFramework<span></span></a><ul><li class="active"><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a><ul><li><a href="namespace-AloFramework.Handlers.Output.html">Output</a></li><li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a></li></ul></li></ul></li><li><a href="namespace-PHP.html">PHP</a></li></ul></div><div id="elements"><h3>Classes</h3><ul><li><a href="class-AloFramework.Handlers.AbstractHandler.html">AbstractHandler</a></li><li class="active"><a href="class-AloFramework.Handlers.ErrorHandler.html">ErrorHandler</a></li><li><a href="class-AloFramework.Handlers.ExceptionHandler.html">ExceptionHandler</a></li></ul></div></div></div><div id="splitter"></div><div id="right"><div id="rightInner"><pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
+
+	<title>File class/ErrorHandler.php | AloFramework Logger</title>
+
+	<script type="text/javascript" src="resources/combined.js?2158407760"></script>
+	<script type="text/javascript" src="elementlist.js?3828954611"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/bootstrap.min.css?260161822">
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?2015443609">
+
+</head>
+
+<body>
+	<div id="navigation" class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="index.html" class="brand">AloFramework Logger</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li>
+							<a href="namespace-AloFramework.Handlers.html" title="Summary of AloFramework\Handlers"><span>Namespace</span></a>
+						</li>
+						<li>
+							<a href="class-AloFramework.Handlers.ErrorHandler.html" title="Summary of AloFramework\Handlers\ErrorHandler"><span>Class</span></a>
+						</li>
+
+						<li class="divider-vertical"></li>
+
+						<li>
+							<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+						</li>
+						<li>
+							<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+						</li>
+						<li>
+							<a href="todo.html" title="Todo list"><span>Todo</span></a>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="left">
+	<div id="menu">
+		<form id="search" class="form-search">
+			<input type="hidden" name="cx" value="">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" class="search-query" placeholder="Search">
+		</form>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-AloFramework.html">AloFramework<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-AloFramework.Handlers.html">Handlers<span></span></a>
+						<ul>
+				<li><a href="namespace-AloFramework.Handlers.Output.html">Output</a>
+						</li>
+				<li><a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AloFramework.Handlers.AbstractHandler.html">AbstractHandler</a></li>
+				<li class="active"><a href="class-AloFramework.Handlers.ErrorHandler.html">ErrorHandler</a></li>
+				<li><a href="class-AloFramework.Handlers.ExceptionHandler.html">ExceptionHandler</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<pre id="source"><code><span id="1" class="l"><a class="l" href="#1">  1 </a><span class="xlang">&lt;?php</span>
 </span><span id="2" class="l"><a class="l" href="#2">  2 </a>
 </span><span id="3" class="l"><a class="l" href="#3">  3 </a>    <span class="php-keyword1">namespace</span> AloFramework\Handlers;
 </span><span id="4" class="l"><a class="l" href="#4">  4 </a>
@@ -93,70 +189,76 @@
 </span></span><span id="93" class="l"><a class="l" href="#93"> 93 </a><span class="php-comment">         * @param int    $errline Line where the error occurred
 </span></span><span id="94" class="l"><a class="l" href="#94"> 94 </a><span class="php-comment">         */</span>
 </span><span id="95" class="l"><a class="l" href="#95"> 95 </a>        <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_handleHTML" href="#_handleHTML">handleHTML</a>(<span class="php-var">$type</span>, <span class="php-var">$label</span>, <span class="php-var">$errno</span>, <span class="php-var">$errstr</span>, <span class="php-var">$errfile</span>, <span class="php-var">$errline</span>) {
-</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>            <span class="php-var">$trace</span> = <span class="php-keyword2">array_reverse</span>(<span class="php-keyword2">debug_backtrace</span>());
-</span><span id="97" class="l"><a class="l" href="#97"> 97 </a>            <span class="php-keyword2">array_pop</span>(<span class="php-var">$trace</span>);
-</span><span id="98" class="l"><a class="l" href="#98"> 98 </a>            <span class="xlang">?&gt;</span>
-</span><span id="99" class="l"><a class="l" href="#99"> 99 </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;text-center&quot;</span>&gt;
-</span><span id="100" class="l"><a class="l" href="#100">100 </a>                &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-err alert alert-&lt;?= </span><span class="php-var">$label</span><span class="php-quote"> ?&gt;&quot;</span>&gt;
-</span><span id="101" class="l"><a class="l" href="#101">101 </a>                    &lt;div&gt;
-</span><span id="102" class="l"><a class="l" href="#102">102 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$type</span> <span class="xlang">?&gt;</span>: &lt;/span&gt;
-</span><span id="103" class="l"><a class="l" href="#103">103 </a>                        &lt;span&gt;[<span class="xlang">&lt;?=</span> <span class="php-var">$errno</span> <span class="xlang">?&gt;</span>] <span class="xlang">&lt;?=</span> <span class="php-var">$errstr</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
-</span><span id="104" class="l"><a class="l" href="#104">104 </a>                    &lt;/div&gt;
-</span><span id="105" class="l"><a class="l" href="#105">105 </a>                    &lt;div&gt;
-</span><span id="106" class="l"><a class="l" href="#106">106 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;Raised in &lt;/span&gt;
-</span><span id="107" class="l"><a class="l" href="#107">107 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-uline&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$errfile</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
-</span><span id="108" class="l"><a class="l" href="#108">108 </a>                        &lt;span&gt; @ line &lt;/span&gt;
-</span><span id="109" class="l"><a class="l" href="#109">109 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-uline&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$errline</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
-</span><span id="110" class="l"><a class="l" href="#110">110 </a>                    &lt;/div&gt;
-</span><span id="111" class="l"><a class="l" href="#111">111 </a>                    &lt;div&gt;
-</span><span id="112" class="l"><a class="l" href="#112">112 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;Backtrace:&lt;/span&gt;
-</span><span id="113" class="l"><a class="l" href="#113">113 </a>                        <span class="xlang">&lt;?=</span> <span class="php-var">$this</span>-&gt;getTrace(<span class="php-var">$trace</span>, <span class="php-var">$label</span>) <span class="xlang">?&gt;</span>
-</span><span id="114" class="l"><a class="l" href="#114">114 </a>                    &lt;/div&gt;
-</span><span id="115" class="l"><a class="l" href="#115">115 </a>                &lt;/div&gt;
-</span><span id="116" class="l"><a class="l" href="#116">116 </a>            &lt;/div&gt;
-</span><span id="117" class="l"><a class="l" href="#117">117 </a>            <span class="xlang">&lt;?php</span>
+</span><span id="96" class="l"><a class="l" href="#96"> 96 </a>            <span class="xlang">?&gt;</span>
+</span><span id="97" class="l"><a class="l" href="#97"> 97 </a>            &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;text-center&quot;</span>&gt;
+</span><span id="98" class="l"><a class="l" href="#98"> 98 </a>                &lt;div <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-err alert alert-&lt;?= </span><span class="php-var">$label</span><span class="php-quote"> ?&gt;&quot;</span>&gt;
+</span><span id="99" class="l"><a class="l" href="#99"> 99 </a>                    &lt;div&gt;
+</span><span id="100" class="l"><a class="l" href="#100">100 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$type</span> <span class="xlang">?&gt;</span>: &lt;/span&gt;
+</span><span id="101" class="l"><a class="l" href="#101">101 </a>                        &lt;span&gt;[<span class="xlang">&lt;?=</span> <span class="php-var">$errno</span> <span class="xlang">?&gt;</span>] <span class="xlang">&lt;?=</span> <span class="php-var">$errstr</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
+</span><span id="102" class="l"><a class="l" href="#102">102 </a>                    &lt;/div&gt;
+</span><span id="103" class="l"><a class="l" href="#103">103 </a>                    &lt;div&gt;
+</span><span id="104" class="l"><a class="l" href="#104">104 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;Raised in &lt;/span&gt;
+</span><span id="105" class="l"><a class="l" href="#105">105 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-uline&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$errfile</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
+</span><span id="106" class="l"><a class="l" href="#106">106 </a>                        &lt;span&gt; @ line &lt;/span&gt;
+</span><span id="107" class="l"><a class="l" href="#107">107 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-uline&quot;</span>&gt;<span class="xlang">&lt;?=</span> <span class="php-var">$errline</span> <span class="xlang">?&gt;</span>&lt;/span&gt;
+</span><span id="108" class="l"><a class="l" href="#108">108 </a>                    &lt;/div&gt;
+</span><span id="109" class="l"><a class="l" href="#109">109 </a>                    &lt;div&gt;
+</span><span id="110" class="l"><a class="l" href="#110">110 </a>                        &lt;span <span class="php-keyword1">class</span>=<span class="php-quote">&quot;alo-bold&quot;</span>&gt;Backtrace:&lt;/span&gt;
+</span><span id="111" class="l"><a class="l" href="#111">111 </a>                        <span class="xlang">&lt;?=</span> <span class="php-var">$this</span>-&gt;getTrace(<span class="php-keyword2">array_slice</span>(<span class="php-keyword2">debug_backtrace</span>(), <span class="php-num">2</span>), <span class="php-var">$label</span>) <span class="xlang">?&gt;</span>
+</span><span id="112" class="l"><a class="l" href="#112">112 </a>                    &lt;/div&gt;
+</span><span id="113" class="l"><a class="l" href="#113">113 </a>                &lt;/div&gt;
+</span><span id="114" class="l"><a class="l" href="#114">114 </a>            &lt;/div&gt;
+</span><span id="115" class="l"><a class="l" href="#115">115 </a>            <span class="xlang">&lt;?php</span>
+</span><span id="116" class="l"><a class="l" href="#116">116 </a>
+</span><span id="117" class="l"><a class="l" href="#117">117 </a>        }
 </span><span id="118" class="l"><a class="l" href="#118">118 </a>
-</span><span id="119" class="l"><a class="l" href="#119">119 </a>        }
-</span><span id="120" class="l"><a class="l" href="#120">120 </a>
-</span><span id="121" class="l"><a class="l" href="#121">121 </a>        <span class="php-comment">/**
-</span></span><span id="122" class="l"><a class="l" href="#122">122 </a><span class="php-comment">         * Generates console output for errors
-</span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">         * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="124" class="l"><a class="l" href="#124">124 </a><span class="php-comment">         *
-</span></span><span id="125" class="l"><a class="l" href="#125">125 </a><span class="php-comment">         * @param string $type    Error type
-</span></span><span id="126" class="l"><a class="l" href="#126">126 </a><span class="php-comment">         * @param string $label   Error colour code (&quot;e&quot; for error, &quot;w&quot; for warning, &quot;i&quot; for info)
-</span></span><span id="127" class="l"><a class="l" href="#127">127 </a><span class="php-comment">         * @param int    $errno   Error code
-</span></span><span id="128" class="l"><a class="l" href="#128">128 </a><span class="php-comment">         * @param string $errstr  Error message
-</span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment">         * @param string $errfile File where the error occurred
-</span></span><span id="130" class="l"><a class="l" href="#130">130 </a><span class="php-comment">         * @param int    $errline Line where the error occurred
-</span></span><span id="131" class="l"><a class="l" href="#131">131 </a><span class="php-comment">         */</span>
-</span><span id="132" class="l"><a class="l" href="#132">132 </a>        <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_handleCLI" href="#_handleCLI">handleCLI</a>(<span class="php-var">$type</span>, <span class="php-var">$label</span>, <span class="php-var">$errno</span>, <span class="php-var">$errstr</span>, <span class="php-var">$errfile</span>, <span class="php-var">$errline</span>) {
-</span><span id="133" class="l"><a class="l" href="#133">133 </a>            <span class="php-var">$this</span>-&gt;console-&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'b&gt;'</span> . <span class="php-var">$type</span> . <span class="php-quote">'&lt;/&gt;'</span>)
-</span><span id="134" class="l"><a class="l" href="#134">134 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt;: ['</span> . <span class="php-var">$errno</span> . <span class="php-quote">'] '</span> . <span class="php-var">$errstr</span> . <span class="php-quote">'&lt;/&gt;'</span>,
-</span><span id="135" class="l"><a class="l" href="#135">135 </a>                        <span class="php-keyword1">true</span>)
-</span><span id="136" class="l"><a class="l" href="#136">136 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt;Raised in &lt;/&gt;'</span>)
-</span><span id="137" class="l"><a class="l" href="#137">137 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'u&gt;'</span> . <span class="php-var">$errfile</span> . <span class="php-quote">'&lt;/&gt;'</span>)
-</span><span id="138" class="l"><a class="l" href="#138">138 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt; @ line &lt;/&gt;&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'u&gt;'</span> . <span class="php-var">$errline</span> . <span class="php-quote">'&lt;/&gt;'</span>, <span class="php-keyword1">true</span>)
-</span><span id="139" class="l"><a class="l" href="#139">139 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'b&gt;Debug backtrace:&lt;/&gt;'</span>, <span class="php-keyword1">true</span>)
-</span><span id="140" class="l"><a class="l" href="#140">140 </a>                -&gt;writeln(<span class="php-quote">''</span>);
-</span><span id="141" class="l"><a class="l" href="#141">141 </a>
-</span><span id="142" class="l"><a class="l" href="#142">142 </a>            <span class="php-var">$this</span>-&gt;getTrace(<span class="php-keyword2">debug_backtrace</span>(), <span class="php-var">$label</span>);
-</span><span id="143" class="l"><a class="l" href="#143">143 </a>        }
-</span><span id="144" class="l"><a class="l" href="#144">144 </a>
-</span><span id="145" class="l"><a class="l" href="#145">145 </a>        <span class="php-comment">/**
-</span></span><span id="146" class="l"><a class="l" href="#146">146 </a><span class="php-comment">         * Registers the error handler
-</span></span><span id="147" class="l"><a class="l" href="#147">147 </a><span class="php-comment">         * @author Art &lt;a.molcanovas@gmail.com&gt;
-</span></span><span id="148" class="l"><a class="l" href="#148">148 </a><span class="php-comment">         *
-</span></span><span id="149" class="l"><a class="l" href="#149">149 </a><span class="php-comment">         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-</span></span><span id="150" class="l"><a class="l" href="#150">150 </a><span class="php-comment">         *                                AloFramework\Log\Log extends this interface.
-</span></span><span id="151" class="l"><a class="l" href="#151">151 </a><span class="php-comment">         *
-</span></span><span id="152" class="l"><a class="l" href="#152">152 </a><span class="php-comment">         * @return ErrorHandler The created handler
-</span></span><span id="153" class="l"><a class="l" href="#153">153 </a><span class="php-comment">         */</span>
-</span><span id="154" class="l"><a class="l" href="#154">154 </a>        <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_register" href="#_register">register</a>(LoggerInterface <span class="php-var">$logger</span> = <span class="php-keyword1">null</span>) {
-</span><span id="155" class="l"><a class="l" href="#155">155 </a>            self::<span class="php-var">$registered</span> = <span class="php-keyword1">true</span>;
-</span><span id="156" class="l"><a class="l" href="#156">156 </a>            <span class="php-var">$handler</span>          = <span class="php-keyword1">new</span> ErrorHandler(<span class="php-var">$logger</span>);
-</span><span id="157" class="l"><a class="l" href="#157">157 </a>            <span class="php-keyword2">set_error_handler</span>([<span class="php-var">$handler</span>, <span class="php-quote">'handle'</span>], ALO_HANDLERS_ERROR_LEVEL);
-</span><span id="158" class="l"><a class="l" href="#158">158 </a>
-</span><span id="159" class="l"><a class="l" href="#159">159 </a>            <span class="php-keyword1">return</span> <span class="php-var">$handler</span>;
-</span><span id="160" class="l"><a class="l" href="#160">160 </a>        }
-</span><span id="161" class="l"><a class="l" href="#161">161 </a>    }
-</span><span id="162" class="l"><a class="l" href="#162">162 </a></span></code></pre></div><div id="footer">AloFramework Logger API documentation generated by<a href="http://apigen.org">ApiGen 2.8.0</a></div></div></body></html>
+</span><span id="119" class="l"><a class="l" href="#119">119 </a>        <span class="php-comment">/**
+</span></span><span id="120" class="l"><a class="l" href="#120">120 </a><span class="php-comment">         * Generates console output for errors
+</span></span><span id="121" class="l"><a class="l" href="#121">121 </a><span class="php-comment">         * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="122" class="l"><a class="l" href="#122">122 </a><span class="php-comment">         *
+</span></span><span id="123" class="l"><a class="l" href="#123">123 </a><span class="php-comment">         * @param string $type    Error type
+</span></span><span id="124" class="l"><a class="l" href="#124">124 </a><span class="php-comment">         * @param string $label   Error colour code (&quot;e&quot; for error, &quot;w&quot; for warning, &quot;i&quot; for info)
+</span></span><span id="125" class="l"><a class="l" href="#125">125 </a><span class="php-comment">         * @param int    $errno   Error code
+</span></span><span id="126" class="l"><a class="l" href="#126">126 </a><span class="php-comment">         * @param string $errstr  Error message
+</span></span><span id="127" class="l"><a class="l" href="#127">127 </a><span class="php-comment">         * @param string $errfile File where the error occurred
+</span></span><span id="128" class="l"><a class="l" href="#128">128 </a><span class="php-comment">         * @param int    $errline Line where the error occurred
+</span></span><span id="129" class="l"><a class="l" href="#129">129 </a><span class="php-comment">         */</span>
+</span><span id="130" class="l"><a class="l" href="#130">130 </a>        <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> <a id="_handleCLI" href="#_handleCLI">handleCLI</a>(<span class="php-var">$type</span>, <span class="php-var">$label</span>, <span class="php-var">$errno</span>, <span class="php-var">$errstr</span>, <span class="php-var">$errfile</span>, <span class="php-var">$errline</span>) {
+</span><span id="131" class="l"><a class="l" href="#131">131 </a>            <span class="php-var">$this</span>-&gt;console-&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'b&gt;'</span> . <span class="php-var">$type</span> . <span class="php-quote">'&lt;/&gt;'</span>)
+</span><span id="132" class="l"><a class="l" href="#132">132 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt;: ['</span> . <span class="php-var">$errno</span> . <span class="php-quote">'] '</span> . <span class="php-var">$errstr</span> . <span class="php-quote">'&lt;/&gt;'</span>,
+</span><span id="133" class="l"><a class="l" href="#133">133 </a>                        <span class="php-keyword1">true</span>)
+</span><span id="134" class="l"><a class="l" href="#134">134 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt;Raised in &lt;/&gt;'</span>)
+</span><span id="135" class="l"><a class="l" href="#135">135 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'u&gt;'</span> . <span class="php-var">$errfile</span> . <span class="php-quote">'&lt;/&gt;'</span>)
+</span><span id="136" class="l"><a class="l" href="#136">136 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'&gt; @ line &lt;/&gt;&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'u&gt;'</span> . <span class="php-var">$errline</span> . <span class="php-quote">'&lt;/&gt;'</span>, <span class="php-keyword1">true</span>)
+</span><span id="137" class="l"><a class="l" href="#137">137 </a>                -&gt;write(<span class="php-quote">'&lt;'</span> . <span class="php-var">$label</span> . <span class="php-quote">'b&gt;Debug backtrace:&lt;/&gt;'</span>, <span class="php-keyword1">true</span>)
+</span><span id="138" class="l"><a class="l" href="#138">138 </a>                -&gt;writeln(<span class="php-quote">''</span>);
+</span><span id="139" class="l"><a class="l" href="#139">139 </a>
+</span><span id="140" class="l"><a class="l" href="#140">140 </a>            <span class="php-var">$this</span>-&gt;getTrace(<span class="php-keyword2">array_slice</span>(<span class="php-keyword2">debug_backtrace</span>(), <span class="php-num">2</span>), <span class="php-var">$label</span>);
+</span><span id="141" class="l"><a class="l" href="#141">141 </a>        }
+</span><span id="142" class="l"><a class="l" href="#142">142 </a>
+</span><span id="143" class="l"><a class="l" href="#143">143 </a>        <span class="php-comment">/**
+</span></span><span id="144" class="l"><a class="l" href="#144">144 </a><span class="php-comment">         * Registers the error handler
+</span></span><span id="145" class="l"><a class="l" href="#145">145 </a><span class="php-comment">         * @author Art &lt;a.molcanovas@gmail.com&gt;
+</span></span><span id="146" class="l"><a class="l" href="#146">146 </a><span class="php-comment">         *
+</span></span><span id="147" class="l"><a class="l" href="#147">147 </a><span class="php-comment">         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+</span></span><span id="148" class="l"><a class="l" href="#148">148 </a><span class="php-comment">         *                                AloFramework\Log\Log extends this interface.
+</span></span><span id="149" class="l"><a class="l" href="#149">149 </a><span class="php-comment">         *
+</span></span><span id="150" class="l"><a class="l" href="#150">150 </a><span class="php-comment">         * @return ErrorHandler The created handler
+</span></span><span id="151" class="l"><a class="l" href="#151">151 </a><span class="php-comment">         */</span>
+</span><span id="152" class="l"><a class="l" href="#152">152 </a>        <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <a id="_register" href="#_register">register</a>(LoggerInterface <span class="php-var">$logger</span> = <span class="php-keyword1">null</span>) {
+</span><span id="153" class="l"><a class="l" href="#153">153 </a>            self::<span class="php-var">$registered</span> = <span class="php-keyword1">true</span>;
+</span><span id="154" class="l"><a class="l" href="#154">154 </a>            <span class="php-var">$handler</span>          = <span class="php-keyword1">new</span> ErrorHandler(<span class="php-var">$logger</span>);
+</span><span id="155" class="l"><a class="l" href="#155">155 </a>            <span class="php-keyword2">set_error_handler</span>([<span class="php-var">$handler</span>, <span class="php-quote">'handle'</span>], ALO_HANDLERS_ERROR_LEVEL);
+</span><span id="156" class="l"><a class="l" href="#156">156 </a>
+</span><span id="157" class="l"><a class="l" href="#157">157 </a>            <span class="php-keyword1">return</span> <span class="php-var">$handler</span>;
+</span><span id="158" class="l"><a class="l" href="#158">158 </a>        }
+</span><span id="159" class="l"><a class="l" href="#159">159 </a>    }
+</span><span id="160" class="l"><a class="l" href="#160">160 </a></span></code></pre>
+	</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</body>
+</html>
