@@ -89,7 +89,7 @@
          * @param $errfile
          * @param $errline
          */
-        private function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
+        protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
             echo '<div class="text-center">' //BEGIN outer container
                  . '<div class="alo-err alert alert-' . $label . '">' //BEGIN inner container
                  . '<div>' //BEGIN header
@@ -121,7 +121,7 @@ in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
          * @param $errfile
          * @param $errline
          */
-        private function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
                 ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
                         true)
@@ -141,11 +141,13 @@ in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
-         * @return callable The return value of set_error_handler()
+         * @return ErrorHandler The created handler
          */
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
+            $handler          = new ErrorHandler($logger);
+            set_error_handler([$handler, 'handle'], ALO_HANDLERS_ERROR_LEVEL);
 
-            return set_error_handler([new ErrorHandler($logger), 'handle'], ALO_HANDLERS_ERROR_LEVEL);
+            return $handler;
         }
     }

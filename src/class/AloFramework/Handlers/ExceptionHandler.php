@@ -33,21 +33,27 @@
          *
          * @param null|Exception $e The previous exception
          */
-        protected static function echoPreviousExceptions($e) {
+        protected function echoPreviousExceptions($e) {
             if ($e instanceof Exception) {
-                echo '<div>' .
-                     '<span class="alo-bold">Preceded by </span>' .
-                     '<span>[' .
-                     $e->getCode() .
-                     ']: ' .
-                     $e->getMessage() .
-                     ' @ <span class="alo-uline">' .
-                     $e->getFile() .
-                     '</span>\'s line ' .
-                     $e->getLine() .
-                     '.</span></div>';
+                if ($this->isCLI) {
+                    $this->console->write('<eb>Preceded by </>')
+                        ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>')
+                        ->write('<e> @ ' . $e->getFile() . '\'s line ' . $e->getLine() . '</>', true)
+                        ->writeln('');
+                } else {
+                    ?>
+                    <div>
+                        <span class="alo-bold">Preceded by </span>
+                        <span>[<?= $e->getCode() ?>]: <?= $e->getMessage() ?></span>
+                        <span> @ </span>
+                        <span class="alo-uline"><?= $e->getFile() ?></span>
+                        <span> @ line </span>
+                        <span class="alo-uline"><?= $e->getLine() ?>
+                    </div>
+                    <?php
+                }
 
-                self::echoPreviousExceptions($e->getPrevious());
+                $this->echoPreviousExceptions($e->getPrevious());
             }
         }
 
@@ -59,43 +65,67 @@
          * @param Exception $e The exception
          */
         function handle(Exception $e) {
-            self::injectCss();
-            $msg  = $e->getMessage();
-            $code = $e->getCode();
+            $this->injectCSS();
 
-            echo '<div class="text-center">'
-                 //BEGIN outer container
-                 .
-                 '<div class="alo-err alert alert-danger">'
-                 //BEGIN inner container
-                 .
-                 '<div>'
-                 //BEGIN header
-                 .
-                 '<span class="alo-bold">Uncaught exception: </span><span>' .
-                 $msg .
-                 '</span></div>'
-                 //END header
-                 //BEGIN raised
-                 .
-                 '<div><span class="alo-bold">Raised in </span><span class="alo-uline">' .
-                 $e->getFile() .
-                 '</span> @ line ' .
-                 $e->getLine() .
-                 '</div>' .
-                 '<div><span class="alo-bold">Code: </span><span>' .
-                 $code .
-                 '</span></div>';
+            if ($this->isCLI) {
+                $this->handleCLI($e);
+            } else {
+                $this->handleHTML($e);
+            }
 
-            self::echoPreviousExceptions($e->getPrevious());
+            $this->log($e->getCode(), $e->getMessage());
+        }
 
-            echo '<span class="alo-bold">Backtrace:</span>';
+        /**
+         * Handles an exception with HTML output
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param Exception $e The exception
+         */
+        protected function handleHTML(Exception $e) {
+            ?>
 
-            echo $this->getTrace($e->getTrace(), 1);
+            <div class="text-center">
+                <div class="alo-err alert alert-danger">
+                    <div>
+                        <span class="alo-bold">Uncaught <?= get_class($e) ?>: </span>
+                        <span>[<?= $e->getCode() ?>] <?= $e->getMessage() ?></span>
+                    </div>
+                    <div>
+                        <span class="alo-bold">Raised in </span>
+                        <span class="alo-uline"><?= $e->getFile() ?>
+                            <span> @ line </span>
+                            <span class="alo-uline"><?= $e->getLine() ?>
+                    </div>
+                    <?php $this->echoPreviousExceptions($e->getPrevious()) ?>
+                    <div>
+                        <span class="alo-bold">Backtrace:</span>
+                        <?= $this->getTrace($e->getTrace(), 'e') ?>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
 
-            echo '</div></div>'; //END inner/outer
+        /**
+         * Handles the exception with CLI output
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param Exception $e The exception
+         */
+        protected function handleCLI(Exception $e) {
+            $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
+                ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>', true)
+                ->write('<e>Raised in </>')
+                ->write('<eu>' . $e->getFile() . '</>')
+                ->write('<e> @ line </>')
+                ->write('<eu>' . $e->getLine() . '</>', true);
 
-            $this->log($code, $msg);
+            $this->echoPreviousExceptions($e->getPrevious());
+
+            $this->console->write('<eb>Debug backtrace:</eb>', true)->writeln('');
+
+            echo $this->getTrace($e->getTrace(), 'e');
         }
 
         /**
@@ -105,11 +135,14 @@
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
-         * @return callable The return value of set_exception_handler()
+         * @return ExceptionHandler The created handler instance
          */
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
+            $handler          = new ExceptionHandler($logger);
 
-            return set_exception_handler([new ExceptionHandler($logger), 'handle']);
+            set_exception_handler([$handler, 'handle']);
+
+            return $handler;
         }
     }
