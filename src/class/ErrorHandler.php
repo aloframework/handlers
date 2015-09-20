@@ -139,7 +139,7 @@
                 ->write('<' . $label . 'b>Debug backtrace:</>', true)
                 ->writeln('');
 
-            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
+            $this->getTrace(debug_backtrace(), $label);
         }
 
         /**

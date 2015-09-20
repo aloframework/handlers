@@ -56,6 +56,12 @@
         const LABEL_DANGER = 'danger';
 
         /**
+         * Maximum debug backtrace size
+         * @var int
+         */
+        private $maxTraceSize;
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -63,8 +69,9 @@
          *                                AloFramework\Log\Log extends this interface.
          */
         function __construct(LoggerInterface $logger = null) {
-            $this->logger = $logger;
-            $this->isCLI  = php_sapi_name() == 'cli' || defined('STDIN');
+            $this->logger       = $logger;
+            $this->isCLI        = php_sapi_name() == 'cli' || defined('STDIN');
+            $this->maxTraceSize = (int)ALO_HANDLERS_TRACE_MAX_DEPTH;
 
             if ($this->isCLI) {
                 $this->console = new ConsoleOutput();
@@ -100,6 +107,7 @@
          */
         protected function getTrace($trace, $label) {
             ob_start();
+
             if ($this->isCLI) {
                 $this->traceCLI($trace, $label);
             } else {
