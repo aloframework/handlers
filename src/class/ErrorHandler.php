@@ -108,7 +108,7 @@
                     </div>
                     <div>
                         <span class="alo-bold">Backtrace:</span>
-                        <?= $this->getTrace(debug_backtrace(), $label) ?>
+                        <?= $this->getTrace(array_slice(debug_backtrace(), 2), $label) ?>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                 ->write('<' . $label . 'b>Debug backtrace:</>', true)
                 ->writeln('');
 
-            $this->getTrace(debug_backtrace(), $label);
+            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
         }
 
         /**
