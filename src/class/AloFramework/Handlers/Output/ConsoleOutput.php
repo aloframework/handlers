@@ -24,8 +24,7 @@
          *
          * @api
          */
-        function __construct($verbosity = self::VERBOSITY_NORMAL,
-                             $decorated = null,
+        function __construct($verbosity = self::VERBOSITY_NORMAL, $decorated = null,
                              OutputFormatterInterface $formatter = null) {
 
             parent::__construct($verbosity, $decorated, $formatter);
@@ -67,45 +66,5 @@
             parent::write($messages, $newline, $type);
 
             return $this;
-        }
-
-        function writelnPadded(array $messages, $style, $type = self::OUTPUT_NORMAL) {
-            $longest = 0;
-            $lengths = [];
-
-            foreach ($messages as $k => $v) {
-                $lengths[$k] = strlen(self::stripFormat($v));
-
-                if ($lengths[$k] > $longest) {
-                    $longest = $lengths[$k];
-                }
-            }
-
-            $longest++;
-
-            foreach ($messages as $k => $v) {
-                $v = '<' . $style . '> </>' . $v . '<' . $style . '>';
-
-                for ($i = $lengths[$k]; $i < $longest; $i++) {
-                    $v .= ' ';
-                }
-
-                $v .= '</>';
-
-                $this->writeln($v, $type);
-            }
-
-        }
-
-        /**
-         * Strips formatting syntax from the message
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param string $message The message
-         *
-         * @return string
-         */
-        static function stripFormat($message) {
-            return preg_replace('~\<[a-z]+\>~i', '', str_replace('</>', '', $message));
         }
     }

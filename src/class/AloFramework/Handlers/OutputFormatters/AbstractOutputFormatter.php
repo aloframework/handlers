@@ -5,6 +5,10 @@
     use InvalidArgumentException;
     use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
+    /**
+     * Abstract version of the CLI output formatter
+     * @author Art <a.molcanovas@gmail.com>
+     */
     abstract class AbstractOutputFormatter {
 
         /**
@@ -13,6 +17,10 @@
          */
         protected $formatter;
 
+        /**
+         * Constructor
+         * @author Art <a.molcanovas@gmail.com>
+         */
         function __construct() {
             $this->formatter = new OutputFormatterStyle();
             $this->formatter->setBackground(ALO_HANDLERS_BACKGROUND);

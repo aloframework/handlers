@@ -166,7 +166,7 @@
                             <td><?= $func ?></td>
                             <td><?= $args ?></td>
                             <td><?= $loc ? $loc : '<span class="label label-default">???</label>' ?></td>
-                            <td><?= ($line || $line == 0) ? $line :
+                            <td><?= (trim($line) || $line == 0) ? $line :
                                     '<span class="label label-default">???</span>' ?></td>
                         </tr>
 
@@ -178,7 +178,14 @@
             <?php
         }
 
-        private function traceCLI($trace, $label) {
+        /**
+         * CLI output of the debug backtrace
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param array  $trace The debug backtrace
+         * @param string $label Colour id
+         */
+        private function traceCLI(array $trace, $label) {
             foreach ($trace as $k => $v) {
                 $func        = $loc = $line = '';
                 $argsPresent = isset($v['args']) && !empty($v['args']);

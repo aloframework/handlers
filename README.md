@@ -1,6 +1,6 @@
 # AloFramework | Handlers #
 
-The logging component, implementing the PSR-3 logging interface.
+A powerful error and exception handler of [AloFramework](https://github.com/aloframework/aloframework). It can automatically log errors and exceptions if an object implementing the [\Psr\Log\LoggerInterface](%5B%5CPsr%5CLog%5CLoggerInterface%5D%28https://packagist.org/packages/psr/log%29) is passed on and will echo output based on your server's error reporting settings, altering its format depending on whether an error is raised during a HTTP or CLI call.
 
 [![License](https://poser.pugx.org/aloframework/handlers/license?format=plastic)](LICENSE)
 [![Latest Stable Version](https://poser.pugx.org/aloframework/handlers/v/stable?format=plastic)](https://packagist.org/packages/aloframework/handlers)
@@ -8,7 +8,7 @@ The logging component, implementing the PSR-3 logging interface.
 
 |                                                                                          dev-master                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=0.1.1)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=0.2)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -37,3 +37,14 @@ You can control which errors will be handled by defining **ALO_HANDLERS_ERROR_LE
 ### CSS ###
 
 If you wish to change the CSS used for error output you can check **src/error.css**. Edit the values there to suit your needs, save the file in one of your project's directories and set the **ALO_HANDLERS_CSS_PATH** constant to point to that file's location **on your file system**, as its contents are read by PHP instead of pointing the browser to its location.
+
+### CLI output colours ###
+
+The output colours of the CLI handlers accept the following colour options: **black**, **red**, **green**, **yellow**, **blue**, **magenta**, **cyan** and **white** (as per [Symfony's Console component's specifications](http://symfony.com/doc/current/components/console/introduction.html#creating-a-basic-command)). For the background colour, the **default** option is available, which uses the console client's background colour.
+
+The configurable colour constants are as follows:
+
+ - **ALO_HANDLERS_BACKGROUND** changes the output background colour
+ - **ALO_HANDLERS_FOREGROUND_NOTICE** changes the text colour for PHP notices
+ - **ALO_HANDLERS_FOREGROUND_WARNING** changes the text colour for PHP warnings
+ - **ALO_HANDLERS_FOREGROUND_ERROR** changes the text colour for PHP errors and exceptions
