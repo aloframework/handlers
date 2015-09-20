@@ -91,7 +91,7 @@
 
             echo '<span class="alo-bold">Backtrace:</span>';
 
-            $this->echoTrace($e->getTrace());
+            echo $this->getTrace($e->getTrace(), 1);
 
             echo '</div></div>'; //END inner/outer
 

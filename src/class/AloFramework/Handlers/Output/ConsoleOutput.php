@@ -2,7 +2,10 @@
 
     namespace AloFramework\Handlers\Output;
 
-    use InvalidArgumentException;
+    use AloFramework\Handlers\OutputFormatters\Error;
+    use AloFramework\Handlers\OutputFormatters\Info;
+    use AloFramework\Handlers\OutputFormatters\Warning;
+    use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 
     /**
      * A small extension to Symfony's ConsoleOutput so write methods return $this
@@ -11,14 +14,52 @@
     class ConsoleOutput extends \Symfony\Component\Console\Output\ConsoleOutput {
 
         /**
-         * Writes a message to the output.
+         * Constructor.
+         *
+         * @param int                           $verbosity The verbosity level (one of the VERBOSITY constants in
+         *                                                 OutputInterface)
+         * @param bool|null                     $decorated Whether to decorate messages (null for auto-guessing)
+         * @param OutputFormatterInterface|null $formatter Output formatter instance (null to use default
+         *                                                 OutputFormatter)
+         *
+         * @api
+         */
+        function __construct($verbosity = self::VERBOSITY_NORMAL,
+                             $decorated = null,
+                             OutputFormatterInterface $formatter = null) {
+
+            parent::__construct($verbosity, $decorated, $formatter);
+
+            $this->setStyles();
+        }
+
+        /**
+         * Sets the output styles
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        protected function setStyles() {
+            $formatter = $this->getFormatter();
+
+            $formatter->setStyle('e', Error::construct()->getFormatter());
+            $formatter->setStyle('i', Info::construct()->getFormatter());
+            $formatter->setStyle('w', Warning::construct()->getFormatter());
+
+            $formatter->setStyle('eb', Error::construct()->setOption('bold')->getFormatter());
+            $formatter->setStyle('ib', Info::construct()->setOption('bold')->getFormatter());
+            $formatter->setStyle('wb', Warning::construct()->setOption('bold')->getFormatter());
+
+            $formatter->setStyle('eu', Error::construct()->setOption('underscore')->getFormatter());
+            $formatter->setStyle('iu', Info::construct()->setOption('underscore')->getFormatter());
+            $formatter->setStyle('wu', Warning::construct()->setOption('underscore')->getFormatter());
+        }
+
+        /**
+         * Writes a console message
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param string|array $messages The message as an array of lines or a single string
-         * @param bool         $newline  Whether to add a newline
-         * @param int          $type     The type of output (one of the OUTPUT constants)
-         *
-         * @throws InvalidArgumentException When unknown output type is given
+         * @param array|string $messages The message or array of messages
+         * @param bool         $newline  Whether to insert a newline after the message(s)
+         * @param int          $type     Output type
          *
          * @return ConsoleOutput
          */
@@ -28,18 +69,43 @@
             return $this;
         }
 
+        function writelnPadded(array $messages, $style, $type = self::OUTPUT_NORMAL) {
+            $longest = 0;
+            $lengths = [];
+
+            foreach ($messages as $k => $v) {
+                $lengths[$k] = strlen(self::stripFormat($v));
+
+                if ($lengths[$k] > $longest) {
+                    $longest = $lengths[$k];
+                }
+            }
+
+            $longest++;
+
+            foreach ($messages as $k => $v) {
+                $v = '<' . $style . '> </>' . $v . '<' . $style . '>';
+
+                for ($i = $lengths[$k]; $i < $longest; $i++) {
+                    $v .= ' ';
+                }
+
+                $v .= '</>';
+
+                $this->writeln($v, $type);
+            }
+
+        }
+
         /**
-         * Writes a message to the output and adds a newline at the end.
+         * Strips formatting syntax from the message
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param string|array $messages The message as an array of lines of a single string
-         * @param int          $type     The type of output (one of the OUTPUT constants)
+         * @param string $message The message
          *
-         * @throws InvalidArgumentException When unknown output type is given
-         *
-         * @return ConsoleOutput
+         * @return string
          */
-        function writeln($messages, $type = self::OUTPUT_NORMAL) {
-            return $this->write($messages, $type);
+        static function stripFormat($message) {
+            return preg_replace('~\<[a-z]+\>~i', '', str_replace('</>', '', $message));
         }
     }

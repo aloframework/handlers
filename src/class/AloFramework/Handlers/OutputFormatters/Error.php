@@ -3,10 +3,10 @@
     namespace AloFramework\Handlers\OutputFormatters;
 
     /**
-     * Output formatter for notices
+     * Output formatter for errors
      * @author Art <a.molcanovas@gmail.com>
      */
-    class Info extends AbstractOutputFormatter {
+    class Error extends AbstractOutputFormatter {
 
         /**
          * Constructor
@@ -14,6 +14,6 @@
          */
         function __construct() {
             parent::__construct();
-            $this->formatter->setForeground(ALO_HANDLERS_FOREGROUND_NOTICE);
+            $this->formatter->setForeground(ALO_HANDLERS_FOREGROUND_ERROR);
         }
     }

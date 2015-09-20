@@ -2,10 +2,9 @@
 
     namespace AloFramework\Handlers;
 
-    use AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter;
+    use AloFramework\Handlers\Output\ConsoleOutput;
     use Psr\Log\LoggerInterface;
     use Symfony\Component\VarDumper\VarDumper;
-    use AloFramework\Handlers\Output\ConsoleOutput;
 
     /**
      * Abstract error/exception handling things
@@ -57,14 +56,6 @@
         const LABEL_DANGER = 'danger';
 
         /**
-         * How to colour output depending on error severity
-         * @var array
-         */
-        protected static $labelColours = [self::LABEL_WARNING => 'yellow',
-                                          self::LABEL_INFO    => 'cyan',
-                                          self::LABEL_DANGER  => 'red'];
-
-        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -76,18 +67,8 @@
             $this->isCLI  = php_sapi_name() == 'cli' || defined('STDIN');
 
             if ($this->isCLI) {
-                $this->initConsole();
+                $this->console = new ConsoleOutput();
             }
-        }
-
-        /**
-         * Initialises the console and sets its styles
-         * @author Art <a.molcanovas@gmail.com>
-         */
-        private function initConsole() {
-            $this->console = new ConsoleOutput();
-            $formatter     = $this->console->getFormatter();
-
         }
 
         /**
@@ -108,18 +89,24 @@
         }
 
         /**
-         * Echoes the debug backtrace
+         * Returns the formatted debug backtrace
          *
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param array $trace The debug backtrace
+         * @param array  $trace The debug backtrace
+         * @param string $label Trace label style
+         *
+         * @return string
          */
-        protected function echoTrace($trace) {
+        protected function getTrace($trace, $label) {
+            ob_start();
             if ($this->isCLI) {
-                $this->traceCLI($trace);
+                $this->traceCLI($trace, $label);
             } else {
                 $this->traceHTML($trace);
             }
+
+            return ob_get_clean();
         }
 
         /**
@@ -161,7 +148,7 @@
                     $loc = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $v['file']), -2));
                 }
                 if (isset($v['line'])) {
-                    $line .= $v['line'];
+                    $line = $v['line'];
                 }
 
                 echo '<tr>'
@@ -204,9 +191,52 @@
             echo '</tbody>' . '</table>';
         }
 
-        private function traceCLI($trace) {
-            foreach ($trace as $t) {
-                $this->console->write('<fg=red>' . $t['file'] . '</>');
+        private function traceCLI($trace, $label) {
+            foreach ($trace as $k => $v) {
+                $func        = $loc = $line = '';
+                $argsPresent = isset($v['args']) && !empty($v['args']);
+
+                if (isset($v['class'])) {
+                    $func = $v['class'];
+                }
+                if (isset($v['type'])) {
+                    $func .= $v['type'];
+                }
+                if (isset($v['function'])) {
+                    $func .= $v['function'] . '()';
+                }
+                if (!$func) {
+                    $func = '[unknown]';
+                }
+                if (isset($v['file'])) {
+                    $loc = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $v['file']), -2));
+                }
+                if (isset($v['line'])) {
+                    $line = $v['line'];
+                }
+
+                $this->console->write('<' . $label . 'b>#: </>')
+                              ->write('<' . $label . '>' . $k . '</>', true)
+                              ->write('<' . $label . 'b>Method: </>')
+                              ->write('<' . $label . '>' . $func . '</>', true)
+                              ->write('<' . $label . 'b>Args:</>', $argsPresent);
+
+                if ($argsPresent) {
+                    VarDumper::dump($v['args']);
+                } else {
+                    $this->console->write('<' . $label . '> [none]</>', true);
+                }
+
+                $this->console->write('<' . $label . 'b>File: </>')
+                              ->write('<' .
+                                      $label .
+                                      '>' .
+                                      ($loc ? $loc : '<<unknown>>') .
+                                      '</>',
+                                      true)
+                              ->write('<' . $label . 'b>Line: </>')
+                              ->write('<' . $label . '>' . ($line ? $line : '<<unknown>>') . '</>', true)
+                              ->write('', true);
             }
         }
 

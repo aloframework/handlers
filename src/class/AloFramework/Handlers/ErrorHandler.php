@@ -67,7 +67,12 @@
 
             $file = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));
 
+            if (!$errline) {
+                $errline = '<<unknown>>';
+            }
+
             if ($this->isCLI) {
+                $label = $label == 'danger' ? 'e' : substr($label, 0, 1);
                 $this->handleCLI($type, $label, $errno, $errstr, $file, $errline);
             } else {
                 $this->handleHTML($type, $label, $errno, $errstr, $file, $errline);
@@ -94,16 +99,14 @@ class="alo-bold">' . $type . ': ' . '</span><span>[' . $errno . '] ' . $errstr .
 class="alo-bold">Raised
 in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
 
-            if ($errline) {
-                echo '<span> @ line </span><span class="alo-uline">' . $errline . '</span>';
-            }
+            echo '<span> @ line </span><span class="alo-uline">' . $errline . '</span>';
 
             echo '</div><span class="alo-bold">Backtrace:</span>';
 
             $trace = array_reverse(debug_backtrace());
             array_pop($trace);
 
-            $this->echoTrace($trace);
+            echo $this->getTrace($trace, $label);
 
             echo '</div>'//END inner
                  . '</div>'; //END outer
@@ -119,8 +122,16 @@ in </span>' . '<span class="alo-uline">' . $errfile . '</span>';
          * @param $errline
          */
         private function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+            $this->console->write('<' . $label . 'b>' . $type . '</>')
+                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
+                        true)
+                ->write('<' . $label . '>Raised in </>')
+                ->write('<' . $label . 'u>' . $errfile . '</>')
+                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
+                ->write('<' . $label . 'b>Debug backtrace:</>', true)
+                ->writeln('');
 
-            $this->console->write('<header>' . $type . '</>');
+            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
         }
 
         /**

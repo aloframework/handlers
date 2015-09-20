@@ -12,7 +12,7 @@
 
     if (!defined('ALO_HANDLERS_BACKGROUND')) {
         /** CLI output background colour */
-        define('ALO_HANDLERS_BACKGROUND', 'black');
+        define('ALO_HANDLERS_BACKGROUND', 'default');
     }
 
     if (!defined('ALO_HANDLERS_FOREGROUND_NOTICE')) {
