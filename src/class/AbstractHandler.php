@@ -38,24 +38,6 @@
         protected $console;
 
         /**
-         * Defines error output as "warning"
-         * @var string
-         */
-        const LABEL_WARNING = 'warning';
-
-        /**
-         * Defines error output as "info"
-         * @var string
-         */
-        const LABEL_INFO = 'info';
-
-        /**
-         * Defines error output as "danger"
-         * @var string
-         */
-        const LABEL_DANGER = 'danger';
-
-        /**
          * Maximum debug backtrace size
          * @var int
          */
