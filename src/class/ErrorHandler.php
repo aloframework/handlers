@@ -177,10 +177,16 @@
          *                                AloFramework\Log\Log extends this interface.
          *
          * @return ErrorHandler The created handler
+         * @since  1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
+         * allows easy class extendability.
          */
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
-            $handler          = new ErrorHandler($logger);
+
+            // To allow easy extending
+            $class   = get_called_class();
+            $handler = new $class($logger);
+
             set_error_handler([$handler, 'handle'], ALO_HANDLERS_ERROR_LEVEL);
 
             return $handler;

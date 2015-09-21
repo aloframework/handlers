@@ -2,6 +2,10 @@
 
     namespace AloFramework\Handlers;
 
+    class ExampleErrorHandler extends ErrorHandler {
+
+    }
+
     class HandlersTest extends \PHPUnit_Framework_TestCase {
 
         function testDefined() {
@@ -33,5 +37,9 @@
             ExceptionHandler::register();
 
             $this->assertTrue(ExceptionHandler::isRegistered(), 'Failed to register exception handler');
+        }
+
+        function testExtendedHandler() {
+            $this->assertTrue(ExampleErrorHandler::register() instanceof ExampleErrorHandler, 'Extension failed');
         }
     }

@@ -165,10 +165,15 @@
          *                                AloFramework\Log\Log extends this interface.
          *
          * @return ExceptionHandler The created handler instance
+         * @since  1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
+         * allows easy class extendability.
          */
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
-            $handler          = new ExceptionHandler($logger);
+
+            // To allow easy extending
+            $class   = get_called_class();
+            $handler = new $class($logger);
 
             set_exception_handler([$handler, 'handle']);
 
