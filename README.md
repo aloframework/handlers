@@ -57,3 +57,9 @@ The configurable colour constants are as follows:
 ### Leak prevention ###
 
 As a failsafe against infinite looping, you can define the **ALO_HANDLERS_EXCEPTION_DEPTH** constant to limit the maximum amount of previous exceptions reported (defaults to **10**) and **ALO_HANDLERS_TRACE_MAX_DEPTH** to limit the maximum number of debug backtrace items (defaults to **50**).
+
+### Logging ###
+You can prevent error/exception locations from showing up in the logger by defining the following constants before calling composer's autoloader:
+
+    define('ALO_HANDLERS_LOG_ERROR_LOCATION', false);
+    define('ALO_HANDLERS_LOG_EXCEPTION_LOCATION', false);
