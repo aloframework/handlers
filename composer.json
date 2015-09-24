@@ -34,10 +34,6 @@
     "aloframework/log": "Enable automatic logging of errors and exceptions"
   },
   "autoload": {
-    "files": [
-      "autoload_composer.php",
-      "src/config.default.php"
-    ],
     "psr-4": {
       "AloFramework\\Handlers\\": "src/class"
     }

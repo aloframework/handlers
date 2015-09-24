@@ -6,6 +6,8 @@
     use Psr\Log\LoggerInterface;
     use Symfony\Component\VarDumper\VarDumper;
 
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
+
     /**
      * Abstract error/exception handling things
      * @author Art <a.molcanovas@gmail.com>
