@@ -3,3 +3,4 @@ vendor
 composer.lock
 *.log
 local-test.php
+apigen.neon

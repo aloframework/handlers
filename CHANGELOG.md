@@ -1,3 +1,6 @@
+# 1.1 #
+
+
 # 1.0.5 #
 Removed private props & methods from docs. Removed some unused class constants.
 

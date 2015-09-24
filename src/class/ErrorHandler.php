@@ -65,7 +65,8 @@
                     break;
             }
 
-            $file = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));
+            $file  = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));
+            $trace = array_slice(debug_backtrace(), 1);
 
             if (!$errline) {
                 $errline = '<<unknown>>';
@@ -73,9 +74,9 @@
 
             if ($this->isCLI) {
                 $label = $label == 'danger' ? 'e' : substr($label, 0, 1);
-                $this->handleCLI($type, $label, $errno, $errstr, $file, $errline);
+                $this->handleCLI($type, $label, $errno, $errstr, $file, $errline, $trace);
             } else {
-                $this->handleHTML($type, $label, $errno, $errstr, $file, $errline);
+                $this->handleHTML($type, $label, $errno, $errstr, $file, $errline, $trace);
             }
 
             $this->log($errno, $errstr);
@@ -120,8 +121,12 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
+         * @param array  $trace   You can provide your own debug backtrace
          */
-        protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
+        protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline, array $trace = null) {
+            if (!$trace) {
+                $trace = array_slice(debug_backtrace(), 2);
+            }
             ?>
             <div class="text-center">
                 <div class="alo-err alert alert-<?= $label ?>">
@@ -137,7 +142,7 @@
                     </div>
                     <div>
                         <span class="alo-bold">Backtrace:</span>
-                        <?= $this->getTrace(array_slice(debug_backtrace(), 2), $label) ?>
+                        <?= $this->getTrace($trace, $label) ?>
                     </div>
                 </div>
             </div>
@@ -155,8 +160,9 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
+         * @param array  $trace   You can provide your own debug backtrace
          */
-        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline, array $trace = null) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
                 ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
                         true)
@@ -166,7 +172,11 @@
                 ->write('<' . $label . 'b>Debug backtrace:</>', true)
                 ->writeln('');
 
-            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
+            if (!$trace) {
+                $trace = array_slice(debug_backtrace(), 2);
+            }
+
+            $this->getTrace($trace, $label);
         }
 
         /**
