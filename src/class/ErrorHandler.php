@@ -88,8 +88,10 @@
          *
          * @param int    $errcode The error's code
          * @param string $errstr  The error message
+         * @param string $file    File where the error occurred
+         * @param int    $line    Line number where the error occurred
          */
-        protected function log($errcode, $errstr) {
+        protected function log($errcode, $errstr, $file = null, $line = null) {
             if ($this->logger) {
                 switch ($errcode) {
                     case E_NOTICE:
@@ -107,7 +109,13 @@
                         $method = 'error';
                 }
 
-                $this->logger->{$method}('[' . $errcode . '] ' . $errstr);
+                $msg = '[' . $errcode . '] ' . $errstr;
+
+                if (isset($file) && isset($line)) {
+                    $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
+                }
+
+                $this->logger->{$method}($msg);
             }
         }
 
