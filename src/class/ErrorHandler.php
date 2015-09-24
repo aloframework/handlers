@@ -7,6 +7,7 @@
     /**
      * Handles PHP errors
      * @author Art <a.molcanovas@gmail.com>
+     * @since  1.1 log() accepts the $file and $line parameters
      */
     class ErrorHandler extends AbstractHandler {
 
@@ -34,6 +35,11 @@
          * @param string $errstr  The error message
          * @param string $errfile The filename that the error was raised in
          * @param int    $errline The line number the error was raised at
+         *
+         * @uses   ErrorHandler::log()
+         * @uses   AbstractHandler::injectCSS()
+         * @uses   ErrorHandler::handleHTML()
+         * @uses   ErrorHandler::handleCLI()
          */
         function handle($errno, $errstr, $errfile, $errline) {
             $this->injectCss();
@@ -78,7 +84,7 @@
                 $this->handleHTML($type, $label, $errno, $errstr, $file, $errline);
             }
 
-            $this->log($errno, $errstr, $errline, $errfile);
+            $this->log($errno, $errstr, $errfile, $errline);
         }
 
         /**
@@ -89,6 +95,11 @@
          * @param string $errstr  The error message
          * @param string $file    File where the error occurred
          * @param int    $line    Line number where the error occurred
+         *
+         * @since  1.1 Accepts the $file and $line parameters
+         * @uses   LoggerInterface::error()
+         * @uses   LoggerInterface::notice()
+         * @uses   LoggerInterface::warning()
          */
         protected function log($errcode, $errstr, $file = null, $line = null) {
             if ($this->logger) {
@@ -110,7 +121,7 @@
 
                 $msg = '[' . $errcode . '] ' . $errstr;
 
-                if (isset($file) && isset($line)) {
+                if (ALO_HANDLERS_LOG_ERROR_LOCATION && $file && $line) {
                     $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
                 }
 
@@ -128,6 +139,8 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
+         *
+         * @uses   AbstractHandler::getTrace()
          */
         protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
             ?>
@@ -163,6 +176,10 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
+         *
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
+         * @uses   AbstractHandler::getTrace()
          */
         protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
@@ -184,7 +201,7 @@
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
-         * @return ErrorHandler The created handler
+         * @return self The created handler
          * @since  1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
          * allows easy class extendability.
          */

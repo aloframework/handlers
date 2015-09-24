@@ -8,6 +8,7 @@
     /**
      * Exception handling class
      * @author Art <a.molcanovas@gmail.com>
+     * @since  1.1 log() accepts the $includeLocation parameter
      */
     class ExceptionHandler extends AbstractHandler {
 
@@ -49,6 +50,10 @@
          *
          * @param null|Exception $e     The previous exception
          * @param int            $level How many previous exceptions have been echoed so far
+         *
+         * @uses   ExceptionHandler::echoPreviousExceptions()
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
+         * @uses   AloFramework\Handlers\Output::writeln()
          */
         protected function echoPreviousExceptions($e, $level = 0) {
             if ($level < $this->maxRecursion && ($e instanceof Exception)) {
@@ -80,6 +85,11 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         *
+         * @uses   AbstractHandler::injectCSS()
+         * @uses   ExceptionHandler::handleCLI()
+         * @uses   ExceptionHandler::handleHTML()
+         * @uses   ExceptionHandler::log()
          */
         function handle(Exception $e) {
             $this->injectCSS();
@@ -98,6 +108,9 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         *
+         * @uses   ExceptionHandler::echoPreviousExceptions()
+         * @uses   AbstractHandler::getTrace()
          */
         protected function handleHTML(Exception $e) {
             ?>
@@ -129,6 +142,11 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         *
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
+         * @uses   ExceptionHandler::echoPreviousExceptions()
+         * @uses   AbstractHandler::getTrace()
          */
         protected function handleCLI(Exception $e) {
             $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
@@ -149,11 +167,22 @@
          * Logs a message if the logger is enabled
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param Exception $e The exception to log
+         * @param Exception $e               The exception to log
+         * @param bool      $includeLocation Whether to include the file and line where the exception occurred
+         *
+         * @uses   LoggerInterface::error()
+         *
+         * @since  1.1 Accepts the $includeLocation parameter
          */
-        protected function log(Exception $e) {
+        protected function log(Exception $e, $includeLocation = true) {
             if ($this->logger) {
-                $this->logger->error('[' . $e->getCode() . '] ' . $e->getMessage());
+                $msg = '[' . $e->getCode() . '] ' . $e->getMessage();
+
+                if (ALO_HANDLERS_LOG_EXCEPTION_LOCATION && $includeLocation) {
+                    $msg .= ' (occurred in ' . $e->getFile() . ' @ line ' . $e->getLine() . ')';
+                }
+
+                $this->logger->error($msg);
             }
         }
 
@@ -164,7 +193,7 @@
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
-         * @return ExceptionHandler The created handler instance
+         * @return self The created handler instance
          * @since  1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
          * allows easy class extendability.
          */

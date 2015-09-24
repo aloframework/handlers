@@ -16,7 +16,9 @@
                     'ALO_HANDLERS_FOREGROUND_WARNING',
                     'ALO_HANDLERS_FOREGROUND_ERROR',
                     'ALO_HANDLERS_EXCEPTION_DEPTH',
-                    'ALO_HANDLERS_TRACE_MAX_DEPTH'];
+                    'ALO_HANDLERS_TRACE_MAX_DEPTH',
+                    'ALO_HANDLERS_LOG_ERROR_LOCATION',
+                    'ALO_HANDLERS_LOG_EXCEPTION_LOCATION'];
 
             foreach ($req as $r) {
                 $this->assertTrue(defined($r), $r . ' wasn\'t defined');

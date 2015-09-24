@@ -11,6 +11,8 @@
         /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
+         * @uses   AbstractOutputFormatter::__construct()
+         * @uses   \Symfony\Component\Console\Formatter\OutputFormatterStyle::setForeground()
          */
         function __construct() {
             parent::__construct();

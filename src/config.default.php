@@ -39,3 +39,19 @@
         /** CLI output foreground colour for errors */
         define('ALO_HANDLERS_FOREGROUND_ERROR', 'red');
     }
+
+    if (!defined('ALO_HANDLERS_LOG_ERROR_LOCATION')) {
+        /**
+         * Whether to include the error location in the log
+         * @since 1.1
+         */
+        define('ALO_HANDLERS_LOG_ERROR_LOCATION', true);
+    }
+
+    if (!defined('ALO_HANDLERS_LOG_EXCEPTION_LOCATION')) {
+        /**
+         * Whether to include the exception location in the log
+         * @since 1.1
+         */
+        define('ALO_HANDLERS_LOG_EXCEPTION_LOCATION', true);
+    }

@@ -51,6 +51,8 @@
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
+         *
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::__construct()
          */
         function __construct(LoggerInterface $logger = null) {
             $this->logger       = $logger;
@@ -88,6 +90,8 @@
          * @param string $label Trace label style
          *
          * @return string
+         * @uses   AbstractHandler::traceCLI()
+         * @uses   AbstractHandler::traceHTML()
          */
         protected function getTrace($trace, $label) {
             ob_start();
@@ -107,6 +111,9 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $trace The debug backtrace
+         *
+         * @uses   AbstractHandler::formatTraceLine()
+         * @uses   VarDumper::dump()
          */
         private function traceHTML(array $trace) {
             ?>
@@ -194,6 +201,11 @@
          *
          * @param array  $trace The debug backtrace
          * @param string $label Colour id
+         *
+         * @uses   AbstractHandler::formatTraceLine()
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
+         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
+         * @uses   VarDumper::dump()
          */
         private function traceCLI(array $trace, $label) {
             foreach ($trace as $k => $v) {
@@ -218,13 +230,16 @@
         }
 
         /**
-         * Registers the error and exception handlers
+         * Registers the error and exception handlers. IMPORTANT: If you've extended the ErrorHandler or Exception
+         * handler classes you must call their register() methods as this one would not register the correct handlers.
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
          * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]
+         * @uses   ErrorHandler::register()
+         * @uses   ExceptionHandler::register()
          */
         static function register(LoggerInterface $logger = null) {
             return [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
@@ -233,6 +248,7 @@
         /**
          * Returns a string representation of the object
          * @return string
+         * @uses VarDumper::dump()
          */
         function __toString() {
             ob_start();
