@@ -77,8 +77,7 @@
          * Registers the shutdown handler
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param LoggerInterface $logger If provided, this will be used to log shutdowns. AloFramework\Log\Log extends
-         *                                this interface.
+         * @param LoggerInterface $logger If provided, this will be used to log shutdowns.
          *
          * @return self
          */

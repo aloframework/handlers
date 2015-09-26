@@ -203,7 +203,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         *                                AloFramework\Log\Log extends this interface.
          *
          * @return self The created handler instance
          * @since  1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -

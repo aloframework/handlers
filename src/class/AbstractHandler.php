@@ -57,7 +57,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         *                                AloFramework\Log\Log extends this interface.
          */
         function __construct(LoggerInterface $logger = null) {
             if (!$logger) {
@@ -233,7 +232,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         *                                AloFramework\Log\Log extends this interface.
          *
          * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
          * ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.
