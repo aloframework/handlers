@@ -20,8 +20,6 @@
         /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
-         * @uses   OutputFormatterStyle::__construct()
-         * @uses   OutputFormatterStyle::setBackground()
          */
         function __construct() {
             $this->formatter = new OutputFormatterStyle();
@@ -41,7 +39,6 @@
          * Static constructor
          * @author Art <a.molcanovas@gmail.com>
          * @return Error|Info|Warning
-         * @uses   AbstractOutputFormatter::__construct()
          */
         static function construct() {
             $class = get_called_class();
@@ -58,7 +55,6 @@
          * @throws InvalidArgumentException When the option name isn't defined
          *
          * @return AbstractOutputFormatter
-         * @uses   OutputFormatterStyle::setOption()
          */
         function setOption($option) {
             $this->formatter->setOption($option);

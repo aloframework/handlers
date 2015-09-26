@@ -21,9 +21,6 @@
          * @param bool|null                     $decorated Whether to decorate messages (null for auto-guessing)
          * @param OutputFormatterInterface|null $formatter Output formatter instance (null to use default
          *                                                 OutputFormatter)
-         *
-         * @uses \Symfony\Component\Console\Output\ConsoleOutput::__construct()
-         * @uses \AloFramework\Handlers\Output\ConsoleOutput::setStyles()
          */
         function __construct($verbosity = self::VERBOSITY_NORMAL, $decorated = null,
                              OutputFormatterInterface $formatter = null) {
@@ -36,8 +33,6 @@
         /**
          * Sets the output styles
          * @author Art <a.molcanovas@gmail.com>
-         * @uses   ConsoleOutput::getFormatter()
-         * @uses   \Symfony\Component\Console\Formatter\OutputFormatterInterface::setStyle()
          */
         protected function setStyles() {
             $formatter = $this->getFormatter();
@@ -64,7 +59,6 @@
          * @param int          $type     Output type
          *
          * @return ConsoleOutput
-         * @uses   \Symfony\Component\Console\Output\Output::write()
          */
         function write($messages, $newline = false, $type = self::OUTPUT_NORMAL) {
             parent::write($messages, $newline, $type);

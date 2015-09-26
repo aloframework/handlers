@@ -3,6 +3,7 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Handlers\Output\ConsoleOutput;
+    use AloFramework\Log\Log;
     use Psr\Log\LoggerInterface;
     use Symfony\Component\VarDumper\VarDumper;
 
@@ -46,17 +47,24 @@
         private $maxTraceSize;
 
         /**
+         * The line ender for __toString()
+         * @var string
+         */
+        const EOL = " \n";
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
-         *
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::__construct()
          */
         function __construct(LoggerInterface $logger = null) {
+            if (!$logger) {
+                $logger = new Log();
+            }
             $this->logger       = $logger;
-            $this->isCLI        = php_sapi_name() == 'cli' || defined('STDIN');
+            $this->isCLI        = PHP_SAPI == 'cli' || defined('STDIN');
             $this->maxTraceSize = ((int)ALO_HANDLERS_TRACE_MAX_DEPTH) * -1;
 
             if ($this->isCLI) {
@@ -90,8 +98,6 @@
          * @param string $label Trace label style
          *
          * @return string
-         * @uses   AbstractHandler::traceCLI()
-         * @uses   AbstractHandler::traceHTML()
          */
         protected function getTrace($trace, $label) {
             ob_start();
@@ -111,9 +117,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $trace The debug backtrace
-         *
-         * @uses   AbstractHandler::formatTraceLine()
-         * @uses   VarDumper::dump()
          */
         private function traceHTML(array $trace) {
             ?>
@@ -201,11 +204,6 @@
          *
          * @param array  $trace The debug backtrace
          * @param string $label Colour id
-         *
-         * @uses   AbstractHandler::formatTraceLine()
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
-         * @uses   VarDumper::dump()
          */
         private function traceCLI(array $trace, $label) {
             foreach ($trace as $k => $v) {
@@ -239,10 +237,11 @@
          *
          * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
          * ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.
-         * @uses   ErrorHandler::register()
-         * @uses   ExceptionHandler::register()
          */
         static function register(LoggerInterface $logger = null) {
+            if (!$logger) {
+                $logger = new Log();
+            }
             $r = [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
 
             if (ALO_HANDLERS_REGISTER_SHUTDOWN) {
@@ -258,8 +257,8 @@
          * @return string
          */
         function __toString() {
-            return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . PHP_EOL . 'Logger: ' .
-                   ($this->logger ? get_class($this->logger) : 'Not set') . PHP_EOL . 'Max stack trace size: ' .
+            return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . self::EOL . 'Logger: ' .
+                   ($this->logger ? get_class($this->logger) : 'Not set') . self::EOL . 'Max stack trace size: ' .
                    $this->maxTraceSize;
         }
     }

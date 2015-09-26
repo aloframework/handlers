@@ -6,6 +6,9 @@
 	 - Equivalent operations are available to the ExceptionHandler via `getLastReportedException` and `getLastRegisteredHandler`.
  - `E_CORE_ERROR` is now labelled as **FATAL ERROR**.
  - `E_CORE_ERROR` and `E_CORE_WARNING` are now tracked.
+ - The shutdown handler is now available in the `ShutdownHandler` class and can be registered via `\AloFramework\Handlers\ShutdownHandler::register()` static method.
+	 - By default it is disabled and won't be registered via AbstractHandler. You can enable this by defining `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)` before calling composer's autoloader.
+ - `aloframework/log` is now a dependency - all errors should be tracked.
  
 
 # 1.1 #

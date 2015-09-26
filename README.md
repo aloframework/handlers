@@ -10,7 +10,7 @@ Latest release API documentation: [https://aloframework.github.io/handlers/](htt
 
 |                                                                                          dev-develop                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.1)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.2)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -23,6 +23,7 @@ Installation is available via Composer:
  - To enable only the exception handler call `\AloFramework\Handlers\ExceptionHandler::register()`
  - To enable only the error handler call `\AloFramework\Handlers\ErrorHandler::register()`
  - To enable both handlers call `\AloFramework\Handlers\AbstractHandler::register()`
+	 - A ShutdownHandler is also available and requires the ErrorHandler to be registered - it should be able to handle and log fatal errors. If you define `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)` it will be registered via the abstract handler.
 
 ### Enabling logging ###
 
@@ -63,3 +64,6 @@ You can prevent error/exception locations from showing up in the logger by defin
 
     define('ALO_HANDLERS_LOG_ERROR_LOCATION', false);
     define('ALO_HANDLERS_LOG_EXCEPTION_LOCATION', false);
+
+### Shutdown Handler ###
+You can make the shutdown handler register by default by defining `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)`.

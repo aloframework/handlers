@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Handlers\AbstractHandler | AloFramework Handlers 1.0 API</title>
+	<title>Class AloFramework\Handlers\AbstractHandler | AloFramework Handlers 1.2 API</title>
 
 	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
@@ -56,6 +56,7 @@
 			<h3>Classes</h3>
 			<ul>
 				<li class="active"><a href="class-AloFramework.Handlers.AbstractHandler.html">AbstractHandler</a></li>
+				<li><a href="class-AloFramework.Handlers.Error.html">Error</a></li>
 				<li><a href="class-AloFramework.Handlers.ErrorHandler.html">ErrorHandler</a></li>
 				<li><a href="class-AloFramework.Handlers.ExceptionHandler.html">ExceptionHandler</a></li>
 				<li><a href="class-AloFramework.Handlers.ShutdownHandler.html">ShutdownHandler</a></li>
@@ -181,10 +182,6 @@
 				<div class="list">
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				</div>
-				<h4>Uses</h4>
-				<div class="list">
-						<code><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html#___construct">AloFramework\Handlers\Output\ConsoleOutput::__construct()</a></code><br>
-				</div>
 
 
 		</div>
@@ -218,11 +215,6 @@
 				<h4>Author</h4>
 				<div class="list">
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Used by</h4>
-				<div class="list">
-						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
-						<code><a href="class-AloFramework.Handlers.ExceptionHandler.html#_handle">AloFramework\Handlers\ExceptionHandler::handle()</a></code><br>
 				</div>
 
 
@@ -269,18 +261,6 @@
 				<div class="list">
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				</div>
-				<h4>Uses</h4>
-				<div class="list">
-						AbstractHandler::traceCLI()<br>
-						AbstractHandler::traceHTML()<br>
-				</div>
-				<h4>Used by</h4>
-				<div class="list">
-						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleHTML">AloFramework\Handlers\ErrorHandler::handleHTML()</a></code><br>
-						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleCLI">AloFramework\Handlers\ErrorHandler::handleCLI()</a></code><br>
-						<code><a href="class-AloFramework.Handlers.ExceptionHandler.html#_handleHTML">AloFramework\Handlers\ExceptionHandler::handleHTML()</a></code><br>
-						<code><a href="class-AloFramework.Handlers.ExceptionHandler.html#_handleCLI">AloFramework\Handlers\ExceptionHandler::handleCLI()</a></code><br>
-				</div>
 
 
 		</div>
@@ -319,18 +299,14 @@ handler classes you must call their register() methods as this one would not reg
 
 				<h4>Returns</h4>
 				<div class="list">
-					array<br>An array containing [ErrorHandler::register(), ExceptionHandler::register()]
+					array<br><p>An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
+ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.</p>
 				</div>
 
 
 				<h4>Author</h4>
 				<div class="list">
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Uses</h4>
-				<div class="list">
-						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_register">AloFramework\Handlers\ErrorHandler::register()</a></code><br>
-						<code><a href="class-AloFramework.Handlers.ExceptionHandler.html#_register">AloFramework\Handlers\ExceptionHandler::register()</a></code><br>
 				</div>
 
 
@@ -384,6 +360,32 @@ handler classes you must call their register() methods as this one would not reg
 
 
 
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="EOL" id="EOL">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+<b>EOL</b>			</code>
+
+			<div class="description short">
+				<p>The line ender for __toString()</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The line ender for __toString()</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#EOL" class="anchor">#</a>
+				<code><span class="php-quote">&quot; \n&quot;</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -472,7 +474,7 @@ handler classes you must call their register() methods as this one would not reg
 </div>
 
 	<div id="footer">
-		AloFramework Handlers 1.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Handlers 1.2 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>

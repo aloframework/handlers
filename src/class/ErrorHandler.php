@@ -20,7 +20,7 @@
 
         /**
          * Last reported error
-         * @var null|array
+         * @var null|Error
          */
         private static $lastReported = null;
 
@@ -29,6 +29,33 @@
          * @var self
          */
         private static $lastRegisteredHandler = null;
+
+        /**
+         * Makes sure error reporting is a valid int
+         * @var int
+         */
+        private $errorReporting;
+
+        /**
+         * Constructor
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         *                                AloFramework\Log\Log extends this interface.
+         */
+        function __construct(LoggerInterface $logger = null) {
+            parent::__construct($logger);
+            $this->errorReporting = (int)ALO_HANDLERS_ERROR_LEVEL;
+        }
+
+        /**
+         * Returns what errors are being reported
+         * @author Art <a.molcanovas@gmail.com>
+         * @return int
+         */
+        function getErrorReporting() {
+            return $this->errorReporting;
+        }
 
         /**
          * Checks whether the handler has been registered
@@ -43,6 +70,7 @@
          * Returns the last registered handler
          * @author Art <a.molcanovas@gmail.com>
          * @return self|null
+         * @since  1.2
          */
         static function getLastRegisteredHandler() {
             return self::$lastRegisteredHandler;
@@ -51,28 +79,11 @@
         /**
          * Returns the last reported error
          * @author Art <a.molcanovas@gmail.com>
-         * @return array|null The last reported error or NULL if none have been reported
+         * @return Error|null The last reported error or NULL if none have been reported
          * @since  1.2
          */
         static function getLastReportedError() {
             return self::$lastReported;
-        }
-
-        /**
-         * Converts the error to string
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param array $error The error
-         *
-         * @return string
-         */
-        private static function errorToString(array $error) {
-            if ($error) {
-                return '[' . $error['type'] . '] ' . $error['message'] . ' @ ' . $error['file'] . ' @ line ' .
-                       $error['line'];
-            }
-
-            return '';
         }
 
         /**
@@ -85,17 +96,11 @@
          * @param string $errfile The filename that the error was raised in
          * @param int    $errline The line number the error was raised at
          *
-         * @uses   ErrorHandler::log()
-         * @uses   AbstractHandler::injectCSS()
-         * @uses   ErrorHandler::handleHTML()
-         * @uses   ErrorHandler::handleCLI()
          * @since  1.2 Tracks the last reported error
          */
         function handle($errno, $errstr, $errfile, $errline) {
-            self::$lastReported = ['type'    => $errno,
-                                   'message' => $errstr,
-                                   'file'    => $errfile,
-                                   'line'    => $errline];
+            self::$lastReported = new Error($errno, $errstr, $errfile, $errline);
+
             $this->injectCss();
             $type  = $errno;
             $label = 'warning';
@@ -156,36 +161,31 @@
          * @param int    $line    Line number where the error occurred
          *
          * @since  1.1 Accepts the $file and $line parameters
-         * @uses   LoggerInterface::error()
-         * @uses   LoggerInterface::notice()
-         * @uses   LoggerInterface::warning()
          */
         protected function log($errcode, $errstr, $file = null, $line = null) {
-            if ($this->logger) {
-                switch ($errcode) {
-                    case E_NOTICE:
-                    case E_USER_NOTICE:
-                        $method = 'notice';
-                        break;
-                    case E_WARNING:
-                    case E_USER_WARNING:
-                    case E_CORE_WARNING:
-                    case E_DEPRECATED:
-                    case E_USER_DEPRECATED:
-                        $method = 'warning';
-                        break;
-                    default:
-                        $method = 'error';
-                }
-
-                $msg = '[' . $errcode . '] ' . $errstr;
-
-                if (ALO_HANDLERS_LOG_ERROR_LOCATION && $file && $line) {
-                    $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
-                }
-
-                $this->logger->{$method}($msg);
+            switch ($errcode) {
+                case E_NOTICE:
+                case E_USER_NOTICE:
+                    $method = 'notice';
+                    break;
+                case E_WARNING:
+                case E_USER_WARNING:
+                case E_CORE_WARNING:
+                case E_DEPRECATED:
+                case E_USER_DEPRECATED:
+                    $method = 'warning';
+                    break;
+                default:
+                    $method = 'error';
             }
+
+            $msg = '[' . $errcode . '] ' . $errstr;
+
+            if (ALO_HANDLERS_LOG_ERROR_LOCATION && $file && $line) {
+                $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
+            }
+
+            $this->logger->{$method}($msg);
         }
 
         /**
@@ -198,8 +198,6 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
-         *
-         * @uses   AbstractHandler::getTrace()
          */
         protected function handleHTML($type, $label, $errno, $errstr, $errfile, $errline) {
             ?>
@@ -235,10 +233,6 @@
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
-         *
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
-         * @uses   AbstractHandler::getTrace()
          */
         protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
@@ -267,13 +261,16 @@
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
 
-            // To allow easy extending
+            /**
+             * To allow easy extending.
+             * @var self $handler
+             */
             $class   = get_called_class();
             $handler = new $class($logger);
 
             self::$lastRegisteredHandler = &$handler;
 
-            set_error_handler([$handler, 'handle'], ALO_HANDLERS_ERROR_LEVEL);
+            set_error_handler([$handler, 'handle'], $handler->getErrorReporting());
 
             return $handler;
         }
@@ -284,7 +281,7 @@
          * @return string
          */
         function __toString() {
-            return parent::__toString() . PHP_EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . PHP_EOL .
-                   'Last reported error: ' . self::errorToString(self::$lastReported);
+            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
+                   'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
         }
     }

@@ -29,27 +29,36 @@
         /**
          * The shutdown handler
          * @author Art <a.molcanovas@gmail.com>
-         * @uses   ErrorHandler::isRegistered()
-         * @uses   ErrorHandler::getLastReportedError()
-         * @uses   ErrorHandler::getLastRegisteredHandler()
-         * @uses   ErrorHandler::handle()
          */
         function handle() {
             if (ErrorHandler::isRegistered()) {
-                $e = error_get_last();
+                $e = new Error(error_get_last());
 
-                if (self::shouldBeReported(isset($e['type']) ? $e['type'] : null)) {
+                if (self::shouldBeReported($e['type'])) {
                     $r = ErrorHandler::getLastReportedError();
                     $h = ErrorHandler::getLastRegisteredHandler();
 
-                    if ($e && $h && $r != $e) {
+                    if (!$e->isEmpty() && $r && !$r->isEmpty() && $h && !$r->equals($e)) {
                         $h->handle(E_CORE_ERROR,
-                                   isset($e['message']) ? $e['message'] : '<<unknown fatal error>>',
-                                   isset($e['file']) ? $e['file'] : '<<unknown file>>',
-                                   isset($e['line']) ? $e['line'] : '<<unknown line>>');
+                                   self::ifnull($e['message'], '<<unknown fatal error>>'),
+                                   self::ifnull($e['file'], '<<unknown file>>'),
+                                   self::ifnull($e['line'], '<<unknown line>>'));
                     }
                 }
             }
+        }
+
+        /**
+         * Returns $var if it's set, $backup if it's not
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param mixed $var    Reference to $var
+         * @param mixed $backup Plan B
+         *
+         * @return mixed
+         */
+        private static function ifnull(&$var, $backup) {
+            return isset($var) ? $var : $backup;
         }
 
         /**
@@ -76,7 +85,7 @@
         static function register(LoggerInterface $logger = null) {
             self::$registered = true;
             $class            = get_called_class();
-            $handler          = new $class();
+            $handler          = new $class($logger);
 
             register_shutdown_function([$handler, 'handle']);
 

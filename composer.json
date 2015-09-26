@@ -27,11 +27,11 @@
   "require": {
     "php": ">=5.4",
     "symfony/var-dumper": "^2.7",
-    "symfony/console": "^2.7"
+    "symfony/console": "^2.7",
+    "aloframework/log": "^1.0"
   },
   "suggest": {
-    "aloframework/aloframework": "The complete stack with all the components",
-    "aloframework/log": "Enable automatic logging of errors and exceptions"
+    "aloframework/aloframework": "The complete stack with all the components"
   },
   "autoload": {
     "psr-4": {

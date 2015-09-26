@@ -8,7 +8,8 @@
     /**
      * Exception handling class
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.1 log() accepts the $includeLocation parameter
+     * @since  1.2 Tracks the last set handler & exception<br/>
+     *         1.1 log() accepts the $includeLocation parameter
      */
     class ExceptionHandler extends AbstractHandler {
 
@@ -50,6 +51,7 @@
          * Returns the last registered handler
          * @author Art <a.molcanovas@gmail.com>
          * @return self|null
+         * @since  1.2
          */
         static function getLastRegisteredHandler() {
             return self::$lastRegisteredHandler;
@@ -81,10 +83,6 @@
          *
          * @param null|Exception $e     The previous exception
          * @param int            $level How many previous exceptions have been echoed so far
-         *
-         * @uses   ExceptionHandler::echoPreviousExceptions()
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
-         * @uses   AloFramework\Handlers\Output::writeln()
          */
         protected function echoPreviousExceptions($e, $level = 0) {
             if ($level < $this->maxRecursion && ($e instanceof Exception)) {
@@ -116,11 +114,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
-         *
-         * @uses   AbstractHandler::injectCSS()
-         * @uses   ExceptionHandler::handleCLI()
-         * @uses   ExceptionHandler::handleHTML()
-         * @uses   ExceptionHandler::log()
          */
         function handle(Exception $e) {
             $this->injectCSS();
@@ -139,9 +132,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
-         *
-         * @uses   ExceptionHandler::echoPreviousExceptions()
-         * @uses   AbstractHandler::getTrace()
          */
         protected function handleHTML(Exception $e) {
             ?>
@@ -173,11 +163,6 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
-         *
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::write()
-         * @uses   AloFramework\Handlers\Output\ConsoleOutput::writeln()
-         * @uses   ExceptionHandler::echoPreviousExceptions()
-         * @uses   AbstractHandler::getTrace()
          */
         protected function handleCLI(Exception $e) {
             $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
@@ -201,20 +186,16 @@
          * @param Exception $e               The exception to log
          * @param bool      $includeLocation Whether to include the file and line where the exception occurred
          *
-         * @uses   LoggerInterface::error()
-         *
          * @since  1.1 Accepts the $includeLocation parameter
          */
         protected function log(Exception $e, $includeLocation = true) {
-            if ($this->logger) {
-                $msg = '[' . $e->getCode() . '] ' . $e->getMessage();
+            $msg = '[' . $e->getCode() . '] ' . $e->getMessage();
 
-                if (ALO_HANDLERS_LOG_EXCEPTION_LOCATION && $includeLocation) {
-                    $msg .= ' (occurred in ' . $e->getFile() . ' @ line ' . $e->getLine() . ')';
-                }
-
-                $this->logger->error($msg);
+            if (ALO_HANDLERS_LOG_EXCEPTION_LOCATION && $includeLocation) {
+                $msg .= ' (occurred in ' . $e->getFile() . ' @ line ' . $e->getLine() . ')';
             }
+
+            $this->logger->error($msg);
         }
 
         /**
@@ -246,8 +227,8 @@
          * @return string
          */
         function __toString() {
-            return parent::__toString() . PHP_EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . PHP_EOL .
-                   'Previous exception recursion limit: ' . ($this->maxRecursion) . PHP_EOL .
+            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
+                   'Previous exception recursion limit: ' . ($this->maxRecursion) . self::EOL .
                    'Last reported exception: ' . (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
     }
