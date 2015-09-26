@@ -3,90 +3,53 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Handlers\ErrorHandler | AloFramework Handlers 1.1 API</title>
+	<title>Class AloFramework\Handlers\ErrorHandler | AloFramework Handlers 1.0 API</title>
 
-	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
-	<link rel="stylesheet" href="resources/style.css?a2b5efb503881470385230f40f9bcc3c94d665e7">
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
 </head>
 
 <body>
-	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand">AloFramework Handlers 1.1 API</a>
-			</div>
-			<div class="collapse navbar-collapse">
-
-                <form id="search" class="navbar-form navbar-left" role="search">
-                    <input type="hidden" name="cx" value="">
-                    <input type="hidden" name="ie" value="UTF-8">
-                    <div class="form-group">
-                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
-					</div>
-				</form>
-
-				<ul class="nav navbar-nav">
-					<li>
-						<a href="namespace-AloFramework.Handlers.html" title="Summary of AloFramework\Handlers"><span>Namespace</span></a>
-					</li>
-					<li class="active">
-<span>Class</span>					</li>
-
-					<li class="divider-vertical"></li>
-
-					<li>
-						<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-					</li>
-
-						<li>
-							<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
-								<span>Deprecated</span>
-							</a>
-						</li>
-						<li>
-							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
-								<span>Todo</span>
-							</a>
-						</li>
-
-
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div id="left">
+<div id="left">
 	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
 
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-					<li class="active">
-						<a href="namespace-AloFramework.html">
-							AloFramework<span></span>
-						</a>
-							<ul>
-					<li class="active">
-						<a href="namespace-AloFramework.Handlers.html">
-							Handlers<span></span>
-						</a>
-							<ul>
-					<li>
-						<a href="namespace-AloFramework.Handlers.Output.html">
-							Output						</a>
-							</li>
-					<li>
-						<a href="namespace-AloFramework.Handlers.OutputFormatters.html">
-							OutputFormatters						</a>
-							</li>
-								</ul></li></ul></li>
-					<li>
-						<a href="namespace-PHP.html">
-							PHP						</a>
-							</li>
+				<li class="active">
+					<a href="namespace-AloFramework.html">
+						AloFramework<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-AloFramework.Handlers.html">
+						Handlers<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AloFramework.Handlers.Output.html">
+						Output					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AloFramework.Handlers.OutputFormatters.html">
+						OutputFormatters					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
 			</ul>
 		</div>
+
+		<hr>
 
 
 		<div id="elements">
@@ -95,6 +58,7 @@
 				<li><a href="class-AloFramework.Handlers.AbstractHandler.html">AbstractHandler</a></li>
 				<li class="active"><a href="class-AloFramework.Handlers.ErrorHandler.html">ErrorHandler</a></li>
 				<li><a href="class-AloFramework.Handlers.ExceptionHandler.html">ExceptionHandler</a></li>
+				<li><a href="class-AloFramework.Handlers.ShutdownHandler.html">ShutdownHandler</a></li>
 			</ul>
 
 
@@ -108,7 +72,43 @@
 <div id="splitter"></div>
 
 <div id="right">
-	<div id="rightInner">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AloFramework.Handlers.html" title="Summary of AloFramework\Handlers"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
 <div id="content" class="class">
 	<h1>Class ErrorHandler</h1>
 
@@ -117,7 +117,7 @@
 	<p>Handles PHP errors</p>
 	</div>
 
-	<dl class="tree well">
+	<dl class="tree">
 		<dd style="padding-left:0px">
 			<a href="class-AloFramework.Handlers.AbstractHandler.html"><span>AloFramework\Handlers\AbstractHandler</span></a>
 			
@@ -139,7 +139,7 @@
 
 
 
-	<div class="alert alert-info">
+	<div class="info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a><br>
@@ -148,374 +148,481 @@
 				<b>Author:</b>
 				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				<b>Since:</b>
-				1.1 log() accepts the $file and $line parameters<br>
+				<p>1.2 Tracks the last reported error<br/>
+        1.1 log() accepts the $file and $line parameters</p><br>
 			<b>Located at</b> class/ErrorHandler.php		<br>
 	</div>
 
 
 
-		<div class="panel panel-default">
-			<div class="panel-heading"><h2>Methods summary</h2></div>
-			<table class="summary table table-bordered table-striped methods" id="methods">
-		<tr data-order="isRegistered" id="_isRegistered">
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="isRegistered" id="_isRegistered">
 
-			<td class="attributes"><code>
-				 public static
-				boolean
-				
-				</code>
-			</td>
+		<td class="attributes"><code>
+			 public static
 
-			<td class="name"><div>
-			<a class="anchor" href="#_isRegistered">#</a>
-			<code>isRegistered( )</code>
+			boolean
+			
+			</code>
+		</td>
 
-			<div class="description short">
-				<p>Checks whether the handler has been registered</p>
-			</div>
+		<td class="name"><div>
+		<a class="anchor" href="#_isRegistered">#</a>
+		<code>isRegistered( )</code>
 
-			<div class="description detailed hidden">
-				<p>Checks whether the handler has been registered</p>
+		<div class="description short">
+			<p>Checks whether the handler has been registered</p>
+		</div>
 
-
-
-					<h4>Returns</h4>
-					<div class="list">
-						boolean
-					</div>
-
-
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="handle" id="_handle">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_handle">#</a>
-			<code>handle( <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
-
-			<div class="description short">
-				<p>The error handler</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>The error handler</p>
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$errno</var></dt>
-						<dd>The level of the error raised</dd>
-						<dt><var>$errstr</var></dt>
-						<dd>The error message</dd>
-						<dt><var>$errfile</var></dt>
-						<dd>The filename that the error was raised in</dd>
-						<dt><var>$errline</var></dt>
-						<dd>The line number the error was raised at</dd>
-					</dl></div>
+		<div class="description detailed hidden">
+			<p>Checks whether the handler has been registered</p>
 
 
 
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-					<h4>Uses</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_log">AloFramework\Handlers\ErrorHandler::log()</a></code><br>
-							<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_injectCSS">AloFramework\Handlers\AbstractHandler::injectCSS()</a></code><br>
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleHTML">AloFramework\Handlers\ErrorHandler::handleHTML()</a></code><br>
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleCLI">AloFramework\Handlers\ErrorHandler::handleCLI()</a></code><br>
-					</div>
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
 
 
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="log" id="_log">
-
-			<td class="attributes"><code>
-				 protected 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_log">#</a>
-			<code>log( <span>integer <var>$errcode</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$file</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$line</var> = <span class="php-keyword1">null</span></span> )</code>
-
-			<div class="description short">
-				<p>Logs an error</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Logs an error</p>
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ShutdownHandler.html#_handle">AloFramework\Handlers\ShutdownHandler::handle()</a></code><br>
+				</div>
 
 
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$errcode</var></dt>
-						<dd>The error's code</dd>
-						<dt><var>$errstr</var></dt>
-						<dd>The error message</dd>
-						<dt><var>$file</var></dt>
-						<dd>File where the error occurred</dd>
-						<dt><var>$line</var></dt>
-						<dd>Line number where the error occurred</dd>
-					</dl></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLastRegisteredHandler" id="_getLastRegisteredHandler">
+
+		<td class="attributes"><code>
+			 public static
+
+			<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code>|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLastRegisteredHandler">#</a>
+		<code>getLastRegisteredHandler( )</code>
+
+		<div class="description short">
+			<p>Returns the last registered handler</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the last registered handler</p>
 
 
 
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-					<h4>Since</h4>
-					<div class="list">
-							1.1 Accepts the $file and $line parameters<br>
-					</div>
-					<h4>Uses</h4>
-					<div class="list">
-							LoggerInterface::error()<br>
-							LoggerInterface::notice()<br>
-							LoggerInterface::warning()<br>
-					</div>
-					<h4>Used by</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
-					</div>
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code>|null
+				</div>
 
 
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="handleHTML" id="_handleHTML">
-
-			<td class="attributes"><code>
-				 protected 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_handleHTML">#</a>
-			<code>handleHTML( <span>string <var>$type</var></span>, <span>string <var>$label</var></span>, <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
-
-			<div class="description short">
-				<p>Generates HTML output for errors</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Generates HTML output for errors</p>
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ShutdownHandler.html#_handle">AloFramework\Handlers\ShutdownHandler::handle()</a></code><br>
+				</div>
 
 
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$type</var></dt>
-						<dd>Error type</dd>
-						<dt><var>$label</var></dt>
-						<dd>Error label ("danger", "info" or "warning")</dd>
-						<dt><var>$errno</var></dt>
-						<dd>Error code</dd>
-						<dt><var>$errstr</var></dt>
-						<dd>Error message</dd>
-						<dt><var>$errfile</var></dt>
-						<dd>File where the error occurred</dd>
-						<dt><var>$errline</var></dt>
-						<dd>Line where the error occurred</dd>
-					</dl></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getLastReportedError" id="_getLastReportedError">
+
+		<td class="attributes"><code>
+			 public static
+
+			array|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getLastReportedError">#</a>
+		<code>getLastReportedError( )</code>
+
+		<div class="description short">
+			<p>Returns the last reported error</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the last reported error</p>
 
 
 
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-					<h4>Uses</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">AloFramework\Handlers\AbstractHandler::getTrace()</a></code><br>
-					</div>
-					<h4>Used by</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
-					</div>
+				<h4>Returns</h4>
+				<div class="list">
+					array|null<br>The last reported error or NULL if none have been reported
+				</div>
 
 
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="handleCLI" id="_handleCLI">
-
-			<td class="attributes"><code>
-				 protected 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_handleCLI">#</a>
-			<code>handleCLI( <span>string <var>$type</var></span>, <span>string <var>$label</var></span>, <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
-
-			<div class="description short">
-				<p>Generates console output for errors</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Generates console output for errors</p>
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Since</h4>
+				<div class="list">
+						1.2<br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ShutdownHandler.html#_handle">AloFramework\Handlers\ShutdownHandler::handle()</a></code><br>
+				</div>
 
 
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$type</var></dt>
-						<dd>Error type</dd>
-						<dt><var>$label</var></dt>
-						<dd>Error colour code ("e" for error, "w" for warning, "i" for info)</dd>
-						<dt><var>$errno</var></dt>
-						<dd>Error code</dd>
-						<dt><var>$errstr</var></dt>
-						<dd>Error message</dd>
-						<dt><var>$errfile</var></dt>
-						<dd>File where the error occurred</dd>
-						<dt><var>$errline</var></dt>
-						<dd>Line where the error occurred</dd>
-					</dl></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handle" id="_handle">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handle">#</a>
+		<code>handle( <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
+
+		<div class="description short">
+			<p>The error handler</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>The error handler</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$errno</var></dt>
+					<dd>The level of the error raised</dd>
+					<dt><var>$errstr</var></dt>
+					<dd>The error message</dd>
+					<dt><var>$errfile</var></dt>
+					<dd>The filename that the error was raised in</dd>
+					<dt><var>$errline</var></dt>
+					<dd>The line number the error was raised at</dd>
+				</dl></div>
 
 
 
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-					<h4>Uses</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html#_write">AloFramework\Handlers\Output\ConsoleOutput::write()</a></code><br>
-							AloFramework\Handlers\Output\ConsoleOutput::writeln()<br>
-							<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">AloFramework\Handlers\AbstractHandler::getTrace()</a></code><br>
-					</div>
-					<h4>Used by</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
-					</div>
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Since</h4>
+				<div class="list">
+						1.2 Tracks the last reported error<br>
+				</div>
+				<h4>Uses</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_log">AloFramework\Handlers\ErrorHandler::log()</a></code><br>
+						<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_injectCSS">AloFramework\Handlers\AbstractHandler::injectCSS()</a></code><br>
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleHTML">AloFramework\Handlers\ErrorHandler::handleHTML()</a></code><br>
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handleCLI">AloFramework\Handlers\ErrorHandler::handleCLI()</a></code><br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ShutdownHandler.html#_handle">AloFramework\Handlers\ShutdownHandler::handle()</a></code><br>
+				</div>
 
 
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="register" id="_register">
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="log" id="_log">
 
-			<td class="attributes"><code>
-				 public static
-				<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code>
-				
-				</code>
-			</td>
+		<td class="attributes"><code>
+			 protected 
 
-			<td class="name"><div>
-			<a class="anchor" href="#_register">#</a>
-			<code>register( <span>Psr\Log\LoggerInterface <var>$logger</var> = <span class="php-keyword1">null</span></span> )</code>
+			
+			
+			</code>
+		</td>
 
-			<div class="description short">
-				<p>Registers the error handler</p>
-			</div>
+		<td class="name"><div>
+		<a class="anchor" href="#_log">#</a>
+		<code>log( <span>integer <var>$errcode</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$file</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$line</var> = <span class="php-keyword1">null</span></span> )</code>
 
-			<div class="description detailed hidden">
-				<p>Registers the error handler</p>
+		<div class="description short">
+			<p>Logs an error</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Logs an error</p>
 
 
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$logger</var></dt>
-						<dd><p>If provided, this will be used to log errors and exceptions.
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$errcode</var></dt>
+					<dd>The error's code</dd>
+					<dt><var>$errstr</var></dt>
+					<dd>The error message</dd>
+					<dt><var>$file</var></dt>
+					<dd>File where the error occurred</dd>
+					<dt><var>$line</var></dt>
+					<dd>Line number where the error occurred</dd>
+				</dl></div>
+
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Since</h4>
+				<div class="list">
+						1.1 Accepts the $file and $line parameters<br>
+				</div>
+				<h4>Uses</h4>
+				<div class="list">
+						LoggerInterface::error()<br>
+						LoggerInterface::notice()<br>
+						LoggerInterface::warning()<br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handleHTML" id="_handleHTML">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handleHTML">#</a>
+		<code>handleHTML( <span>string <var>$type</var></span>, <span>string <var>$label</var></span>, <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
+
+		<div class="description short">
+			<p>Generates HTML output for errors</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Generates HTML output for errors</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd>Error type</dd>
+					<dt><var>$label</var></dt>
+					<dd>Error label ("danger", "info" or "warning")</dd>
+					<dt><var>$errno</var></dt>
+					<dd>Error code</dd>
+					<dt><var>$errstr</var></dt>
+					<dd>Error message</dd>
+					<dt><var>$errfile</var></dt>
+					<dd>File where the error occurred</dd>
+					<dt><var>$errline</var></dt>
+					<dd>Line where the error occurred</dd>
+				</dl></div>
+
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Uses</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">AloFramework\Handlers\AbstractHandler::getTrace()</a></code><br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handleCLI" id="_handleCLI">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_handleCLI">#</a>
+		<code>handleCLI( <span>string <var>$type</var></span>, <span>string <var>$label</var></span>, <span>integer <var>$errno</var></span>, <span>string <var>$errstr</var></span>, <span>string <var>$errfile</var></span>, <span>integer <var>$errline</var></span> )</code>
+
+		<div class="description short">
+			<p>Generates console output for errors</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Generates console output for errors</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$type</var></dt>
+					<dd>Error type</dd>
+					<dt><var>$label</var></dt>
+					<dd>Error colour code ("e" for error, "w" for warning, "i" for info)</dd>
+					<dt><var>$errno</var></dt>
+					<dd>Error code</dd>
+					<dt><var>$errstr</var></dt>
+					<dd>Error message</dd>
+					<dt><var>$errfile</var></dt>
+					<dd>File where the error occurred</dd>
+					<dt><var>$errline</var></dt>
+					<dd>Line where the error occurred</dd>
+				</dl></div>
+
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Uses</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html#_write">AloFramework\Handlers\Output\ConsoleOutput::write()</a></code><br>
+						AloFramework\Handlers\Output\ConsoleOutput::writeln()<br>
+						<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">AloFramework\Handlers\AbstractHandler::getTrace()</a></code><br>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.ErrorHandler.html#_handle">AloFramework\Handlers\ErrorHandler::handle()</a></code><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="register" id="_register">
+
+		<td class="attributes"><code>
+			 public static
+
+			<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_register">#</a>
+		<code>register( <span>Psr\Log\LoggerInterface <var>$logger</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Registers the error handler</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Registers the error handler</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$logger</var></dt>
+					<dd><p>If provided, this will be used to log errors and exceptions.
                                AloFramework\Log\Log extends this interface.</p></dd>
-					</dl></div>
+				</dl></div>
 
-					<h4>Returns</h4>
-					<div class="list">
-						<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code><br>The created handler
-					</div>
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Handlers.ErrorHandler.html">AloFramework\Handlers\ErrorHandler</a></code><br>The created handler
+				</div>
 
 
-					<h4>Author</h4>
-					<div class="list">
-							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-					</div>
-					<h4>Since</h4>
-					<div class="list">
-							<p>1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+				<h4>Since</h4>
+				<div class="list">
+						<p>1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
 allows easy class extendability.</p><br>
-					</div>
-					<h4>Used by</h4>
-					<div class="list">
-							<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_register">AloFramework\Handlers\AbstractHandler::register()</a></code><br>
-					</div>
+				</div>
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_register">AloFramework\Handlers\AbstractHandler::register()</a></code><br>
+				</div>
 
-					<h4>Overrides</h4>
-					<div class="list"><code><a href="class-AloFramework.Handlers.AbstractHandler.html#_register">AloFramework\Handlers\AbstractHandler::register</a></code></div>
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-AloFramework.Handlers.AbstractHandler.html#_register">AloFramework\Handlers\AbstractHandler::register()</a></code></div>
 
-			</div>
-			</div></td>
-		</tr>
-			</table>
 		</div>
+		</div></td>
+	</tr>
+	</table>
 
-		<div class="panel panel-default">
-	        <div class="panel-heading"><h3>Methods inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#methods">AloFramework\Handlers\AbstractHandler</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#___construct">__construct()</a></code>, 
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#___toString">__toString()</a></code>, 
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">getTrace()</a></code>, 
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#_injectCSS">injectCSS()</a></code>
-			</p>
-		</div>
-
-
-
-
-
-
-
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#methods">AloFramework\Handlers\AbstractHandler</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#___construct">__construct()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#___toString">__toString()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">getTrace()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#_injectCSS">injectCSS()</a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
 
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#properties">AloFramework\Handlers\AbstractHandler</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#$console"><var>$console</var></a></code>, 
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#$isCLI"><var>$isCLI</var></a></code>, 
-				<code><a href="class-AloFramework.Handlers.AbstractHandler.html#$logger"><var>$logger</var></a></code>
-			</p>
-		</div>
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#properties">AloFramework\Handlers\AbstractHandler</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$console"><var>$console</var></a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$isCLI"><var>$isCLI</var></a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$logger"><var>$logger</var></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
 
 
 </div>
-	</div>
 
 	<div id="footer">
-		AloFramework Handlers 1.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Handlers 1.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
+</div>
 </div>
 <script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>

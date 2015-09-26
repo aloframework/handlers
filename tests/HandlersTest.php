@@ -18,7 +18,8 @@
                     'ALO_HANDLERS_EXCEPTION_DEPTH',
                     'ALO_HANDLERS_TRACE_MAX_DEPTH',
                     'ALO_HANDLERS_LOG_ERROR_LOCATION',
-                    'ALO_HANDLERS_LOG_EXCEPTION_LOCATION'];
+                    'ALO_HANDLERS_LOG_EXCEPTION_LOCATION',
+                    'ALO_HANDLERS_REGISTER_SHUTDOWN'];
 
             foreach ($req as $r) {
                 $this->assertTrue(defined($r), $r . ' wasn\'t defined');
@@ -43,5 +44,11 @@
 
         function testExtendedHandler() {
             $this->assertTrue(ExampleErrorHandler::register() instanceof ExampleErrorHandler, 'Extension failed');
+        }
+
+        function testShutdownHandlerRegister() {
+            $register = ShutdownHandler::register();
+            $this->assertTrue($register instanceof ShutdownHandler, 'Shutdown register() failed');
+            $this->assertTrue(ShutdownHandler::isRegistered(), 'Shutdown isRegistered() failed');
         }
     }

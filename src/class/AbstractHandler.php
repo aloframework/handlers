@@ -237,23 +237,29 @@
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
          *                                AloFramework\Log\Log extends this interface.
          *
-         * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]
+         * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
+         * ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.
          * @uses   ErrorHandler::register()
          * @uses   ExceptionHandler::register()
          */
         static function register(LoggerInterface $logger = null) {
-            return [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
+            $r = [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
+
+            if (ALO_HANDLERS_REGISTER_SHUTDOWN) {
+                $r[] = ShutdownHandler::register($logger);
+            }
+
+            return $r;
         }
 
         /**
          * Returns a string representation of the object
+         * @author Art <a.molcanovas@gmail.com>
          * @return string
-         * @uses VarDumper::dump()
          */
         function __toString() {
-            ob_start();
-            VarDumper::dump($this);
-
-            return ob_get_clean();
+            return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . PHP_EOL . 'Logger: ' .
+                   ($this->logger ? get_class($this->logger) : 'Not set') . PHP_EOL . 'Max stack trace size: ' .
+                   $this->maxTraceSize;
         }
     }

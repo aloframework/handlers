@@ -7,7 +7,8 @@
     /**
      * Handles PHP errors
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.1 log() accepts the $file and $line parameters
+     * @since  1.2 Tracks the last reported error<br/>
+     *         1.1 log() accepts the $file and $line parameters
      */
     class ErrorHandler extends AbstractHandler {
 
@@ -18,12 +19,60 @@
         private static $registered = false;
 
         /**
+         * Last reported error
+         * @var null|array
+         */
+        private static $lastReported = null;
+
+        /**
+         * The last registered handler
+         * @var self
+         */
+        private static $lastRegisteredHandler = null;
+
+        /**
          * Checks whether the handler has been registered
          * @author Art <a.molcanovas@gmail.com>
          * @return bool
          */
         static function isRegistered() {
             return self::$registered;
+        }
+
+        /**
+         * Returns the last registered handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return self|null
+         */
+        static function getLastRegisteredHandler() {
+            return self::$lastRegisteredHandler;
+        }
+
+        /**
+         * Returns the last reported error
+         * @author Art <a.molcanovas@gmail.com>
+         * @return array|null The last reported error or NULL if none have been reported
+         * @since  1.2
+         */
+        static function getLastReportedError() {
+            return self::$lastReported;
+        }
+
+        /**
+         * Converts the error to string
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param array $error The error
+         *
+         * @return string
+         */
+        private static function errorToString(array $error) {
+            if ($error) {
+                return '[' . $error['type'] . '] ' . $error['message'] . ' @ ' . $error['file'] . ' @ line ' .
+                       $error['line'];
+            }
+
+            return '';
         }
 
         /**
@@ -40,8 +89,13 @@
          * @uses   AbstractHandler::injectCSS()
          * @uses   ErrorHandler::handleHTML()
          * @uses   ErrorHandler::handleCLI()
+         * @since  1.2 Tracks the last reported error
          */
         function handle($errno, $errstr, $errfile, $errline) {
+            self::$lastReported = ['type'    => $errno,
+                                   'message' => $errstr,
+                                   'file'    => $errfile,
+                                   'line'    => $errline];
             $this->injectCss();
             $type  = $errno;
             $label = 'warning';
@@ -52,11 +106,15 @@
                     $type  = 'NOTICE';
                     $label = 'info';
                     break;
+                case E_CORE_ERROR:
+                    $type  = 'FATAL ERROR';
+                    $label = 'danger';
+                    break;
                 case E_ERROR:
                 case E_USER_ERROR:
                 case E_COMPILE_ERROR:
                 case E_RECOVERABLE_ERROR:
-                case E_CORE_ERROR:
+                case E_CORE_WARNING:
                     $type  = 'ERROR';
                     $label = 'danger';
                     break;
@@ -66,6 +124,7 @@
                     break;
                 case E_WARNING:
                 case E_USER_WARNING:
+                case E_STRICT:
                 case E_CORE_WARNING:
                     $type = 'WARNING';
                     break;
@@ -212,8 +271,20 @@
             $class   = get_called_class();
             $handler = new $class($logger);
 
+            self::$lastRegisteredHandler = &$handler;
+
             set_error_handler([$handler, 'handle'], ALO_HANDLERS_ERROR_LEVEL);
 
             return $handler;
+        }
+
+        /**
+         * Returns a string representation of the handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return parent::__toString() . PHP_EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . PHP_EOL .
+                   'Last reported error: ' . self::errorToString(self::$lastReported);
         }
     }

@@ -1,3 +1,13 @@
+# 1.2 #
+
+ - The last reported error is tracked in ErrorHandler and can be retrived via the error handler's static 
+ `getLastReportedError` method.
+ - The last registered handler can now be retrieved via the static `getLastRegisteredHandler` method.
+	 - Equivalent operations are available to the ExceptionHandler via `getLastReportedException` and `getLastRegisteredHandler`.
+ - `E_CORE_ERROR` is now labelled as **FATAL ERROR**.
+ - `E_CORE_ERROR` and `E_CORE_WARNING` are now tracked.
+ 
+
 # 1.1 #
 
  - The `log` method in `ErrorHandler` now accepts two more optional arguments: `$file` & `$line`. If they are provided, the file and line where the error occurred will be appended to the log message.

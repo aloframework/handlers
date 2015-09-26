@@ -25,6 +25,18 @@
         protected $maxRecursion;
 
         /**
+         * Last reported exception
+         * @var Exception
+         */
+        private static $lastReported = null;
+
+        /**
+         * The last registered handler
+         * @var self
+         */
+        private static $lastRegisteredHandler = null;
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          * @inheritdoc
@@ -32,6 +44,25 @@
         function __construct(LoggerInterface $logger = null) {
             parent::__construct($logger);
             $this->maxRecursion = (int)ALO_HANDLERS_EXCEPTION_DEPTH;
+        }
+
+        /**
+         * Returns the last registered handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return self|null
+         */
+        static function getLastRegisteredHandler() {
+            return self::$lastRegisteredHandler;
+        }
+
+        /**
+         * Returns the last reported exception
+         * @author Art <a.molcanovas@gmail.com>
+         * @return Exception|null The last reported exception or NULL if none have been reported
+         * @since  1.2
+         */
+        static function getLastReportedException() {
+            return self::$lastReported;
         }
 
         /**
@@ -207,5 +238,16 @@
             set_exception_handler([$handler, 'handle']);
 
             return $handler;
+        }
+
+        /**
+         * Returns a string representation of the handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return parent::__toString() . PHP_EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . PHP_EOL .
+                   'Previous exception recursion limit: ' . ($this->maxRecursion) . PHP_EOL .
+                   'Last reported exception: ' . (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
     }

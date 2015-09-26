@@ -7,7 +7,7 @@
 
     if (!defined('ALO_HANDLERS_ERROR_LEVEL')) {
         /** The error level to register the error handler for */
-        define('ALO_HANDLERS_ERROR_LEVEL', ini_get('error_reporting'));
+        define('ALO_HANDLERS_ERROR_LEVEL', error_reporting());
     }
 
     if (!defined('ALO_HANDLERS_EXCEPTION_DEPTH')) {
@@ -54,4 +54,9 @@
          * @since 1.1
          */
         define('ALO_HANDLERS_LOG_EXCEPTION_LOCATION', true);
+    }
+
+    if (!defined('ALO_HANDLERS_REGISTER_SHUTDOWN')) {
+        /** Whether to register the shutdown handler */
+        define('ALO_HANDLERS_REGISTER_SHUTDOWN', false);
     }
