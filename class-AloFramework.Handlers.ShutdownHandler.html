@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Handlers\Output\ConsoleOutput | AloFramework Handlers 1.2 API</title>
+	<title>Class AloFramework\Handlers\ShutdownHandler | AloFramework Handlers 1.2 API</title>
 
 	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
@@ -30,7 +30,7 @@
 					</a>
 
 						<ul>
-				<li class="active">
+				<li>
 					<a href="namespace-AloFramework.Handlers.Output.html">
 						Output					</a>
 
@@ -55,7 +55,11 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html">ConsoleOutput</a></li>
+				<li><a href="class-AloFramework.Handlers.AbstractHandler.html">AbstractHandler</a></li>
+				<li><a href="class-AloFramework.Handlers.Error.html">Error</a></li>
+				<li><a href="class-AloFramework.Handlers.ErrorHandler.html">ErrorHandler</a></li>
+				<li><a href="class-AloFramework.Handlers.ExceptionHandler.html">ExceptionHandler</a></li>
+				<li class="active"><a href="class-AloFramework.Handlers.ShutdownHandler.html">ShutdownHandler</a></li>
 			</ul>
 
 
@@ -82,7 +86,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-AloFramework.Handlers.Output.html" title="Summary of AloFramework\Handlers\Output"><span>Namespace</span></a>
+				<a href="namespace-AloFramework.Handlers.html" title="Summary of AloFramework\Handlers"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -107,22 +111,23 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class ConsoleOutput</h1>
+	<h1>Class ShutdownHandler</h1>
 
 
 	<div class="description">
-	<p>A small extension to Symfony's ConsoleOutput so write methods return $this</p>
+	<p>The shutdown handler. Allows fatal error reporting</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-Symfony\Component\Console\Output\ConsoleOutput
+			<a href="class-AloFramework.Handlers.AbstractHandler.html"><span>AloFramework\Handlers\AbstractHandler</span></a>
+			
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>AloFramework\Handlers\Output\ConsoleOutput</span></b>			
+<b><span>AloFramework\Handlers\ShutdownHandler</span></b>			
 			
 			
 		</dd>
@@ -138,19 +143,59 @@ Symfony\Component\Console\Output\ConsoleOutput
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a>\<a href="namespace-AloFramework.Handlers.Output.html">Output</a><br>
+		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a><br>
 		
 
 				<b>Author:</b>
 				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-			<b>Located at</b> class/Output/ConsoleOutput.php		<br>
+				<b>Since:</b>
+				1.2<br>
+			<b>Located at</b> class/ShutdownHandler.php		<br>
 	</div>
 
 
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="isRegistered" id="_isRegistered">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isRegistered">#</a>
+		<code>isRegistered( )</code>
+
+		<div class="description short">
+			<p>Checks whether the handler has been registered</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks whether the handler has been registered</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="handle" id="_handle">
 
 		<td class="attributes"><code>
 			 public 
@@ -161,56 +206,15 @@ Symfony\Component\Console\Output\ConsoleOutput
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code>__construct( <span>integer <var>$verbosity</var> = self::VERBOSITY_NORMAL</span>, <span>boolean|null <var>$decorated</var> = <span class="php-keyword1">null</span></span>, <span>Symfony\Component\Console\Formatter\OutputFormatterInterface <var>$formatter</var> = <span class="php-keyword1">null</span></span> )</code>
+		<a class="anchor" href="#_handle">#</a>
+		<code>handle( )</code>
 
 		<div class="description short">
-			<p>Constructor.</p>
+			<p>The shutdown handler</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Constructor.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$verbosity</var></dt>
-					<dd><p>The verbosity level (one of the VERBOSITY constants in
-                                                OutputInterface)</p></dd>
-					<dt><var>$decorated</var></dt>
-					<dd>Whether to decorate messages (null for auto-guessing)</dd>
-					<dt><var>$formatter</var></dt>
-					<dd><p>Output formatter instance (null to use default
-                                                OutputFormatter)</p></dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setStyles" id="_setStyles">
-
-		<td class="attributes"><code>
-			 protected 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setStyles">#</a>
-		<code>setStyles( )</code>
-
-		<div class="description short">
-			<p>Sets the output styles</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Sets the output styles</p>
+			<p>The shutdown handler</p>
 
 
 
@@ -225,41 +229,37 @@ Symfony\Component\Console\Output\ConsoleOutput
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="write" id="_write">
+	<tr data-order="register" id="_register">
 
 		<td class="attributes"><code>
-			 public 
+			 public static
 
-			<code><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html">AloFramework\Handlers\Output\ConsoleOutput</a></code>
+			<code><a href="class-AloFramework.Handlers.ShutdownHandler.html">AloFramework\Handlers\ShutdownHandler</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_write">#</a>
-		<code>write( <span>array|string <var>$messages</var></span>, <span>boolean <var>$newline</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$type</var> = self::OUTPUT_NORMAL</span> )</code>
+		<a class="anchor" href="#_register">#</a>
+		<code>register( <span>Psr\Log\LoggerInterface <var>$logger</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Writes a console message</p>
+			<p>Registers the shutdown handler</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Writes a console message</p>
+			<p>Registers the shutdown handler</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$messages</var></dt>
-					<dd>The message or array of messages</dd>
-					<dt><var>$newline</var></dt>
-					<dd>Whether to insert a newline after the message(s)</dd>
-					<dt><var>$type</var></dt>
-					<dd>Output type</dd>
+					<dt><var>$logger</var></dt>
+					<dd>If provided, this will be used to log shutdowns.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html">AloFramework\Handlers\Output\ConsoleOutput</a></code>
+					<code><a href="class-AloFramework.Handlers.ShutdownHandler.html">AloFramework\Handlers\ShutdownHandler</a></code>
 				</div>
 
 
@@ -268,9 +268,23 @@ Symfony\Component\Console\Output\ConsoleOutput
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				</div>
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-AloFramework.Handlers.AbstractHandler.html#_register">AloFramework\Handlers\AbstractHandler::register()</a></code></div>
 
 		</div>
 		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#methods">AloFramework\Handlers\AbstractHandler</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#___construct">__construct()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#___toString">__toString()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#_getTrace">getTrace()</a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#_injectCSS">injectCSS()</a>
+		</code></td>
 	</tr>
 	</table>
 
@@ -281,11 +295,28 @@ Symfony\Component\Console\Output\ConsoleOutput
 
 
 
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#constants">AloFramework\Handlers\AbstractHandler</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#EOL"><b>EOL</b></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
 
-
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-AloFramework.Handlers.AbstractHandler.html#properties">AloFramework\Handlers\AbstractHandler</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$console"><var>$console</var></a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$isCLI"><var>$isCLI</var></a>, 
+			<a href="class-AloFramework.Handlers.AbstractHandler.html#$logger"><var>$logger</var></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
