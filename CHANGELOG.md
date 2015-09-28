@@ -1,3 +1,7 @@
+# 1.2.1 #
+
+Fixed the if statement in the shutdown handler, which should now allow it to handle fatal errors if no errors were reported beforehand.
+
 # 1.2 #
 
  - The last reported error is tracked in ErrorHandler and can be retrived via the error handler's static 
