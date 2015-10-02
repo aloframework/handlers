@@ -10,7 +10,7 @@ Latest release API documentation: [https://aloframework.github.io/handlers/](htt
 
 |                                                                                          dev-develop                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.2.1)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.3)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -67,3 +67,6 @@ You can prevent error/exception locations from showing up in the logger by defin
 
 ### Shutdown Handler ###
 You can make the shutdown handler register by default by defining `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)`.
+
+### Output Format ###
+ - You can force HTML error handling output in CLI mode by defining `define('ALO_HANDLERS_FORCE_HTML', true);`

@@ -60,3 +60,8 @@
         /** Whether to register the shutdown handler */
         define('ALO_HANDLERS_REGISTER_SHUTDOWN', false);
     }
+
+    if (!defined('ALO_HANDLERS_FORCE_HTML')) {
+        /** Whether to force HTML output */
+        define('ALO_HANDLERS_FORCE_HTML', false);
+    }

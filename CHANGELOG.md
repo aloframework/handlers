@@ -1,3 +1,29 @@
+# 1.3 #
+
+Bugfixes:
+
+ - ExceptionHandler now correctly assigns the `$lastRegisteredHandler` and `$lastReported` values
+
+Error class:
+
+ - Now has a static `$map` property, allowing easy text representation of error codes
+ - Now has a shouldBeReported() static method
+ - It's now possible to force HTML error output when in CLI mode by defining `define('ALO_HANDLERS_FORCE_HTML', true);`
+
+ShutdownHandler:
+
+ - Doesn't force the `E_CORE_ERROR` error code now
+ - Has the `getLastRegisteredHandler` static method now
+
+ErrorHandler:
+
+ - Error labels are more detailed now (e.g. `CORE ERROR` instead of just `ERROR`)
+
+Misc:
+
+ - .gitattributes added
+ - More extensive testing
+
 # 1.2.1 #
 
 Fixed the if statement in the shutdown handler, which should now allow it to handle fatal errors if no errors were reported beforehand.

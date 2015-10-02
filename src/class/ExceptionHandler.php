@@ -117,6 +117,7 @@
          */
         function handle(Exception $e) {
             $this->injectCSS();
+            self::$lastReported = $e;
 
             if ($this->isCLI) {
                 $this->handleCLI($e);
@@ -216,6 +217,7 @@
             $handler = new $class($logger);
 
             set_exception_handler([$handler, 'handle']);
+            self::$lastRegisteredHandler = &$handler;
 
             return $handler;
         }

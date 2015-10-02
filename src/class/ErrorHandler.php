@@ -2,6 +2,7 @@
 
     namespace AloFramework\Handlers;
 
+    use AloFramework\Common\Alo;
     use Psr\Log\LoggerInterface;
 
     /**
@@ -101,37 +102,21 @@
             self::$lastReported = new Error($errno, $errstr, $errfile, $errline);
 
             $this->injectCss();
-            $type  = $errno;
-            $label = 'warning';
+            $type  = Alo::ifnull(Error::$map[$errno], $errno);
+            $label = 'danger';
 
             switch ($errno) {
                 case E_NOTICE:
                 case E_USER_NOTICE:
-                    $type  = 'NOTICE';
                     $label = 'info';
-                    break;
-                case E_CORE_ERROR:
-                    $type  = 'FATAL ERROR';
-                    $label = 'danger';
-                    break;
-                case E_ERROR:
-                case E_USER_ERROR:
-                case E_COMPILE_ERROR:
-                case E_RECOVERABLE_ERROR:
-                case E_CORE_WARNING:
-                    $type  = 'ERROR';
-                    $label = 'danger';
                     break;
                 case E_DEPRECATED:
                 case E_USER_DEPRECATED:
-                    $type = 'DEPRECATED';
-                    break;
                 case E_WARNING:
                 case E_USER_WARNING:
                 case E_STRICT:
                 case E_CORE_WARNING:
-                    $type = 'WARNING';
-                    break;
+                    $label = 'warning';
             }
 
             $file = implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, $errfile), -2));

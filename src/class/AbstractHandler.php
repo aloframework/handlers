@@ -2,6 +2,7 @@
 
     namespace AloFramework\Handlers;
 
+    use AloFramework\Common\Alo;
     use AloFramework\Handlers\Output\ConsoleOutput;
     use AloFramework\Log\Log;
     use Psr\Log\LoggerInterface;
@@ -63,7 +64,7 @@
                 $logger = new Log();
             }
             $this->logger       = $logger;
-            $this->isCLI        = PHP_SAPI == 'cli' || defined('STDIN');
+            $this->isCLI        = !ALO_HANDLERS_FORCE_HTML && Alo::isCliRequest();
             $this->maxTraceSize = ((int)ALO_HANDLERS_TRACE_MAX_DEPTH) * -1;
 
             if ($this->isCLI) {
@@ -257,6 +258,6 @@
         function __toString() {
             return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . self::EOL . 'Logger: ' .
                    ($this->logger ? get_class($this->logger) : 'Not set') . self::EOL . 'Max stack trace size: ' .
-                   $this->maxTraceSize;
+                   ($this->maxTraceSize * -1);
         }
     }
