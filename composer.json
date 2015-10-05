@@ -29,7 +29,8 @@
     "symfony/var-dumper": "^2.7",
     "symfony/console": "^2.7",
     "aloframework/log": "^1.0",
-    "aloframework/common": "^1.0"
+    "aloframework/common": "^1.0",
+    "aloframework/config": "^1.0"
   },
   "autoload": {
     "psr-4": {

@@ -50,6 +50,8 @@
         /**
          * The line ender for __toString()
          * @var string
+         * @internal
+         * @private
          */
         const EOL = " \n";
 

@@ -8,13 +8,15 @@
     /**
      * Object representation of an error
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.2
+     * @since  1.3 shouldBeReported(), $map<br/>
+     *         1.2
      */
     class Error extends ArrayObject {
 
         /**
          * Error code/label map
          * @var array
+         * @since 1.3
          */
         static $map = [E_NOTICE            => 'NOTICE',
                        E_USER_NOTICE       => 'USER NOTICE',
@@ -125,6 +127,7 @@
          *                               ALO_HANDLERS_ERROR_LEVEL will be used.
          *
          * @return bool
+         * @since  1.3
          */
         static function shouldBeReported($errcode, $reportingSettings = null) {
             if (!$reportingSettings || !is_numeric($reportingSettings)) {
