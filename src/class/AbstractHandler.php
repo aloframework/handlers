@@ -3,6 +3,7 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Config\ConfigurableTrait;
     use AloFramework\Handlers\Output\ConsoleOutput;
     use AloFramework\Log\Log;
     use Psr\Log\LoggerInterface;
@@ -13,8 +14,11 @@
     /**
      * Abstract error/exception handling things
      * @author Art <a.molcanovas@gmail.com>
+     * @property AbstractConfig $config
      */
     abstract class AbstractHandler {
+
+        use ConfigurableTrait;
 
         /**
          * Whether CSS has been injected yet
@@ -46,6 +50,12 @@
          * @var int
          */
         private $maxTraceSize;
+
+        /**
+         * Object configuration
+         * @var AbstractConfig
+         */
+        protected $config;
 
         /**
          * The line ender for __toString()
