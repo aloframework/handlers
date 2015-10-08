@@ -9,8 +9,9 @@
      * AbstractHandler configuration
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.4
+     * @todo   Implement in OutputFormatters
      */
-    abstract class AbstractConfig extends ACFG {
+    class AbstractConfig extends ACFG {
 
         /**
          * [STR] The CSS path configuration key
@@ -73,7 +74,7 @@
          * @param array $defaults The default config of extending classes
          * @param array $cfg      Default configuration overrides
          */
-        function __construct(array $defaults, array $cfg = []) {
+        function __construct(array $defaults = [], array $cfg = []) {
             self::setDefaults();
             parent::__construct(array_merge(self::$defaults, $defaults), $cfg);
         }

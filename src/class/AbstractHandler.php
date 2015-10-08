@@ -6,7 +6,6 @@
     use AloFramework\Config\Configurable;
     use AloFramework\Config\ConfigurableTrait;
     use AloFramework\Handlers\Config\AbstractConfig;
-    use AloFramework\Handlers\Config\ErrorConfig;
     use AloFramework\Handlers\Output\ConsoleOutput;
     use AloFramework\Log\Log;
     use Exception;
@@ -14,7 +13,6 @@
     use Symfony\Component\VarDumper\Cloner\VarCloner;
     use Symfony\Component\VarDumper\Dumper\CliDumper;
     use Symfony\Component\VarDumper\Dumper\HtmlDumper;
-    use Symfony\Component\VarDumper\VarDumper;
 
     require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
 
@@ -104,7 +102,7 @@
                 $logger = new Log();
             }
 
-            $this->config = Alo::ifnull($cfg, new ErrorConfig());
+            $this->config = Alo::ifnull($cfg, new AbstractConfig());
             $this->logger = $logger;
             $this->isCLI  = !$this->config[AbstractConfig::CFG_FORCE_HTML] && Alo::isCliRequest();
 
@@ -136,7 +134,7 @@
          *
          * @param mixed $var The variable
          */
-        protected function dump($var) {
+        private function dump($var) {
             if ($this->isCLI) {
                 try {
                     self::$dumperCLI->dump(self::$cloner->cloneVar($var));
@@ -212,7 +210,7 @@
 
                         if (isset($v['args']) && !empty($v['args'])) {
                             ob_start();
-                            VarDumper::dump($v['args']);
+                            $this->dump($v['args']);
                             $args = ob_get_clean();
                         } else {
                             $args = '[none]';
@@ -295,7 +293,7 @@
 
                 if ($argsPresent) {
                     $this->console->write('<' . $label . 'b>Arguments:</>', true);
-                    VarDumper::dump($v['args']);
+                    $this->dump($v['args']);
                 }
 
                 $this->console->writeln('');
@@ -323,7 +321,7 @@
                 $logger = new Log();
             }
             if (!$cfg) {
-                $cfg = new ErrorConfig();
+                $cfg = new AbstractConfig();
             }
             $r = [ErrorHandler::register($logger, null), ExceptionHandler::register($logger, null)];
 
