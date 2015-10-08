@@ -12,15 +12,15 @@
 
         /**
          * [INT] Which errors to log configuration key
-         * @var int
+         * @var string
          */
-        const CFG_ERROR_LEVEL = 201;
+        const CFG_ERROR_LEVEL = 'err.level';
 
         /**
          * [BOOL] Whether to log where the error occurred configuration key
-         * @var int
+         * @var string
          */
-        const CFG_LOG_ERROR_LOCATION = 202;
+        const CFG_LOG_ERROR_LOCATION = 'err.log';
 
         /**
          * Default config array

@@ -12,15 +12,15 @@
 
         /**
          * [INT] How many previous exceptions to echo configuration key
-         * @var int
+         * @var string
          */
-        const CFG_EXCEPTION_DEPTH = 201;
+        const CFG_EXCEPTION_DEPTH = 'ex.prev-dpt';
 
         /**
          * [BOOL] Whether to log where the exception occurred configuration key
-         * @var int
+         * @var string
          */
-        const CFG_LOG_EXCEPTION_LOCATION = 302;
+        const CFG_LOG_EXCEPTION_LOCATION = 'ex.log';
 
         /**
          * Default config array

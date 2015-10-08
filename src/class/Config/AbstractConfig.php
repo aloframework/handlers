@@ -9,57 +9,56 @@
      * AbstractHandler configuration
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.4
-     * @todo   Implement in OutputFormatters
      */
     class AbstractConfig extends ACFG {
 
         /**
          * [STR] The CSS path configuration key
-         * @var int
+         * @var string
          */
-        const CFG_CSS_PATH = 101;
+        const CFG_CSS_PATH = 'a.css';
 
         /**
          * [INT] Maximum debug backtrace depth configuration key
-         * @var int
+         * @var string
          */
-        const CFG_TRACE_MAX_DEPTH = 102;
+        const CFG_TRACE_MAX_DEPTH = 'a.trace.dpt';
 
         /**
          * [STR] CLI background colour configuration key
-         * @var int
+         * @var string
          */
-        const CFG_BACKGROUND = 103;
+        const CFG_BACKGROUND = 'a.cli.bg';
 
         /**
          * [STR] CLI notice level foreground colour cofiguration key
-         * @var int
+         * @var string
          */
-        const CFG_FOREGROUND_NOTICE = 104;
+        const CFG_FOREGROUND_NOTICE = 'a.fg.info';
 
         /**
          * [STR] CLI warning level foreground colour cofiguration key
-         * @var int
+         * @var string
          */
-        const CFG_FOREGROUND_WARNING = 105;
+        const CFG_FOREGROUND_WARNING = 'a.fg.warn';
 
         /**
          * [STR] CLI error level foreground colour cofiguration key
-         * @var int
+         * @var string
          */
-        const CFG_FOREGROUND_ERROR = 106;
+        const CFG_FOREGROUND_ERROR = 'a.fg.err';
 
         /**
          * [BOOL] Whether to force HTML output regardless of whether the error is raised in CLI mode (configuration key)
-         * @var int
+         * @var string
          */
-        const CFG_FORCE_HTML = 107;
+        const CFG_FORCE_HTML = 'a.html';
 
         /**
          * [BOOL] Whether to register the shutdown handler via AbstractHandler's register() method (configuration key)
-         * @var int
+         * @var string
          */
-        const CFG_REGISTER_SHUTDOWN_HANDLER = 108;
+        const CFG_REGISTER_SHUTDOWN_HANDLER = 'a.shutdown';
 
         /**
          * Default configuration array

@@ -11,6 +11,7 @@
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.2 Tracks the last reported error<br/>
      *         1.1 log() accepts the $file and $line parameters
+     * @property ErrorConfig $config Handler configuration
      */
     class ErrorHandler extends AbstractHandler {
 
@@ -49,7 +50,7 @@
          */
         function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
-            $this->errorReporting = (int)ALO_HANDLERS_ERROR_LEVEL;
+            $this->errorReporting = (int)$this->config[ErrorConfig::CFG_ERROR_LEVEL];
         }
 
         /**
@@ -169,7 +170,7 @@
 
             $msg = '[' . $errcode . '] ' . $errstr;
 
-            if (ALO_HANDLERS_LOG_ERROR_LOCATION && $file && $line) {
+            if ($this->config[ErrorConfig::CFG_LOG_ERROR_LOCATION] && $file && $line) {
                 $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
             }
 
@@ -247,7 +248,7 @@
          *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
          *         allows easy class extendability.
          */
-        static function register(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+        static function register(LoggerInterface $logger = null, $cfg = null) {
             self::$registered = true;
 
             /**

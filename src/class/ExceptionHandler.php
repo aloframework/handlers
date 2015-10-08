@@ -13,6 +13,7 @@
      * @since  1.4 Uses the Configurable interface<br/>
      *         1.2 Tracks the last set handler & exception<br/>
      *         1.1 log() accepts the $includeLocation parameter
+     * @property ExceptionConfig $config Handler configuration
      */
     class ExceptionHandler extends AbstractHandler {
 
@@ -217,7 +218,7 @@
          *         1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
          *         allows easy class extendability.
          */
-        static function register(LoggerInterface $logger = null, ExceptionConfig $cfg = null) {
+        static function register(LoggerInterface $logger = null, $cfg = null) {
             self::$registered = true;
 
             // To allow easy extending

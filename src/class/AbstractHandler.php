@@ -14,12 +14,11 @@
     use Symfony\Component\VarDumper\Dumper\CliDumper;
     use Symfony\Component\VarDumper\Dumper\HtmlDumper;
 
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
-
     /**
      * Abstract error/exception handling things
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.4 Implements Configurable
+     * @property AbstractConfig $config Abstract handler configuration
      */
     abstract class AbstractHandler implements Configurable {
 
@@ -55,12 +54,6 @@
          * @var int
          */
         private $maxTraceSize;
-
-        /**
-         * Object configuration
-         * @var AbstractConfig
-         */
-        protected $config;
 
         /**
          * The line ender for __toString()

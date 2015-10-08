@@ -2,6 +2,7 @@
 
     namespace AloFramework\Handlers\OutputFormatters;
 
+    use AloFramework\Handlers\Config\AbstractConfig;
     use InvalidArgumentException;
     use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
@@ -23,7 +24,7 @@
          */
         function __construct() {
             $this->formatter = new OutputFormatterStyle();
-            $this->formatter->setBackground(ALO_HANDLERS_BACKGROUND);
+            $this->formatter->setBackground((new AbstractConfig())->get(AbstractConfig::CFG_BACKGROUND));
         }
 
         /**

@@ -3,6 +3,7 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\ErrorConfig;
     use ArrayObject;
 
     /**
@@ -131,7 +132,7 @@
          */
         static function shouldBeReported($errcode, $reportingSettings = null) {
             if (!$reportingSettings || !is_numeric($reportingSettings)) {
-                $reportingSettings = (int)ALO_HANDLERS_ERROR_LEVEL;
+                $reportingSettings = (int)((new ErrorConfig())->get(ErrorConfig::CFG_ERROR_LEVEL));
             }
 
             $reportingSettings = (int)$reportingSettings;

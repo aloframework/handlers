@@ -2,6 +2,8 @@
 
     namespace AloFramework\Handlers\OutputFormatters;
 
+    use AloFramework\Handlers\Config\AbstractConfig;
+
     /**
      * Output formatter for errors
      * @author Art <a.molcanovas@gmail.com>
@@ -14,6 +16,6 @@
          */
         function __construct() {
             parent::__construct();
-            $this->formatter->setForeground(ALO_HANDLERS_FOREGROUND_ERROR);
+            $this->formatter->setForeground((new AbstractConfig())->get(AbstractConfig::CFG_FOREGROUND_ERROR));
         }
     }
