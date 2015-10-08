@@ -35,11 +35,19 @@
          * @param array $cfg Default configuration overrides
          */
         function __construct(array $cfg = []) {
+            self::setDefaultConfig();
+            parent::__construct(self::$defaults, $cfg);
+        }
+
+        /**
+         * Sets the default configuration
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        private static function setDefaultConfig() {
             if (!self::$defaults) {
                 self::$defaults =
                     [self::CFG_ERROR_LEVEL        => Alo::ifundefined('ALO_HANDLERS_ERROR_LEVEL', error_reporting()),
                      self::CFG_LOG_ERROR_LOCATION => Alo::ifundefined('ALO_HANDLERS_LOG_ERROR_LOCATION', true)];
             }
-            parent::__construct(self::$defaults, $cfg);
         }
     }

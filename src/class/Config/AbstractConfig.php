@@ -74,24 +74,36 @@
          * @param array $cfg      Default configuration overrides
          */
         function __construct(array $defaults, array $cfg = []) {
-            if (!self::$defaults) {
-                self::$defaults = [self::CFG_CSS_PATH           => Alo::ifundefined('ALO_HANDLERS_CSS_PATH',
-                                                                                    __DIR__ . DIRECTORY_SEPARATOR .
-                                                                                    '..' . DIRECTORY_SEPARATOR . '..' .
-                                                                                    DIRECTORY_SEPARATOR . 'error.min
-                                                                                .css'),
-                                   self::CFG_TRACE_MAX_DEPTH    => Alo::ifundefined('ALO_HANDLERS_TRACE_MAX_DEPTH', 50),
-                                   self::CFG_BACKGROUND         => Alo::ifundefined('ALO_HANDLERS_BACKGROUND',
-                                                                                    'default'),
-                                   self::CFG_FOREGROUND_NOTICE  => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_NOTICE',
-                                                                                    'cyan'),
-                                   self::CFG_FOREGROUND_WARNING => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_WARNING',
-                                                                                    'yellow'),
-                                   self::CFG_FOREGROUND_ERROR   => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_ERROR',
-                                                                                    'red'),
-                                   self::CFG_FORCE_HTML         => Alo::ifundefined('ALO_HANDLERS_FORCE_HTML', false)];
-            }
-
+            self::setDefaults();
             parent::__construct(array_merge(self::$defaults, $defaults), $cfg);
+        }
+
+        /**
+         * Sets default config
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        private static function setDefaults() {
+            if (!self::$defaults) {
+                self::$defaults = [self::CFG_CSS_PATH                  => Alo::ifundefined('ALO_HANDLERS_CSS_PATH',
+                                                                                           __DIR__ .
+                                                                                           DIRECTORY_SEPARATOR . '..' .
+                                                                                           DIRECTORY_SEPARATOR . '..' .
+                                                                                           DIRECTORY_SEPARATOR . 'error.min
+                                                                                .css'),
+                                   self::CFG_TRACE_MAX_DEPTH           => Alo::ifundefined('ALO_HANDLERS_TRACE_MAX_DEPTH',
+                                                                                           50),
+                                   self::CFG_BACKGROUND                => Alo::ifundefined('ALO_HANDLERS_BACKGROUND',
+                                                                                           'default'),
+                                   self::CFG_FOREGROUND_NOTICE         => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_NOTICE',
+                                                                                           'cyan'),
+                                   self::CFG_FOREGROUND_WARNING        => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_WARNING',
+                                                                                           'yellow'),
+                                   self::CFG_FOREGROUND_ERROR          => Alo::ifundefined('ALO_HANDLERS_FOREGROUND_ERROR',
+                                                                                           'red'),
+                                   self::CFG_FORCE_HTML                => Alo::ifundefined('ALO_HANDLERS_FORCE_HTML',
+                                                                                           false),
+                                   self::CFG_REGISTER_SHUTDOWN_HANDLER => Alo::ifundefined('ALO_HANDLERS_REGISTER_SHUTDOWN',
+                                                                                           false)];
+            }
         }
     }
