@@ -3,6 +3,7 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\ErrorConfig;
     use Psr\Log\LoggerInterface;
 
     /**
@@ -41,10 +42,13 @@
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param LoggerInterface $logger If provided, this will be used to log exceptions.
+         * @param ErrorConfig     $cfg    The configuration class
+         *
+         * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null) {
-            parent::__construct($logger);
+        function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+            parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
             $this->errorReporting = (int)ALO_HANDLERS_ERROR_LEVEL;
         }
 
@@ -236,12 +240,14 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param ErrorConfig     $cfg    Your custom configuration settings
          *
          * @return self The created handler
-         * @since  1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
-         * allows easy class extendability.
+         * @since  1.4 $cfg parameter added<br/>
+         *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
+         *         allows easy class extendability.
          */
-        static function register(LoggerInterface $logger = null) {
+        static function register(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             self::$registered = true;
 
             /**
@@ -249,7 +255,7 @@
              * @var self $handler
              */
             $class   = get_called_class();
-            $handler = new $class($logger);
+            $handler = new $class($logger, $cfg);
 
             self::$lastRegisteredHandler = &$handler;
 

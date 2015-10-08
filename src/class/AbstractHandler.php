@@ -3,10 +3,17 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Config\Configurable;
     use AloFramework\Config\ConfigurableTrait;
+    use AloFramework\Handlers\Config\AbstractConfig;
+    use AloFramework\Handlers\Config\ErrorConfig;
     use AloFramework\Handlers\Output\ConsoleOutput;
     use AloFramework\Log\Log;
+    use Exception;
     use Psr\Log\LoggerInterface;
+    use Symfony\Component\VarDumper\Cloner\VarCloner;
+    use Symfony\Component\VarDumper\Dumper\CliDumper;
+    use Symfony\Component\VarDumper\Dumper\HtmlDumper;
     use Symfony\Component\VarDumper\VarDumper;
 
     require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
@@ -14,9 +21,9 @@
     /**
      * Abstract error/exception handling things
      * @author Art <a.molcanovas@gmail.com>
-     * @property AbstractConfig $config
+     * @since  1.4 Implements Configurable
      */
-    abstract class AbstractHandler {
+    abstract class AbstractHandler implements Configurable {
 
         use ConfigurableTrait;
 
@@ -66,21 +73,76 @@
         const EOL = " \n";
 
         /**
+         * Symfony's CLI dumper
+         * @var CliDumper
+         */
+        private static $dumperCLI;
+
+        /**
+         * Symfony's HTML dumper
+         * @var HtmlDumper
+         */
+        private static $dumperHTML;
+
+        /**
+         * Symfony's var cloner
+         * @var VarCloner
+         */
+        private static $cloner;
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param AbstractConfig  $cfg    The configuration class. Required.
+         *
+         * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null) {
+        function __construct(LoggerInterface $logger = null, AbstractConfig $cfg = null) {
             if (!$logger) {
                 $logger = new Log();
             }
-            $this->logger       = $logger;
-            $this->isCLI        = !ALO_HANDLERS_FORCE_HTML && Alo::isCliRequest();
-            $this->maxTraceSize = ((int)ALO_HANDLERS_TRACE_MAX_DEPTH) * -1;
 
+            $this->config = Alo::ifnull($cfg, new ErrorConfig());
+            $this->logger = $logger;
+            $this->isCLI  = !$this->config[AbstractConfig::CFG_FORCE_HTML] && Alo::isCliRequest();
+
+            $this->initSymfony();
+        }
+
+        /**
+         * Initialises Symfony's components
+         * @author Art <a.molcanovas@gmail.com>
+         * @return self
+         */
+        private function initSymfony() {
             if ($this->isCLI) {
                 $this->console = new ConsoleOutput();
+            }
+
+            if (!self::$cloner || !self::$dumperCLI || !self::$dumperHTML) {
+                self::$cloner     = new VarCloner();
+                self::$dumperCLI  = new CliDumper();
+                self::$dumperHTML = new HtmlDumper();
+            }
+
+            return $this;
+        }
+
+        /**
+         * Dumps a variable
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param mixed $var The variable
+         */
+        protected function dump($var) {
+            if ($this->isCLI) {
+                try {
+                    self::$dumperCLI->dump(self::$cloner->cloneVar($var));
+                } catch (Exception $e) {
+
+                }
             }
         }
 
@@ -91,12 +153,13 @@
         protected function injectCSS() {
             if (!$this->isCLI && !self::$cssInjected) {
                 self::$cssInjected = true;
-                if (file_exists(ALO_HANDLERS_CSS_PATH)) {
+                if (file_exists($this->config[AbstractConfig::CFG_CSS_PATH])) {
                     echo '<style type="text/css">';
-                    include ALO_HANDLERS_CSS_PATH;
+                    include $this->config[AbstractConfig::CFG_CSS_PATH];
                     echo '</style>';
                 } else {
-                    echo 'The AloFramework handlers\' CSS file could not be found: ' . ALO_HANDLERS_CSS_PATH . PHP_EOL;
+                    echo 'The AloFramework handlers\' CSS file could not be found: ' .
+                         $this->config[AbstractConfig::CFG_CSS_PATH] . PHP_EOL;
                 }
             }
         }
@@ -242,20 +305,29 @@
         /**
          * Registers the error and exception handlers. IMPORTANT: If you've extended the ErrorHandler or Exception
          * handler classes you must call their register() methods as this one would not register the correct handlers.
-         * @author Art <a.molcanovas@gmail.com>
+         * Due to method signature standards, this method only instantiates the error and exception handlers USING
+         * THEIR DEFAULT SETTINGS
+         * @author     Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param AbstractConfig  $cfg    Your custom error configuration settings
          *
          * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
          * ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.
+         * @since      1.4 $cfg added, deprecated
+         * @deprecated since 1.4. Use each handler's register() method separately instead.
+         * @todo       Remove in 2.0
          */
-        static function register(LoggerInterface $logger = null) {
+        static function register(LoggerInterface $logger = null, $cfg = null) {
             if (!$logger) {
                 $logger = new Log();
             }
-            $r = [ErrorHandler::register($logger), ExceptionHandler::register($logger)];
+            if (!$cfg) {
+                $cfg = new ErrorConfig();
+            }
+            $r = [ErrorHandler::register($logger, null), ExceptionHandler::register($logger, null)];
 
-            if (ALO_HANDLERS_REGISTER_SHUTDOWN) {
+            if ($cfg[AbstractConfig::CFG_REGISTER_SHUTDOWN_HANDLER]) {
                 $r[] = ShutdownHandler::register($logger);
             }
 

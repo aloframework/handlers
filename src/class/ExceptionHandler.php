@@ -2,13 +2,16 @@
 
     namespace AloFramework\Handlers;
 
+    use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\ExceptionConfig;
     use Exception;
     use Psr\Log\LoggerInterface;
 
     /**
      * Exception handling class
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.2 Tracks the last set handler & exception<br/>
+     * @since  1.4 Uses the Configurable interface<br/>
+     *         1.2 Tracks the last set handler & exception<br/>
      *         1.1 log() accepts the $includeLocation parameter
      */
     class ExceptionHandler extends AbstractHandler {
@@ -18,12 +21,6 @@
          * @var bool
          */
         private static $registered = false;
-
-        /**
-         * Maximum number of previous exceptions to echo
-         * @var int
-         */
-        protected $maxRecursion;
 
         /**
          * Last reported exception
@@ -38,13 +35,22 @@
         private static $lastRegisteredHandler = null;
 
         /**
+         * Object configuration
+         * @var ExceptionConfig
+         */
+        protected $config;
+
+        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
-         * @inheritdoc
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log exceptions.
+         * @param ExceptionConfig $cfg    The configuration class
+         *
+         * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null) {
-            parent::__construct($logger);
-            $this->maxRecursion = (int)ALO_HANDLERS_EXCEPTION_DEPTH;
+        function __construct(LoggerInterface $logger = null, ExceptionConfig $cfg = null) {
+            parent::__construct($logger, Alo::ifnull($cfg, new ExceptionConfig()));
         }
 
         /**
@@ -85,7 +91,7 @@
          * @param int            $level How many previous exceptions have been echoed so far
          */
         protected function echoPreviousExceptions($e, $level = 0) {
-            if ($level < $this->maxRecursion && ($e instanceof Exception)) {
+            if ($level < $this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH] && ($e instanceof Exception)) {
                 if ($this->isCLI) {
                     $this->console->write('<eb>Preceded by </>')
                         ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>')
@@ -192,7 +198,7 @@
         protected function log(Exception $e, $includeLocation = true) {
             $msg = '[' . $e->getCode() . '] ' . $e->getMessage();
 
-            if (ALO_HANDLERS_LOG_EXCEPTION_LOCATION && $includeLocation) {
+            if ($this->config[ExceptionConfig::CFG_LOG_EXCEPTION_LOCATION] && $includeLocation) {
                 $msg .= ' (occurred in ' . $e->getFile() . ' @ line ' . $e->getLine() . ')';
             }
 
@@ -204,17 +210,19 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param ExceptionConfig $cfg    Your custom configuration settings
          *
          * @return self The created handler instance
-         * @since  1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
-         * allows easy class extendability.
+         * @since  1.4 $cfg added<br/>
+         *         1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
+         *         allows easy class extendability.
          */
-        static function register(LoggerInterface $logger = null) {
+        static function register(LoggerInterface $logger = null, ExceptionConfig $cfg = null) {
             self::$registered = true;
 
             // To allow easy extending
             $class   = get_called_class();
-            $handler = new $class($logger);
+            $handler = new $class($logger, $cfg);
 
             set_exception_handler([$handler, 'handle']);
             self::$lastRegisteredHandler = &$handler;
@@ -229,7 +237,8 @@
          */
         function __toString() {
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
-                   'Previous exception recursion limit: ' . ($this->maxRecursion) . self::EOL .
-                   'Last reported exception: ' . (self::$lastReported ? self::$lastReported->__toString() : '[none]');
+                   'Previous exception recursion limit: ' . ($this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH]) .
+                   self::EOL . 'Last reported exception: ' .
+                   (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
     }
