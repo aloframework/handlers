@@ -16,6 +16,9 @@
         <testsuite name="Config">
             <directory>./tests/Config</directory>
         </testsuite>
+        <testsuite name="Misc">
+            <directory>./tests/Misc</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

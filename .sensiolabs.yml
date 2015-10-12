@@ -6,3 +6,5 @@ exclude_patterns:
 rules:
  php.debug_statements: # required as this is a debug/reporting package
   enabled: false
+ task_todo_comment:
+  enabled: false

@@ -9,6 +9,7 @@
     /**
      * Abstract version of the CLI output formatter
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      */
     abstract class AbstractOutputFormatter {
 
@@ -28,15 +29,6 @@
         }
 
         /**
-         * Returns Symfony's OutputFormatterStyle object
-         * @author Art <a.molcanovas@gmail.com>
-         * @return OutputFormatterStyle
-         */
-        function getFormatter() {
-            return $this->formatter;
-        }
-
-        /**
          * Static constructor
          * @author Art <a.molcanovas@gmail.com>
          * @return Error|Info|Warning
@@ -45,6 +37,15 @@
             $class = get_called_class();
 
             return new $class();
+        }
+
+        /**
+         * Returns Symfony's OutputFormatterStyle object
+         * @author Art <a.molcanovas@gmail.com>
+         * @return OutputFormatterStyle
+         */
+        function getFormatter() {
+            return $this->formatter;
         }
 
         /**
