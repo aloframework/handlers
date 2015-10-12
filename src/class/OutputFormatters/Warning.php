@@ -16,6 +16,6 @@
          */
         function __construct() {
             parent::__construct();
-            $this->formatter->setForeground((new AbstractConfig())->get(AbstractConfig::CFG_FOREGROUND_NOTICE));
+            $this->formatter->setForeground((new AbstractConfig())->get(AbstractConfig::CFG_FOREGROUND_WARNING));
         }
     }
