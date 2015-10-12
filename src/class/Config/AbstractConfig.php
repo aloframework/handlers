@@ -88,8 +88,8 @@
                                                                                            __DIR__ .
                                                                                            DIRECTORY_SEPARATOR . '..' .
                                                                                            DIRECTORY_SEPARATOR . '..' .
-                                                                                           DIRECTORY_SEPARATOR . 'error.min
-                                                                                .css'),
+                                                                                           DIRECTORY_SEPARATOR .
+                                                                                           'error.min.css'),
                                    self::CFG_TRACE_MAX_DEPTH           => Alo::ifundefined('ALO_HANDLERS_TRACE_MAX_DEPTH',
                                                                                            50),
                                    self::CFG_BACKGROUND                => Alo::ifundefined('ALO_HANDLERS_BACKGROUND',
