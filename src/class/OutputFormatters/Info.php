@@ -2,9 +2,12 @@
 
     namespace AloFramework\Handlers\OutputFormatters;
 
+    use AloFramework\Handlers\Config\AbstractConfig;
+
     /**
      * Output formatter for notices
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      */
     class Info extends AbstractOutputFormatter {
 
@@ -14,6 +17,6 @@
          */
         function __construct() {
             parent::__construct();
-            $this->formatter->setForeground(ALO_HANDLERS_FOREGROUND_NOTICE);
+            $this->formatter->setForeground((new AbstractConfig())->get(AbstractConfig::CFG_FOREGROUND_NOTICE));
         }
     }

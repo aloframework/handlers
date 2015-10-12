@@ -1,3 +1,10 @@
+# 1.4 #
+
+ - Configuration is now expected to be done via the [Configurable interface](https://github.com/aloframework/config),
+  the old, constant-based configuration is now deprecated and will be removed in 2.0
+ - Better tests' code coverage
+ - Output examples added
+
 # 1.3 #
 
 Bugfixes:

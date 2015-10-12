@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="true"
          backupStaticAttributes="true"
-         bootstrap="phpunit.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -13,8 +13,11 @@
         >
 
     <testsuites>
-        <testsuite name="Default">
-            <directory>./tests</directory>
+        <testsuite name="Config">
+            <directory>./tests/Config</directory>
+        </testsuite>
+        <testsuite name="Misc">
+            <directory>./tests/Misc</directory>
         </testsuite>
     </testsuites>
 

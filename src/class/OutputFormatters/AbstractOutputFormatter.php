@@ -2,12 +2,14 @@
 
     namespace AloFramework\Handlers\OutputFormatters;
 
+    use AloFramework\Handlers\Config\AbstractConfig;
     use InvalidArgumentException;
     use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
     /**
      * Abstract version of the CLI output formatter
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      */
     abstract class AbstractOutputFormatter {
 
@@ -23,16 +25,7 @@
          */
         function __construct() {
             $this->formatter = new OutputFormatterStyle();
-            $this->formatter->setBackground(ALO_HANDLERS_BACKGROUND);
-        }
-
-        /**
-         * Returns Symfony's OutputFormatterStyle object
-         * @author Art <a.molcanovas@gmail.com>
-         * @return OutputFormatterStyle
-         */
-        function getFormatter() {
-            return $this->formatter;
+            $this->formatter->setBackground((new AbstractConfig())->get(AbstractConfig::CFG_BACKGROUND));
         }
 
         /**
@@ -44,6 +37,15 @@
             $class = get_called_class();
 
             return new $class();
+        }
+
+        /**
+         * Returns Symfony's OutputFormatterStyle object
+         * @author Art <a.molcanovas@gmail.com>
+         * @return OutputFormatterStyle
+         */
+        function getFormatter() {
+            return $this->formatter;
         }
 
         /**

@@ -3,13 +3,16 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\ErrorConfig;
     use Psr\Log\LoggerInterface;
 
     /**
      * Handles PHP errors
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      * @since  1.2 Tracks the last reported error<br/>
      *         1.1 log() accepts the $file and $line parameters
+     * @property ErrorConfig $config Handler configuration
      */
     class ErrorHandler extends AbstractHandler {
 
@@ -41,20 +44,14 @@
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param LoggerInterface $logger If provided, this will be used to log exceptions.
+         * @param ErrorConfig     $cfg    The configuration class
+         *
+         * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null) {
-            parent::__construct($logger);
-            $this->errorReporting = (int)ALO_HANDLERS_ERROR_LEVEL;
-        }
-
-        /**
-         * Returns what errors are being reported
-         * @author Art <a.molcanovas@gmail.com>
-         * @return int
-         */
-        function getErrorReporting() {
-            return $this->errorReporting;
+        function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+            parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
+            $this->errorReporting = (int)$this->config[ErrorConfig::CFG_ERROR_LEVEL];
         }
 
         /**
@@ -136,40 +133,27 @@
         }
 
         /**
-         * Logs an error
+         * Generates console output for errors
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param int    $errcode The error's code
-         * @param string $errstr  The error message
-         * @param string $file    File where the error occurred
-         * @param int    $line    Line number where the error occurred
-         *
-         * @since  1.1 Accepts the $file and $line parameters
+         * @param string $type    Error type
+         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
+         * @param int    $errno   Error code
+         * @param string $errstr  Error message
+         * @param string $errfile File where the error occurred
+         * @param int    $errline Line where the error occurred
          */
-        protected function log($errcode, $errstr, $file = null, $line = null) {
-            switch ($errcode) {
-                case E_NOTICE:
-                case E_USER_NOTICE:
-                    $method = 'notice';
-                    break;
-                case E_WARNING:
-                case E_USER_WARNING:
-                case E_CORE_WARNING:
-                case E_DEPRECATED:
-                case E_USER_DEPRECATED:
-                    $method = 'warning';
-                    break;
-                default:
-                    $method = 'error';
-            }
+        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+            $this->console->write('<' . $label . 'b>' . $type . '</>')
+                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
+                        true)
+                ->write('<' . $label . '>Raised in </>')
+                ->write('<' . $label . 'u>' . $errfile . '</>')
+                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
+                ->write('<' . $label . 'b>Debug backtrace:</>', true)
+                ->writeln('');
 
-            $msg = '[' . $errcode . '] ' . $errstr;
-
-            if (ALO_HANDLERS_LOG_ERROR_LOCATION && $file && $line) {
-                $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
-            }
-
-            $this->logger->{$method}($msg);
+            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
         }
 
         /**
@@ -208,54 +192,40 @@
         }
 
         /**
-         * Generates console output for errors
+         * Logs an error
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param string $type    Error type
-         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
-         * @param int    $errno   Error code
-         * @param string $errstr  Error message
-         * @param string $errfile File where the error occurred
-         * @param int    $errline Line where the error occurred
-         */
-        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
-            $this->console->write('<' . $label . 'b>' . $type . '</>')
-                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
-                        true)
-                ->write('<' . $label . '>Raised in </>')
-                ->write('<' . $label . 'u>' . $errfile . '</>')
-                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
-                ->write('<' . $label . 'b>Debug backtrace:</>', true)
-                ->writeln('');
-
-            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
-        }
-
-        /**
-         * Registers the error handler
-         * @author Art <a.molcanovas@gmail.com>
+         * @param int    $errcode The error's code
+         * @param string $errstr  The error message
+         * @param string $file    File where the error occurred
+         * @param int    $line    Line number where the error occurred
          *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         *
-         * @return self The created handler
-         * @since  1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
-         * allows easy class extendability.
+         * @since  1.1 Accepts the $file and $line parameters
          */
-        static function register(LoggerInterface $logger = null) {
-            self::$registered = true;
+        protected function log($errcode, $errstr, $file = null, $line = null) {
+            switch ($errcode) {
+                case E_NOTICE:
+                case E_USER_NOTICE:
+                    $method = 'notice';
+                    break;
+                case E_WARNING:
+                case E_USER_WARNING:
+                case E_CORE_WARNING:
+                case E_DEPRECATED:
+                case E_USER_DEPRECATED:
+                    $method = 'warning';
+                    break;
+                default:
+                    $method = 'error';
+            }
 
-            /**
-             * To allow easy extending.
-             * @var self $handler
-             */
-            $class   = get_called_class();
-            $handler = new $class($logger);
+            $msg = '[' . $errcode . '] ' . $errstr;
 
-            self::$lastRegisteredHandler = &$handler;
+            if ($this->config[ErrorConfig::CFG_LOG_ERROR_LOCATION] && $file && $line) {
+                $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
+            }
 
-            set_error_handler([$handler, 'handle'], $handler->getErrorReporting());
-
-            return $handler;
+            $this->logger->{$method}($msg);
         }
 
         /**
@@ -266,5 +236,43 @@
         function __toString() {
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
                    'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
+        }
+
+        /**
+         * Registers the error handler
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param ErrorConfig     $cfg    Your custom configuration settings
+         *
+         * @return self The created handler
+         * @since  1.4 $cfg parameter added<br/>
+         *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
+         *         allows easy class extendability.
+         */
+        static function register(LoggerInterface $logger = null, $cfg = null) {
+            self::$registered = true;
+
+            /**
+             * To allow easy extending.
+             * @var self $handler
+             */
+            $class   = get_called_class();
+            $handler = new $class($logger, $cfg);
+
+            self::$lastRegisteredHandler = &$handler;
+
+            set_error_handler([$handler, 'handle'], $handler->getErrorReporting());
+
+            return $handler;
+        }
+
+        /**
+         * Returns what errors are being reported
+         * @author Art <a.molcanovas@gmail.com>
+         * @return int
+         */
+        function getErrorReporting() {
+            return $this->errorReporting;
         }
     }

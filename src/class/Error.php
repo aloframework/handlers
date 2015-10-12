@@ -3,12 +3,18 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\ErrorConfig;
     use ArrayObject;
 
     /**
      * Object representation of an error
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.3 shouldBeReported(), $map<br/>
+     * @property int    $line    Error line
+     * @property string $file    Error file
+     * @property string $message Error message
+     * @property int    $type    Error code
+     * @since  1.4 __get() added<br/>
+     *         1.3 shouldBeReported(), $map<br/>
      *         1.2
      */
     class Error extends ArrayObject {
@@ -48,11 +54,15 @@
                                      'file'    => null,
                                      'line'    => null]);
             } else {
-                if (is_array($typeOrData) && !empty($typeOrData)) {
+                if (is_array($typeOrData)) {
                     $message    = Alo::get($typeOrData['message']);
                     $file       = Alo::get($typeOrData['file']);
                     $line       = Alo::get($typeOrData['line']);
                     $typeOrData = Alo::get($typeOrData['type']);
+                }
+
+                if (!is_numeric($typeOrData)) {
+                    $typeOrData = null;
                 }
 
                 parent::__construct(['type'    => $typeOrData,
@@ -63,21 +73,55 @@
         }
 
         /**
+         * Checks if an error should be reported
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param int $errcode           The error code
+         * @param int $reportingSettings You can provide your own reporting settings. If omitted,
+         *                               ALO_HANDLERS_ERROR_LEVEL will be used.
+         *
+         * @return bool
+         * @since  1.3
+         */
+        static function shouldBeReported($errcode, $reportingSettings = null) {
+            if (!$reportingSettings || !is_numeric($reportingSettings)) {
+                $reportingSettings = (int)((new ErrorConfig())->get(ErrorConfig::CFG_ERROR_LEVEL));
+            }
+
+            $reportingSettings = (int)$reportingSettings;
+
+            return $errcode && $reportingSettings & ((int)$errcode) ? true : false;
+        }
+
+        /**
+         * Alias of offsetGet()
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param string $var Variable to get
+         *
+         * @return mixed
+         */
+        function __get($var) {
+            return $this->offsetGet($var);
+        }
+
+        /**
+         * Checks if the error is actually empty
+         * @author Art <a.molcanovas@gmail.com>
+         * @return bool
+         */
+        function isEmpty() {
+            return !($this->getType() && $this->getMessage() && $this->getFile() && $this->getLine());
+        }
+
+        /**
          * Returns the error code
          * @author Art <a.molcanovas@gmail.com>
          * @return int
          */
         function getType() {
             return $this->offsetGet('type');
-        }
-
-        /**
-         * Returns the error line
-         * @author Art <a.molcanovas@gmail.com>
-         * @return int
-         */
-        function getLine() {
-            return $this->offsetGet('line');
         }
 
         /**
@@ -99,44 +143,12 @@
         }
 
         /**
-         * Checks if the error is actually empty
+         * Returns the error line
          * @author Art <a.molcanovas@gmail.com>
-         * @return bool
+         * @return int
          */
-        function isEmpty() {
-            return !($this->getType() && $this->getMessage() && $this->getFile() && $this->getLine());
-        }
-
-        /**
-         * Returns a string representation of $this
-         * @author Art <a.molcanovas@gmail.com>
-         * @return string
-         */
-        function __toString() {
-            return '[' . $this->getType() . '] ' . $this->getMessage() . ' @ ' . $this->getFile() . ' @ line ' .
-                   $this->getLine();
-        }
-
-        /**
-         * Checks if an error should be reported
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param int $errcode           The error code
-         * @param int $reportingSettings You can provide your own reporting settings. If omitted,
-         *                               ALO_HANDLERS_ERROR_LEVEL will be used.
-         *
-         * @return bool
-         * @since  1.3
-         */
-        static function shouldBeReported($errcode, $reportingSettings = null) {
-            if (!$reportingSettings || !is_numeric($reportingSettings)) {
-                $reportingSettings = (int)ALO_HANDLERS_ERROR_LEVEL;
-            }
-
-            $reportingSettings = (int)$reportingSettings;
-
-            return $errcode && $reportingSettings & ((int)$errcode) ? true : false;
+        function getLine() {
+            return $this->offsetGet('line');
         }
 
         /**
@@ -149,5 +161,15 @@
          */
         function equals(Error $e) {
             return $e->__toString() === $this->__toString();
+        }
+
+        /**
+         * Returns a string representation of $this
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return '[' . $this->getType() . '] ' . $this->getMessage() . ' @ ' . $this->getFile() . ' @ line ' .
+                   $this->getLine();
         }
     }
