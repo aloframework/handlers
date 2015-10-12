@@ -10,7 +10,7 @@ Latest release API documentation: [https://aloframework.github.io/handlers/](htt
 
 |                                                                                          dev-develop                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.3)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.4)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -20,53 +20,42 @@ Installation is available via Composer:
 
 ## Usage ##
 
- - To enable only the exception handler call `\AloFramework\Handlers\ExceptionHandler::register()`
- - To enable only the error handler call `\AloFramework\Handlers\ErrorHandler::register()`
- - To enable both handlers call `\AloFramework\Handlers\AbstractHandler::register()`
-	 - A ShutdownHandler is also available and requires the ErrorHandler to be registered - it should be able to handle and log fatal errors. If you define `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)` it will be registered via the abstract handler.
-
-### Enabling logging ###
-
-You can enable automatic logging by passing an instance of [\Psr\Log\LoggerInterface](https://packagist.org/packages/psr/log) to the `register()` method. The [AloFramework logger](https://packagist.org/packages/aloframework/log) implements this.
-
-## Extension ##
-If you extend the `ErrorHandler` or `ExceptionHandler` classes you will no longer be able to instantiate both handlers simultaneously via `\AloFramework\Handlers\AbstractHandler::register()` and will need to call each handler's `register()` method.
-
-## Configuration ##
-
-Any configuration must be made before calling composer's autoloader.
-
-### Error levels ###
-
-You can control which errors will be handled by defining **ALO_HANDLERS_ERROR_LEVEL**. This defaults to `ini_get('error_reporting')`.
-
-### CSS ###
-
-If you wish to change the CSS used for error output you can check **src/error.css**. Edit the values there to suit your needs, save the file in one of your project's directories and set the **ALO_HANDLERS_CSS_PATH** constant to point to that file's location **on your file system**, as its contents are read by PHP instead of pointing the browser to its location.
-
-### CLI output colours ###
-
-The output colours of the CLI handlers accept the following colour options: **black**, **red**, **green**, **yellow**, **blue**, **magenta**, **cyan** and **white** (as per [Symfony's Console component's specifications](http://symfony.com/doc/current/components/console/introduction.html#creating-a-basic-command)). For the background colour, the **default** option is available, which uses the console client's background colour.
-
-The configurable colour constants are as follows:
-
- - **ALO_HANDLERS_BACKGROUND** changes the output background colour
- - **ALO_HANDLERS_FOREGROUND_NOTICE** changes the text colour for PHP notices
- - **ALO_HANDLERS_FOREGROUND_WARNING** changes the text colour for PHP warnings
- - **ALO_HANDLERS_FOREGROUND_ERROR** changes the text colour for PHP errors and exceptions
-
-### Leak prevention ###
-
-As a failsafe against infinite looping, you can define the **ALO_HANDLERS_EXCEPTION_DEPTH** constant to limit the maximum amount of previous exceptions reported (defaults to **10**) and **ALO_HANDLERS_TRACE_MAX_DEPTH** to limit the maximum number of debug backtrace items (defaults to **50**).
+ - To enable the exception handler call `\AloFramework\Handlers\ExceptionHandler::register()`
+ - To enable the error handler call `\AloFramework\Handlers\ErrorHandler::register()`
+ - To enable the shutdown handler call `\AloFramework\Handlers\ShutdownHandler::register()`
 
 ### Logging ###
-You can prevent error/exception locations from showing up in the logger by defining the following constants before calling composer's autoloader:
+Every error and exception has to be logged in this package. You can supply your own logger to have more control; if you don't, [aloframework/log](https://github.com/aloframework/log) will be used with its default settings. 
 
-    define('ALO_HANDLERS_LOG_ERROR_LOCATION', false);
-    define('ALO_HANDLERS_LOG_EXCEPTION_LOCATION', false);
+## Configuration ##
+Configuration is done via the classes in the `AloFramework\Handlers\Config` namespace. 
 
-### Shutdown Handler ###
-You can make the shutdown handler register by default by defining `define('ALO_HANDLERS_REGISTER_SHUTDOWN', true)`.
+### Common ###
 
-### Output Format ###
- - You can force HTML error handling output in CLI mode by defining `define('ALO_HANDLERS_FORCE_HTML', true);`
+ - `CFG_CSS_PATH` - path to the CSS file which will style the HTML output. Defaults to **error.min.css** in the src directory.
+ - `CFG_TRACE_MAX_DEPTH` - maximum number of debug backtrace items to display [**50**]
+ - `CFG_BACKGROUND` - CLI output background colour [**default**]
+ - `CFG_FOREGROUND_NOTICE` - CLI output notice level foreground colour [**cyan**]
+ - `CFG_FOREGROUND_WARNING` - CLI output warning level foreground colour [**yellow**]
+ - `CFG_FOREGROUND_ERROR` - CLI output error/exception level foreground colour [**red**]
+ - `CFG_FORCE_HTML` - Whether to force HTML output even in CLI mode [**false**]
+ - `CFG_REGISTER_SHUTDOWN_HANDLER` - **deprecated**, whether to register the shutdown handler when calling the deprecated `AbstractHandler::register()` method [**false**]
+
+### Error Handlers' Config ###
+
+ - `CFG_ERROR_LEVEL` - Which error levels to handle. Defaults to the value of `error_reporting()`.
+ - `CFG_LOG_ERROR_LOCATION` - Whether to include the error location in the log [**true**]
+
+### Exception Handlers' Config ###
+
+ - `CFG_EXCEPTION_DEPTH` - Maximum number previous exceptions to output in the exception handler [**10**]
+ - `CFG_LOG_EXCEPTION_LOCATION` Whether to include the exception location in the log [**true**]
+
+## Sample Output ###
+
+| **HTML**                                                                                              | **CLI**                                                                                              |
+|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [Error](https://github.com/aloframework/handlers/blob/develop/output-examples/error-html.png)         | [Error](https://github.com/aloframework/handlers/blob/develop/output-examples/error-cli.png)         |
+| [Exception](https://github.com/aloframework/handlers/blob/develop/output-examples/exception-html.png) | [Exception](https://github.com/aloframework/handlers/blob/develop/output-examples/exception-cli.png) |
+| [Warning](https://github.com/aloframework/handlers/blob/develop/output-examples/warning-html.png)     | [Warning](https://github.com/aloframework/handlers/blob/develop/output-examples/warning-cli.png)     |
+| [Notice](https://github.com/aloframework/handlers/blob/develop/output-examples/notice-html.png)       | [Notice](https://github.com/aloframework/handlers/blob/develop/output-examples/notice-cli.png)       |
