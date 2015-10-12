@@ -9,6 +9,7 @@
      * The shutdown handler. Allows fatal error reporting
      *
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      * @since  1.2.1 Should now report fatal errors if no errors had been raised beforehand.<br/>
      *         1.2
      */
@@ -72,6 +73,15 @@
         }
 
         /**
+         * Returns a string representation of the object
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return parent::__toString() . self::EOL . 'Registered: Yes';
+        }
+
+        /**
          * Registers the shutdown handler
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -89,14 +99,5 @@
             self::$lastRegisteredHandler = &$handler;
 
             return $handler;
-        }
-
-        /**
-         * Returns a string representation of the object
-         * @author Art <a.molcanovas@gmail.com>
-         * @return string
-         */
-        function __toString() {
-            return parent::__toString() . self::EOL . 'Registered: Yes';
         }
     }

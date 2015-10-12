@@ -9,6 +9,7 @@
     /**
      * Handles PHP errors
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      * @since  1.2 Tracks the last reported error<br/>
      *         1.1 log() accepts the $file and $line parameters
      * @property ErrorConfig $config Handler configuration
@@ -51,15 +52,6 @@
         function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
             $this->errorReporting = (int)$this->config[ErrorConfig::CFG_ERROR_LEVEL];
-        }
-
-        /**
-         * Returns what errors are being reported
-         * @author Art <a.molcanovas@gmail.com>
-         * @return int
-         */
-        function getErrorReporting() {
-            return $this->errorReporting;
         }
 
         /**
@@ -141,40 +133,27 @@
         }
 
         /**
-         * Logs an error
+         * Generates console output for errors
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param int    $errcode The error's code
-         * @param string $errstr  The error message
-         * @param string $file    File where the error occurred
-         * @param int    $line    Line number where the error occurred
-         *
-         * @since  1.1 Accepts the $file and $line parameters
+         * @param string $type    Error type
+         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
+         * @param int    $errno   Error code
+         * @param string $errstr  Error message
+         * @param string $errfile File where the error occurred
+         * @param int    $errline Line where the error occurred
          */
-        protected function log($errcode, $errstr, $file = null, $line = null) {
-            switch ($errcode) {
-                case E_NOTICE:
-                case E_USER_NOTICE:
-                    $method = 'notice';
-                    break;
-                case E_WARNING:
-                case E_USER_WARNING:
-                case E_CORE_WARNING:
-                case E_DEPRECATED:
-                case E_USER_DEPRECATED:
-                    $method = 'warning';
-                    break;
-                default:
-                    $method = 'error';
-            }
+        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
+            $this->console->write('<' . $label . 'b>' . $type . '</>')
+                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
+                        true)
+                ->write('<' . $label . '>Raised in </>')
+                ->write('<' . $label . 'u>' . $errfile . '</>')
+                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
+                ->write('<' . $label . 'b>Debug backtrace:</>', true)
+                ->writeln('');
 
-            $msg = '[' . $errcode . '] ' . $errstr;
-
-            if ($this->config[ErrorConfig::CFG_LOG_ERROR_LOCATION] && $file && $line) {
-                $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
-            }
-
-            $this->logger->{$method}($msg);
+            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
         }
 
         /**
@@ -213,27 +192,50 @@
         }
 
         /**
-         * Generates console output for errors
+         * Logs an error
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param string $type    Error type
-         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
-         * @param int    $errno   Error code
-         * @param string $errstr  Error message
-         * @param string $errfile File where the error occurred
-         * @param int    $errline Line where the error occurred
+         * @param int    $errcode The error's code
+         * @param string $errstr  The error message
+         * @param string $file    File where the error occurred
+         * @param int    $line    Line number where the error occurred
+         *
+         * @since  1.1 Accepts the $file and $line parameters
          */
-        protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
-            $this->console->write('<' . $label . 'b>' . $type . '</>')
-                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
-                        true)
-                ->write('<' . $label . '>Raised in </>')
-                ->write('<' . $label . 'u>' . $errfile . '</>')
-                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
-                ->write('<' . $label . 'b>Debug backtrace:</>', true)
-                ->writeln('');
+        protected function log($errcode, $errstr, $file = null, $line = null) {
+            switch ($errcode) {
+                case E_NOTICE:
+                case E_USER_NOTICE:
+                    $method = 'notice';
+                    break;
+                case E_WARNING:
+                case E_USER_WARNING:
+                case E_CORE_WARNING:
+                case E_DEPRECATED:
+                case E_USER_DEPRECATED:
+                    $method = 'warning';
+                    break;
+                default:
+                    $method = 'error';
+            }
 
-            $this->getTrace(array_slice(debug_backtrace(), 2), $label);
+            $msg = '[' . $errcode . '] ' . $errstr;
+
+            if ($this->config[ErrorConfig::CFG_LOG_ERROR_LOCATION] && $file && $line) {
+                $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
+            }
+
+            $this->logger->{$method}($msg);
+        }
+
+        /**
+         * Returns a string representation of the handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
+                   'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
         }
 
         /**
@@ -266,12 +268,11 @@
         }
 
         /**
-         * Returns a string representation of the handler
+         * Returns what errors are being reported
          * @author Art <a.molcanovas@gmail.com>
-         * @return string
+         * @return int
          */
-        function __toString() {
-            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
-                   'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
+        function getErrorReporting() {
+            return $this->errorReporting;
         }
     }

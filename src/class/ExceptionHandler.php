@@ -10,10 +10,10 @@
     /**
      * Exception handling class
      * @author Art <a.molcanovas@gmail.com>
+     * @codeCoverageIgnore
      * @since  1.4 Uses the Configurable interface<br/>
      *         1.2 Tracks the last set handler & exception<br/>
      *         1.1 log() accepts the $includeLocation parameter
-     * @property ExceptionConfig $config Handler configuration
      */
     class ExceptionHandler extends AbstractHandler {
 
@@ -84,6 +84,47 @@
         }
 
         /**
+         * Exception handler
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param Exception $e The exception
+         */
+        function handle(Exception $e) {
+            $this->injectCSS();
+            self::$lastReported = $e;
+
+            if ($this->isCLI) {
+                $this->handleCLI($e);
+            } else {
+                $this->handleHTML($e);
+            }
+
+            $this->log($e);
+        }
+
+        /**
+         * Handles the exception with CLI output
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param Exception $e The exception
+         */
+        protected function handleCLI(Exception $e) {
+            $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
+                ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>', true)
+                ->write('<e>Raised in </>')
+                ->write('<eu>' . $e->getFile() . '</>')
+                ->write('<e> @ line </>')
+                ->write('<eu>' . $e->getLine() . '</>', true);
+
+            $this->echoPreviousExceptions($e->getPrevious());
+
+            $this->console->write('<eb>Debug backtrace:</eb>', true)->writeln('');
+
+            echo $this->getTrace($e->getTrace(), 'e');
+        }
+
+        /**
          * Echoes previous exceptions if applicable
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -113,26 +154,6 @@
 
                 $this->echoPreviousExceptions($e->getPrevious(), ++$level);
             }
-        }
-
-        /**
-         * Exception handler
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param Exception $e The exception
-         */
-        function handle(Exception $e) {
-            $this->injectCSS();
-            self::$lastReported = $e;
-
-            if ($this->isCLI) {
-                $this->handleCLI($e);
-            } else {
-                $this->handleHTML($e);
-            }
-
-            $this->log($e);
         }
 
         /**
@@ -167,27 +188,6 @@
         }
 
         /**
-         * Handles the exception with CLI output
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param Exception $e The exception
-         */
-        protected function handleCLI(Exception $e) {
-            $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
-                ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>', true)
-                ->write('<e>Raised in </>')
-                ->write('<eu>' . $e->getFile() . '</>')
-                ->write('<e> @ line </>')
-                ->write('<eu>' . $e->getLine() . '</>', true);
-
-            $this->echoPreviousExceptions($e->getPrevious());
-
-            $this->console->write('<eb>Debug backtrace:</eb>', true)->writeln('');
-
-            echo $this->getTrace($e->getTrace(), 'e');
-        }
-
-        /**
          * Logs a message if the logger is enabled
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -204,6 +204,18 @@
             }
 
             $this->logger->error($msg);
+        }
+
+        /**
+         * Returns a string representation of the handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
+                   'Previous exception recursion limit: ' . ($this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH]) .
+                   self::EOL . 'Last reported exception: ' .
+                   (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
 
         /**
@@ -229,17 +241,5 @@
             self::$lastRegisteredHandler = &$handler;
 
             return $handler;
-        }
-
-        /**
-         * Returns a string representation of the handler
-         * @author Art <a.molcanovas@gmail.com>
-         * @return string
-         */
-        function __toString() {
-            return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
-                   'Previous exception recursion limit: ' . ($this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH]) .
-                   self::EOL . 'Last reported exception: ' .
-                   (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
     }
