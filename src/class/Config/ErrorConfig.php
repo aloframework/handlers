@@ -7,6 +7,9 @@
     /**
      * Error config class
      * @author Art <a.molcanovas@gmail.com>
+     * @since  1.4.1 property PHPdocs added
+     * @property bool $logErrorLocation Whether to include the error location in the log file
+     * @property int  $errorLevel       Which error levels to log
      */
     class ErrorConfig extends AbstractConfig {
 
@@ -14,13 +17,13 @@
          * [INT] Which errors to log configuration key
          * @var string
          */
-        const CFG_ERROR_LEVEL = 'err.level';
+        const CFG_ERROR_LEVEL = 'errorLevel';
 
         /**
          * [BOOL] Whether to log where the error occurred configuration key
          * @var string
          */
-        const CFG_LOG_ERROR_LOCATION = 'err.log';
+        const CFG_LOG_ERROR_LOCATION = 'logErrorLocation';
 
         /**
          * Default config array

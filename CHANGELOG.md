@@ -1,3 +1,7 @@
+# 1.4.1 #
+
+@property PHPDocs added to the config classes, config keys' string identifiers relabeled
+
 # 1.4 #
 
  - Configuration is now expected to be done via the [Configurable interface](https://github.com/aloframework/config),

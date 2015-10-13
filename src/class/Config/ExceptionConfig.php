@@ -7,6 +7,9 @@
     /**
      * Error config class
      * @author Art <a.molcanovas@gmail.com>
+     * @since  1.4.1 property PHPdocs added
+     * @property int  $prevExceptionDepth   How many previous exceptions to output
+     * @property bool $logExceptionLocation Whether to include the exception location in the log message
      */
     class ExceptionConfig extends AbstractConfig {
 
@@ -14,13 +17,13 @@
          * [INT] How many previous exceptions to echo configuration key
          * @var string
          */
-        const CFG_EXCEPTION_DEPTH = 'ex.prev-dpt';
+        const CFG_EXCEPTION_DEPTH = 'prevExceptionDepth';
 
         /**
          * [BOOL] Whether to log where the exception occurred configuration key
          * @var string
          */
-        const CFG_LOG_EXCEPTION_LOCATION = 'ex.log';
+        const CFG_LOG_EXCEPTION_LOCATION = 'logExceptionLocation';
 
         /**
          * Default config array

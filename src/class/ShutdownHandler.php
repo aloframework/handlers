@@ -3,6 +3,7 @@
     namespace AloFramework\Handlers;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Handlers\Config\AbstractConfig;
     use Psr\Log\LoggerInterface;
 
     /**
@@ -87,13 +88,14 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log shutdowns.
+         * @param AbstractConfig $cfg Configuration options
          *
          * @return self
          */
-        static function register(LoggerInterface $logger = null) {
+        static function register(LoggerInterface $logger = null, $cfg = null) {
             self::$registered = true;
             $class            = get_called_class();
-            $handler          = new $class($logger);
+            $handler = new $class($logger, $cfg);
 
             register_shutdown_function([$handler, 'handle']);
             self::$lastRegisteredHandler = &$handler;

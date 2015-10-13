@@ -88,7 +88,7 @@
 
             $this->config = Alo::ifnull($cfg, new AbstractConfig());
             $this->logger = $logger;
-            $this->isCLI  = !$this->config[AbstractConfig::CFG_FORCE_HTML] && Alo::isCliRequest();
+            $this->isCLI = !$this->config->forceHTML && Alo::isCliRequest();
 
             $this->initSymfony();
         }
@@ -137,7 +137,7 @@
             }
             $r = [ErrorHandler::register($logger, null), ExceptionHandler::register($logger, null)];
 
-            if ($cfg[AbstractConfig::CFG_REGISTER_SHUTDOWN_HANDLER]) {
+            if ($cfg->regShutdown) {
                 $r[] = ShutdownHandler::register($logger);
             }
 
@@ -162,13 +162,12 @@
         protected function injectCSS() {
             if (!$this->isCLI && !self::$cssInjected) {
                 self::$cssInjected = true;
-                if (file_exists($this->config[AbstractConfig::CFG_CSS_PATH])) {
+                if (file_exists($this->config->cssPath)) {
                     echo '<style type="text/css">';
-                    include $this->config[AbstractConfig::CFG_CSS_PATH];
+                    include $this->config->cssPath;
                     echo '</style>';
                 } else {
-                    echo 'The AloFramework handlers\' CSS file could not be found: ' .
-                         $this->config[AbstractConfig::CFG_CSS_PATH] . PHP_EOL;
+                    echo 'The AloFramework handlers\' CSS file could not be found: ' . $this->config->cssPath . PHP_EOL;
                 }
             }
         }

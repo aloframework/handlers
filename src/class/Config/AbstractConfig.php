@@ -8,7 +8,17 @@
     /**
      * AbstractHandler configuration
      * @author Art <a.molcanovas@gmail.com>
-     * @since  1.4
+     * @since  1.4.1 property phpdocs added<br/>
+     *         1.4
+     * @property string $fgInfo      Foreground colour for info-level messages in CLI mode
+     * @property string $fgWarn      Foreground colour for info-level messages in CLI mode
+     * @property string $fgErr       Foreground colour for info-level messages in CLI mode
+     * @property bool   $forceHTML   Whether to force HTML output even in CLI mode
+     * @property bool   $regShutdown [DEPRECATED] Whether to register the shutdown handler in the
+     * AbstractHandler::register()
+     * @property string $bgCli       Background colour in CLI mode
+     * @property string $cssPath     Path to the CSS file
+     * @property int    $traceDepth  Maximum number of debug backtrace items to output
      */
     class AbstractConfig extends ACFG {
 
@@ -16,49 +26,50 @@
          * [STR] The CSS path configuration key
          * @var string
          */
-        const CFG_CSS_PATH = 'a.css';
+        const CFG_CSS_PATH = 'cssPath';
 
         /**
          * [INT] Maximum debug backtrace depth configuration key
          * @var string
          */
-        const CFG_TRACE_MAX_DEPTH = 'a.trace.dpt';
+        const CFG_TRACE_MAX_DEPTH = 'traceDepth';
 
         /**
          * [STR] CLI background colour configuration key
          * @var string
          */
-        const CFG_BACKGROUND = 'a.cli.bg';
+        const CFG_BACKGROUND = 'bgCli';
 
         /**
          * [STR] CLI notice level foreground colour cofiguration key
          * @var string
          */
-        const CFG_FOREGROUND_NOTICE = 'a.fg.info';
+        const CFG_FOREGROUND_NOTICE = 'fgInfo';
 
         /**
          * [STR] CLI warning level foreground colour cofiguration key
          * @var string
          */
-        const CFG_FOREGROUND_WARNING = 'a.fg.warn';
+        const CFG_FOREGROUND_WARNING = 'fgWarn';
 
         /**
          * [STR] CLI error level foreground colour cofiguration key
          * @var string
          */
-        const CFG_FOREGROUND_ERROR = 'a.fg.err';
+        const CFG_FOREGROUND_ERROR = 'fgErr';
 
         /**
          * [BOOL] Whether to force HTML output regardless of whether the error is raised in CLI mode (configuration key)
          * @var string
          */
-        const CFG_FORCE_HTML = 'a.html';
+        const CFG_FORCE_HTML = 'forceHTML';
 
         /**
          * [BOOL] Whether to register the shutdown handler via AbstractHandler's register() method (configuration key)
          * @var string
+         * @deprecated Will be removed in 2.0
          */
-        const CFG_REGISTER_SHUTDOWN_HANDLER = 'a.shutdown';
+        const CFG_REGISTER_SHUTDOWN_HANDLER = 'regShutdown';
 
         /**
          * Default configuration array

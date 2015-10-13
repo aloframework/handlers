@@ -51,7 +51,7 @@
          */
         function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
-            $this->errorReporting = (int)$this->config[ErrorConfig::CFG_ERROR_LEVEL];
+            $this->errorReporting = (int)$this->config->errorLevel;
         }
 
         /**
@@ -221,7 +221,7 @@
 
             $msg = '[' . $errcode . '] ' . $errstr;
 
-            if ($this->config[ErrorConfig::CFG_LOG_ERROR_LOCATION] && $file && $line) {
+            if ($this->config->logErrorLocation && $file && $line) {
                 $msg .= ' (occurred in ' . $file . ' @ line ' . $line . ')';
             }
 

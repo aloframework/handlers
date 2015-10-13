@@ -14,6 +14,7 @@
      * @since  1.4 Uses the Configurable interface<br/>
      *         1.2 Tracks the last set handler & exception<br/>
      *         1.1 log() accepts the $includeLocation parameter
+     * @property ExceptionConfig $config Handler configuration
      */
     class ExceptionHandler extends AbstractHandler {
 
@@ -34,12 +35,6 @@
          * @var self
          */
         private static $lastRegisteredHandler = null;
-
-        /**
-         * Object configuration
-         * @var ExceptionConfig
-         */
-        protected $config;
 
         /**
          * Constructor
@@ -133,7 +128,7 @@
          * @param int            $level How many previous exceptions have been echoed so far
          */
         protected function echoPreviousExceptions($e, $level = 0) {
-            if ($level < $this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH] && ($e instanceof Exception)) {
+            if ($level < $this->config->prevExceptionDepth && ($e instanceof Exception)) {
                 if ($this->isCLI) {
                     $this->console->write('<eb>Preceded by </>')
                         ->write('<e>[' . $e->getCode() . '] ' . $e->getMessage() . '</>')
@@ -199,7 +194,7 @@
         protected function log(Exception $e, $includeLocation = true) {
             $msg = '[' . $e->getCode() . '] ' . $e->getMessage();
 
-            if ($this->config[ExceptionConfig::CFG_LOG_EXCEPTION_LOCATION] && $includeLocation) {
+            if ($this->config->logExceptionLocation && $includeLocation) {
                 $msg .= ' (occurred in ' . $e->getFile() . ' @ line ' . $e->getLine() . ')';
             }
 
@@ -213,9 +208,8 @@
          */
         function __toString() {
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
-                   'Previous exception recursion limit: ' . ($this->config[ExceptionConfig::CFG_EXCEPTION_DEPTH]) .
-                   self::EOL . 'Last reported exception: ' .
-                   (self::$lastReported ? self::$lastReported->__toString() : '[none]');
+                   'Previous exception recursion limit: ' . ($this->config->prevExceptionDepth) . self::EOL .
+                   'Last reported exception: ' . (self::$lastReported ? self::$lastReported->__toString() : '[none]');
         }
 
         /**

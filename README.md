@@ -10,7 +10,7 @@ Latest release API documentation: [https://aloframework.github.io/handlers/](htt
 
 |                                                                                          dev-develop                                                                                          |                                                             Latest release                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.4)](https://travis-ci.org/aloframework/handlers)  |
+| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.4.1)](https://travis-ci.org/aloframework/handlers)  |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
 
 ## Installation ##
@@ -55,7 +55,7 @@ Configuration is done via the classes in the `AloFramework\Handlers\Config` name
 
 | **HTML**                                                                                              | **CLI**                                                                                              |
 |-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| [Error](https://github.com/aloframework/handlers/blob/develop/output-examples/error-html.png)         | [Error](https://github.com/aloframework/handlers/blob/develop/output-examples/error-cli.png)         |
-| [Exception](https://github.com/aloframework/handlers/blob/develop/output-examples/exception-html.png) | [Exception](https://github.com/aloframework/handlers/blob/develop/output-examples/exception-cli.png) |
-| [Warning](https://github.com/aloframework/handlers/blob/develop/output-examples/warning-html.png)     | [Warning](https://github.com/aloframework/handlers/blob/develop/output-examples/warning-cli.png)     |
-| [Notice](https://github.com/aloframework/handlers/blob/develop/output-examples/notice-html.png)       | [Notice](https://github.com/aloframework/handlers/blob/develop/output-examples/notice-cli.png)       |
+| [Error](https://github.com/aloframework/handlers/blob/master/output-examples/error-html.png)         | [Error](https://github.com/aloframework/handlers/blob/master/output-examples/error-cli.png)         |
+| [Exception](https://github.com/aloframework/handlers/blob/master/output-examples/exception-html.png) | [Exception](https://github.com/aloframework/handlers/blob/master/output-examples/exception-cli.png) |
+| [Warning](https://github.com/aloframework/handlers/blob/master/output-examples/warning-html.png)     | [Warning](https://github.com/aloframework/handlers/blob/master/output-examples/warning-cli.png)     |
+| [Notice](https://github.com/aloframework/handlers/blob/master/output-examples/notice-html.png)       | [Notice](https://github.com/aloframework/handlers/blob/master/output-examples/notice-cli.png)       |
