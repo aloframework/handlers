@@ -9,7 +9,6 @@
     /**
      * Abstract version of the CLI output formatter
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      */
     abstract class AbstractOutputFormatter {
 

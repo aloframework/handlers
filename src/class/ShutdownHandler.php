@@ -10,7 +10,6 @@
      * The shutdown handler. Allows fatal error reporting
      *
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      * @since  1.2.1 Should now report fatal errors if no errors had been raised beforehand.<br/>
      *         1.2
      */
@@ -50,6 +49,27 @@
         }
 
         /**
+         * Registers the shutdown handler
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log shutdowns.
+         * @param AbstractConfig  $cfg    Configuration options
+         *
+         * @return self
+         */
+        static function register(LoggerInterface $logger = null, $cfg = null) {
+            self::$registered = true;
+            $class            = get_called_class();
+            $handler          = new $class($logger, $cfg);
+
+            register_shutdown_function([$handler, 'handle']);
+            self::$lastRegisteredHandler = &$handler;
+
+            return $handler;
+        }
+
+        /**
          * The shutdown handler
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -80,26 +100,5 @@
          */
         function __toString() {
             return parent::__toString() . self::EOL . 'Registered: Yes';
-        }
-
-        /**
-         * Registers the shutdown handler
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param LoggerInterface $logger If provided, this will be used to log shutdowns.
-         * @param AbstractConfig $cfg Configuration options
-         *
-         * @return self
-         */
-        static function register(LoggerInterface $logger = null, $cfg = null) {
-            self::$registered = true;
-            $class            = get_called_class();
-            $handler = new $class($logger, $cfg);
-
-            register_shutdown_function([$handler, 'handle']);
-            self::$lastRegisteredHandler = &$handler;
-
-            return $handler;
         }
     }

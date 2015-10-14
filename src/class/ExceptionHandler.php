@@ -10,7 +10,6 @@
     /**
      * Exception handling class
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      * @since  1.4 Uses the Configurable interface<br/>
      *         1.2 Tracks the last set handler & exception<br/>
      *         1.1 log() accepts the $includeLocation parameter
@@ -76,6 +75,31 @@
          */
         static function isRegistered() {
             return self::$registered;
+        }
+
+        /**
+         * Registers the exception handler
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param ExceptionConfig $cfg    Your custom configuration settings
+         *
+         * @return self The created handler instance
+         * @since  1.4 $cfg added<br/>
+         *         1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
+         *         allows easy class extendability.
+         */
+        static function register(LoggerInterface $logger = null, ExceptionConfig $cfg = null) {
+            self::$registered = true;
+
+            // To allow easy extending
+            $class   = get_called_class();
+            $handler = new $class($logger, $cfg);
+
+            set_exception_handler([$handler, 'handle']);
+            self::$lastRegisteredHandler = &$handler;
+
+            return $handler;
         }
 
         /**
@@ -210,30 +234,5 @@
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
                    'Previous exception recursion limit: ' . ($this->config->prevExceptionDepth) . self::EOL .
                    'Last reported exception: ' . (self::$lastReported ? self::$lastReported->__toString() : '[none]');
-        }
-
-        /**
-         * Registers the exception handler
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         * @param ExceptionConfig $cfg    Your custom configuration settings
-         *
-         * @return self The created handler instance
-         * @since  1.4 $cfg added<br/>
-         *         1.0.4 Checks what class has called the method instead of explicitly registering ExceptionHandler -
-         *         allows easy class extendability.
-         */
-        static function register(LoggerInterface $logger = null, $cfg = null) {
-            self::$registered = true;
-
-            // To allow easy extending
-            $class   = get_called_class();
-            $handler = new $class($logger, $cfg);
-
-            set_exception_handler([$handler, 'handle']);
-            self::$lastRegisteredHandler = &$handler;
-
-            return $handler;
         }
     }

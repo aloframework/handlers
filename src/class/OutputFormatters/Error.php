@@ -7,7 +7,6 @@
     /**
      * Output formatter for errors
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      */
     class Error extends AbstractOutputFormatter {
 

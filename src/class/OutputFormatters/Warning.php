@@ -7,7 +7,6 @@
     /**
      * Output formatter for warnings
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      */
     class Warning extends AbstractOutputFormatter {
 

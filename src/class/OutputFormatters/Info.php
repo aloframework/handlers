@@ -7,7 +7,6 @@
     /**
      * Output formatter for notices
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      */
     class Info extends AbstractOutputFormatter {
 

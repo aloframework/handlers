@@ -10,7 +10,6 @@
     /**
      * A small extension to Symfony's ConsoleOutput so write methods return $this
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      */
     class ConsoleOutput extends \Symfony\Component\Console\Output\ConsoleOutput {
 

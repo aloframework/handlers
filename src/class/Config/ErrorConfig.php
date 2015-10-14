@@ -2,8 +2,6 @@
 
     namespace AloFramework\Handlers\Config;
 
-    use AloFramework\Common\Alo;
-
     /**
      * Error config class
      * @author Art <a.molcanovas@gmail.com>
@@ -48,9 +46,8 @@
          */
         private static function setDefaultConfig() {
             if (!self::$defaults) {
-                self::$defaults =
-                    [self::CFG_ERROR_LEVEL        => Alo::ifundefined('ALO_HANDLERS_ERROR_LEVEL', error_reporting()),
-                     self::CFG_LOG_ERROR_LOCATION => Alo::ifundefined('ALO_HANDLERS_LOG_ERROR_LOCATION', true)];
+                self::$defaults = [self::CFG_ERROR_LEVEL        => error_reporting(),
+                                   self::CFG_LOG_ERROR_LOCATION => true];
             }
         }
     }

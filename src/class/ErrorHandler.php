@@ -9,7 +9,6 @@
     /**
      * Handles PHP errors
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      * @since  1.2 Tracks the last reported error<br/>
      *         1.1 log() accepts the $file and $line parameters
      * @property ErrorConfig $config Handler configuration
@@ -84,6 +83,44 @@
         }
 
         /**
+         * Registers the error handler
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
+         * @param ErrorConfig     $cfg    Your custom configuration settings
+         *
+         * @return self The created handler
+         * @since  1.4 $cfg parameter added<br/>
+         *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
+         *         allows easy class extendability.
+         */
+        static function register(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+            self::$registered = true;
+
+            /**
+             * To allow easy extending.
+             * @var self $handler
+             */
+            $class   = get_called_class();
+            $handler = new $class($logger, $cfg);
+
+            self::$lastRegisteredHandler = &$handler;
+
+            set_error_handler([$handler, 'handle'], $handler->getErrorReporting());
+
+            return $handler;
+        }
+
+        /**
+         * Returns what errors are being reported
+         * @author Art <a.molcanovas@gmail.com>
+         * @return int
+         */
+        function getErrorReporting() {
+            return $this->errorReporting;
+        }
+
+        /**
          * The error handler
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -137,7 +174,7 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $type    Error type
-         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
+         * @param string $label Error colour code ("e" for error, "w" for warning, "i" for info)
          * @param int    $errno   Error code
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
@@ -236,43 +273,5 @@
         function __toString() {
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
                    'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
-        }
-
-        /**
-         * Registers the error handler
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         * @param ErrorConfig     $cfg    Your custom configuration settings
-         *
-         * @return self The created handler
-         * @since  1.4 $cfg parameter added<br/>
-         *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
-         *         allows easy class extendability.
-         */
-        static function register(LoggerInterface $logger = null, $cfg = null) {
-            self::$registered = true;
-
-            /**
-             * To allow easy extending.
-             * @var self $handler
-             */
-            $class   = get_called_class();
-            $handler = new $class($logger, $cfg);
-
-            self::$lastRegisteredHandler = &$handler;
-
-            set_error_handler([$handler, 'handle'], $handler->getErrorReporting());
-
-            return $handler;
-        }
-
-        /**
-         * Returns what errors are being reported
-         * @author Art <a.molcanovas@gmail.com>
-         * @return int
-         */
-        function getErrorReporting() {
-            return $this->errorReporting;
         }
     }

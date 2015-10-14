@@ -2,8 +2,6 @@
 
     namespace AloFramework\Handlers\Config;
 
-    use AloFramework\Common\Alo;
-
     /**
      * Error config class
      * @author Art <a.molcanovas@gmail.com>
@@ -48,10 +46,8 @@
          */
         private static function setDefaultConfig() {
             if (!self::$defaults) {
-                self::$defaults = [self::CFG_EXCEPTION_DEPTH        => Alo::ifundefined('ALO_HANDLERS_EXCEPTION_DEPTH',
-                                                                                        10),
-                                   self::CFG_LOG_EXCEPTION_LOCATION => Alo::ifundefined('ALO_HANDLERS_LOG_EXCEPTION_LOCATION',
-                                                                                        true)];
+                self::$defaults = [self::CFG_EXCEPTION_DEPTH        => 10,
+                                   self::CFG_LOG_EXCEPTION_LOCATION => true];
             }
         }
     }

@@ -17,7 +17,6 @@
     /**
      * Abstract error/exception handling things
      * @author Art <a.molcanovas@gmail.com>
-     * @codeCoverageIgnore
      * @since  1.4 Implements Configurable
      * @property AbstractConfig $config Abstract handler configuration
      */
@@ -110,38 +109,6 @@
             }
 
             return $this;
-        }
-
-        /**
-         * Registers the error and exception handlers. IMPORTANT: If you've extended the ErrorHandler or Exception
-         * handler classes you must call their register() methods as this one would not register the correct handlers.
-         * Due to method signature standards, this method only instantiates the error and exception handlers USING
-         * THEIR DEFAULT SETTINGS
-         * @author     Art <a.molcanovas@gmail.com>
-         *
-         * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
-         * @param AbstractConfig  $cfg    Your custom error configuration settings
-         *
-         * @return array An array containing [ErrorHandler::register(), ExceptionHandler::register()]. If the
-         * ALO_HANDLERS_REGISTER_SHUTDOWN constant is set to true, it will also return it as the third [2] key.
-         * @since      1.4 $cfg added, deprecated
-         * @deprecated since 1.4. Use each handler's register() method separately instead.
-         * @todo       Remove in 2.0
-         */
-        static function register(LoggerInterface $logger = null, $cfg = null) {
-            if (!$logger) {
-                $logger = new Log();
-            }
-            if (!$cfg) {
-                $cfg = new AbstractConfig();
-            }
-            $r = [ErrorHandler::register($logger, null), ExceptionHandler::register($logger, null)];
-
-            if ($cfg->regShutdown) {
-                $r[] = ShutdownHandler::register($logger);
-            }
-
-            return $r;
         }
 
         /**

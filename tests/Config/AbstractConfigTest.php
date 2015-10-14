@@ -7,13 +7,12 @@
 
     class AbstractConfigTest extends PHPUnit_Framework_TestCase {
 
-        static $defaults = [Cfg::CFG_TRACE_MAX_DEPTH           => 50,
-                            Cfg::CFG_BACKGROUND                => 'default',
-                            Cfg::CFG_FOREGROUND_NOTICE         => 'cyan',
-                            Cfg::CFG_FOREGROUND_WARNING        => 'yellow',
-                            Cfg::CFG_FOREGROUND_ERROR          => 'red',
-                            Cfg::CFG_FORCE_HTML                => false,
-                            Cfg::CFG_REGISTER_SHUTDOWN_HANDLER => false];
+        static $defaults = [Cfg::CFG_TRACE_MAX_DEPTH    => 50,
+                            Cfg::CFG_BACKGROUND         => 'default',
+                            Cfg::CFG_FOREGROUND_NOTICE  => 'cyan',
+                            Cfg::CFG_FOREGROUND_WARNING => 'yellow',
+                            Cfg::CFG_FOREGROUND_ERROR   => 'red',
+                            Cfg::CFG_FORCE_HTML         => false];
 
         /** @dataProvider noOverridesProvider */
         function testNoOverrides($key, $value) {
