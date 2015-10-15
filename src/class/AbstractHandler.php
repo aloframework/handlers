@@ -29,42 +29,50 @@
          * @var string
          */
         const EOL = " \n";
+
         /**
          * Whether CSS has been injected yet
          *
          * @var bool
          */
         private static $cssInjected = false;
+
         /**
          * Symfony's CLI dumper
          * @var CliDumper
          */
         private static $dumperCLI;
+
         /**
          * Symfony's HTML dumper
          * @var HtmlDumper
          */
         private static $dumperHTML;
+
         /**
          * Symfony's var cloner
          * @var VarCloner
          */
         private static $cloner;
+
         /**
          * Logger instance
          * @var LoggerInterface
          */
         protected $logger;
+
         /**
          * Whether we're dealing with a command-line request
          * @var bool
          */
         protected $isCLI;
+
         /**
          * ConsoleOutput object
          * @var ConsoleOutput
          */
         protected $console;
+
         /**
          * Maximum debug backtrace size
          * @var int
@@ -87,7 +95,7 @@
 
             $this->config = Alo::ifnull($cfg, new AbstractConfig());
             $this->logger = $logger;
-            $this->isCLI = !$this->config->forceHTML && Alo::isCliRequest();
+            $this->isCLI  = !$this->config->forceHTML && Alo::isCliRequest();
 
             $this->initSymfony();
         }
@@ -239,7 +247,7 @@
                 try {
                     self::$dumperCLI->dump(self::$cloner->cloneVar($var));
                 } catch (Exception $e) {
-
+                    var_dump($var);
                 }
             }
         }
