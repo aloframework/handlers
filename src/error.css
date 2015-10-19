@@ -104,3 +104,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
     border-color: #dca7a7
 }
+
+.alo-err .kint footer {
+    display: none;
+}
+
+.alo-err .kint-parent dfn {
+    display: none;
+}
