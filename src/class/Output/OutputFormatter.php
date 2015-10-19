@@ -2,11 +2,13 @@
 
     namespace AloFramework\Handlers\Output;
 
+    use Symfony\Component\Console\Formatter\OutputFormatter as TheClass;
+
     /**
      * The handlers' output formatter
      * @author Art <a.molcanovas@gmail.com>
      */
-    class OutputFormatter extends \Symfony\Component\Console\Formatter\OutputFormatter {
+    class OutputFormatter extends TheClass {
 
         /**
          * Styles to set

@@ -8,11 +8,9 @@
     use AloFramework\Handlers\Config\AbstractConfig;
     use AloFramework\Handlers\Output\ConsoleOutput;
     use AloFramework\Log\Log;
-    use Exception;
+    use AloFramework\Handlers\Output\Dump;
     use Psr\Log\LoggerInterface;
-    use Symfony\Component\VarDumper\Cloner\VarCloner;
-    use Symfony\Component\VarDumper\Dumper\CliDumper;
-    use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+    use Symfony\Component\VarDumper\VarDumper;
 
     /**
      * Abstract error/exception handling things
@@ -36,24 +34,6 @@
          * @var bool
          */
         private static $cssInjected = false;
-
-        /**
-         * Symfony's CLI dumper
-         * @var CliDumper
-         */
-        private static $dumperCLI;
-
-        /**
-         * Symfony's HTML dumper
-         * @var HtmlDumper
-         */
-        private static $dumperHTML;
-
-        /**
-         * Symfony's var cloner
-         * @var VarCloner
-         */
-        private static $cloner;
 
         /**
          * Logger instance
@@ -108,12 +88,6 @@
         private function initSymfony() {
             if ($this->isCLI) {
                 $this->console = new ConsoleOutput();
-            }
-
-            if (!self::$cloner || !self::$dumperCLI || !self::$dumperHTML) {
-                self::$cloner     = new VarCloner();
-                self::$dumperCLI  = new CliDumper();
-                self::$dumperHTML = new HtmlDumper();
             }
 
             return $this;
@@ -192,7 +166,7 @@
 
                 if ($argsPresent) {
                     $this->console->write('<' . $label . 'b>Arguments:</>', true);
-                    $this->dump($v['args']);
+                    VarDumper::dump($v['args']);
                 }
 
                 $this->console->writeln('');
@@ -237,22 +211,6 @@
         }
 
         /**
-         * Dumps a variable
-         * @author Art <a.molcanovas@gmail.com>
-         *
-         * @param mixed $var The variable
-         */
-        private function dump($var) {
-            if ($this->isCLI) {
-                try {
-                    self::$dumperCLI->dump(self::$cloner->cloneVar($var));
-                } catch (Exception $e) {
-                    var_dump($var);
-                }
-            }
-        }
-
-        /**
          * Echoes a HTML debug backtrace
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -276,18 +234,16 @@
                         self::formatTraceLine($v, $func, $loc, $line);
 
                         if (isset($v['args']) && !empty($v['args'])) {
-                            ob_start();
-                            $this->dump($v['args']);
-                            $args = ob_get_clean();
+                            $args = Dump::html($v['args']);
                         } else {
-                            $args = '[none]';
+                            $args = '<span class="label label-default">[none]</span>';
                         }
 
                         ?>
                         <tr>
                             <td><?= $k ?></td>
                             <td><?= $func ?></td>
-                            <td><?= $args ?></td>
+                            <td class="text-center"><?= $args ?></td>
                             <td><?= $loc ? $loc : '<span class="label label-default">???</label>' ?></td>
                             <td><?= ($line == 0 || trim($line)) ? $line :
                                     '<span class="label label-default">???</span>' ?></td>
