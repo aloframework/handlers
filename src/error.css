@@ -30,7 +30,6 @@
 
 .alo-err .table > tbody > tr > td, .alo-err .table > tbody > tr > th, .alo-err .table > thead > tr > td, .alo-err .table > thead > tr > th {
     padding: 8px;
-    line-height: 1.42857143;
     vertical-align: top
 }
 
