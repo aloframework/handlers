@@ -10,7 +10,7 @@
     use AloFramework\Handlers\Config\ErrorConfig as Cfg;
     use AloFramework\Handlers\ExceptionHandler as ExH;
 
-    class AbstractHandlerTest extends PHPUnit_Framework_TestCase {
+    class AbstractAndErrorTest extends PHPUnit_Framework_TestCase {
 
         function testConstructNoParams() {
             $h = H::register();

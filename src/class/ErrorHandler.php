@@ -131,6 +131,7 @@
          * @param int    $errline The line number the error was raised at
          *
          * @since  1.2 Tracks the last reported error
+         * @codeCoverageIgnoreStart
          */
         function handle($errno, $errstr, $errfile, $errline) {
             self::$lastReported = new Error($errno, $errstr, $errfile, $errline);
@@ -174,11 +175,13 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $type    Error type
-         * @param string $label Error colour code ("e" for error, "w" for warning, "i" for info)
+         * @param string $label   Error colour code ("e" for error, "w" for warning, "i" for info)
          * @param int    $errno   Error code
          * @param string $errstr  Error message
          * @param string $errfile File where the error occurred
          * @param int    $errline Line where the error occurred
+         *
+         * @codeCoverageIgnore
          */
         protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
@@ -240,6 +243,7 @@
          * @since  1.1 Accepts the $file and $line parameters
          */
         protected function log($errcode, $errstr, $file = null, $line = null) {
+            // @codeCoverageIgnoreStart
             switch ($errcode) {
                 case E_NOTICE:
                 case E_USER_NOTICE:
@@ -255,6 +259,7 @@
                 default:
                     $method = 'error';
             }
+            // @codeCoverageIgnoreEnd
 
             $msg = '[' . $errcode . '] ' . $errstr;
 

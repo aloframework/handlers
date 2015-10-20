@@ -127,6 +127,7 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         * @codeCoverageIgnore
          */
         protected function handleCLI(Exception $e) {
             $this->console->write('<eb>Uncaught ' . get_class($e) . ': </>')
