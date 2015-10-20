@@ -127,7 +127,7 @@
          */
         protected function getTrace($trace, $label) {
             ob_start();
-            $trace = array_slice($trace, $this->config->traceDepth);
+            $trace = array_slice($trace, $this->config->traceDepth * -1);
 
             // @codeCoverageIgnoreStart
             if ($this->isCLI) {
