@@ -22,6 +22,9 @@
         <testsuite name="OutputFormatters">
             <directory>./tests/OutputFormatters</directory>
         </testsuite>
+        <testsuite name="Handlers">
+            <directory>./tests/Handlers</directory>
+        </testsuite>
     </testsuites>
 
     <filter>

@@ -54,12 +54,6 @@
         protected $console;
 
         /**
-         * Maximum debug backtrace size
-         * @var int
-         */
-        private $maxTraceSize;
-
-        /**
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -101,7 +95,7 @@
         function __toString() {
             return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . self::EOL . 'Logger: ' .
                    ($this->logger ? get_class($this->logger) : 'Not set') . self::EOL . 'Max stack trace size: ' .
-                   ($this->maxTraceSize * -1);
+                   ($this->config->traceDepth);
         }
 
         /**
@@ -133,11 +127,13 @@
          */
         protected function getTrace($trace, $label) {
             ob_start();
-            $trace = array_slice($trace, $this->maxTraceSize);
+            $trace = array_slice($trace, $this->config->traceDepth);
 
+            // @codeCoverageIgnoreStart
             if ($this->isCLI) {
                 $this->traceCLI($trace, $label);
             } else {
+                // @codeCoverageIgnoreEnd
                 $this->traceHTML($trace);
             }
 
@@ -150,6 +146,8 @@
          *
          * @param array  $trace The debug backtrace
          * @param string $label Colour id
+         *
+         * @codeCoverageIgnore
          */
         private function traceCLI(array $trace, $label) {
             foreach ($trace as $k => $v) {
@@ -181,6 +179,8 @@
          * @param mixed $method    Reference to the variable which will contain the formatted method
          * @param mixed $file      Reference to the variable which will contain the formatted file location
          * @param mixed $line      Reference to the variable which will contain the formatted line
+         *
+         * @codeCoverageIgnore
          */
         private static function formatTraceLine(array $traceLine, &$method, &$file, &$line) {
             $method = $file = $line = '';
@@ -215,6 +215,8 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $trace The debug backtrace
+         *
+         * @codeCoverageIgnore
          */
         private function traceHTML(array $trace) {
             ?>
