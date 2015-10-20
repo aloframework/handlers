@@ -1,6 +1,6 @@
 <?php
 
-    namespace AloFramework\Handlers\Tests\OutputFormatters;
+    namespace AloFramework\Handlers\Tests\Output;
 
     use AloFramework\Handlers\Output\OutputFormatter;
     use AloFramework\Handlers\Output\Styles\Error;

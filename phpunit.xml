@@ -19,8 +19,8 @@
         <testsuite name="Misc">
             <directory>./tests/Misc</directory>
         </testsuite>
-        <testsuite name="OutputFormatters">
-            <directory>./tests/OutputFormatters</directory>
+        <testsuite name="Output">
+            <directory>./tests/Output</directory>
         </testsuite>
         <testsuite name="Handlers">
             <directory>./tests/Handlers</directory>
