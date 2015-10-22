@@ -108,6 +108,8 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         *
+         * @codeCoverageIgnore
          */
         function handle(Exception $e) {
             $this->injectCSS();
@@ -127,6 +129,7 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Exception $e The exception
+         *
          * @codeCoverageIgnore
          */
         protected function handleCLI(Exception $e) {
@@ -151,6 +154,8 @@
          *
          * @param null|Exception $e     The previous exception
          * @param int            $level How many previous exceptions have been echoed so far
+         *
+         * @codeCoverageIgnore
          */
         protected function echoPreviousExceptions($e, $level = 0) {
             if ($level < $this->config->prevExceptionDepth && ($e instanceof Exception)) {

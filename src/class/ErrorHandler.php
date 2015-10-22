@@ -131,7 +131,7 @@
          * @param int    $errline The line number the error was raised at
          *
          * @since  1.2 Tracks the last reported error
-         * @codeCoverageIgnoreStart
+         * @codeCoverageIgnore
          */
         function handle($errno, $errstr, $errfile, $errline) {
             self::$lastReported = new Error($errno, $errstr, $errfile, $errline);
