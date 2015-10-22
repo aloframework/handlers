@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Handlers\OutputFormatters\Error | AloFramework Handlers 1.4.1 API</title>
+	<title>Class AloFramework\Handlers\Output\OutputFormatter | AloFramework Handlers 2.0 API</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -35,17 +35,18 @@
 						Config					</a>
 
 						</li>
-				<li>
-					<a href="namespace-AloFramework.Handlers.Output.html">
-						Output					</a>
-
-						</li>
 				<li class="active">
-					<a href="namespace-AloFramework.Handlers.OutputFormatters.html">
-						OutputFormatters					</a>
+					<a href="namespace-AloFramework.Handlers.Output.html">
+						Output<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AloFramework.Handlers.Output.Styles.html">
+						Styles					</a>
 
 						</li>
-							</ul></li></ul></li>
+							</ul></li></ul></li></ul></li>
 				<li>
 					<a href="namespace-PHP.html">
 						PHP					</a>
@@ -60,10 +61,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html">AbstractOutputFormatter</a></li>
-				<li class="active"><a href="class-AloFramework.Handlers.OutputFormatters.Error.html">Error</a></li>
-				<li><a href="class-AloFramework.Handlers.OutputFormatters.Info.html">Info</a></li>
-				<li><a href="class-AloFramework.Handlers.OutputFormatters.Warning.html">Warning</a></li>
+				<li><a href="class-AloFramework.Handlers.Output.ConsoleOutput.html">ConsoleOutput</a></li>
+				<li><a href="class-AloFramework.Handlers.Output.Dump.html">Dump</a></li>
+				<li class="active"><a href="class-AloFramework.Handlers.Output.OutputFormatter.html">OutputFormatter</a></li>
 			</ul>
 
 
@@ -90,7 +90,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-AloFramework.Handlers.OutputFormatters.html" title="Summary of AloFramework\Handlers\OutputFormatters"><span>Namespace</span></a>
+				<a href="namespace-AloFramework.Handlers.Output.html" title="Summary of AloFramework\Handlers\Output"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -115,23 +115,22 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Error</h1>
+	<h1>Class OutputFormatter</h1>
 
 
 	<div class="description">
-	<p>Output formatter for errors</p>
+	<p>The handlers' output formatter</p>
 	</div>
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-			<a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html"><span>AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter</span></a>
-			
+Symfony\Component\Console\Formatter\OutputFormatter
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>AloFramework\Handlers\OutputFormatters\Error</span></b>			
+<b><span>AloFramework\Handlers\Output\OutputFormatter</span></b>			
 			
 			
 		</dd>
@@ -147,14 +146,12 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a>\<a href="namespace-AloFramework.Handlers.OutputFormatters.html">OutputFormatters</a><br>
+		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a>\<a href="namespace-AloFramework.Handlers.Output.html">Output</a><br>
 		
 
 				<b>Author:</b>
 				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				<b>Codecoverageignore</b>
-				<br>
-			<b>Located at</b> class/OutputFormatters/Error.php		<br>
+			<b>Located at</b> class/Output/OutputFormatter.php		<br>
 	</div>
 
 
@@ -191,24 +188,12 @@
 						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				</div>
 
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#___construct">AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter::__construct()</a></code></div>
 
 		</div>
 		</div></td>
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#methods">AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#_construct">construct()</a>, 
-			<a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#_getFormatter">getFormatter()</a>, 
-			<a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#_setOption">setOption()</a>
-		</code></td>
-	</tr>
-	</table>
 
 
 
@@ -221,14 +206,6 @@
 
 
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#properties">AloFramework\Handlers\OutputFormatters\AbstractOutputFormatter</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-AloFramework.Handlers.OutputFormatters.AbstractOutputFormatter.html#$formatter"><var>$formatter</var></a>
-		</code></td>
-	</tr>
-	</table>
 
 
 
@@ -237,7 +214,7 @@
 </div>
 
 	<div id="footer">
-		AloFramework Handlers 1.4.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Handlers 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
