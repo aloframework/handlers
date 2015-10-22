@@ -4,20 +4,22 @@
 
     use AloFramework\Handlers\AbstractHandler;
     use AloFramework\Handlers\Config\ErrorConfig;
+    use AloFramework\Handlers\Config\ErrorConfig as Cfg;
+    use AloFramework\Handlers\ErrorHandler as H;
+    use AloFramework\Handlers\ExceptionHandler as ExH;
     use AloFramework\Log\Log;
     use PHPUnit_Framework_TestCase;
-    use AloFramework\Handlers\ErrorHandler as H;
-    use AloFramework\Handlers\Config\ErrorConfig as Cfg;
-    use AloFramework\Handlers\ExceptionHandler as ExH;
 
     class AbstractAndErrorTest extends PHPUnit_Framework_TestCase {
 
         function testConstructNoParams() {
+            $this->assertFalse(H::isRegistered());
+
             $h = H::register();
 
             $this->assertTrue($h instanceof H);
             $this->assertTrue($h instanceof AbstractHandler);
-            $this->assertTrue($h::getLastRegisteredHandler() instanceof H);
+            $this->assertTrue($h::getLastRegisteredHandler() === $h);
             $this->assertTrue(H::isRegistered());
             $this->assertFalse(ExH::isRegistered());
         }

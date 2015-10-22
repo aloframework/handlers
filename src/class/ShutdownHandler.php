@@ -74,6 +74,7 @@
          *
          * @author Art <a.molcanovas@gmail.com>
          * @since  1.2.1 Should now report fatal errors if no errors had been raised beforehand.
+         * @codeCoverageIgnore
          */
         function handle() {
             if (ErrorHandler::isRegistered()) {

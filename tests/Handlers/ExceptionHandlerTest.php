@@ -2,8 +2,8 @@
 
     namespace AloFramework\Handlers\Tests\Handlers;
 
-    use AloFramework\Handlers\ExceptionHandler as H;
     use AloFramework\Handlers\Config\ExceptionConfig as Cfg;
+    use AloFramework\Handlers\ExceptionHandler as H;
     use AloFramework\Log\Log;
     use PHPUnit_Framework_TestCase;
     use RuntimeException;
@@ -11,11 +11,12 @@
     class ExceptionHandlerTest extends PHPUnit_Framework_TestCase {
 
         function testRegister() {
+            $this->assertFalse(H::isRegistered());
             $h = H::register();
 
             $this->assertTrue($h instanceof H);
             $this->assertTrue(H::isRegistered());
-            $this->assertTrue(H::getLastRegisteredHandler() instanceof $h);
+            $this->assertTrue(H::getLastRegisteredHandler() === $h);
         }
 
         function testLastReportedException() {
