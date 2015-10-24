@@ -7,6 +7,8 @@ extensions: [php]
 # Character set of source files
 charset: [utf-8]
 
+templateTheme: bootstrap
+
 # Title of generated documentation
 title: 'AloFramework Handlers 2.0 API'
 # Grouping of classes
