@@ -8,10 +8,11 @@ Latest release API documentation: [https://aloframework.github.io/handlers/](htt
 [![Latest Stable Version](https://poser.pugx.org/aloframework/handlers/v/stable?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 [![Total Downloads](https://poser.pugx.org/aloframework/handlers/downloads?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 
-|                                                                                          dev-develop                                                                                          |                                                             Latest release                                                            |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                                                            | [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=1.4.1)](https://travis-ci.org/aloframework/handlers)  |
-| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |
+|                                                                                         dev-develop                                                                                         |                                                                                   Latest release                                                                                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                              [![Dev Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=develop)](https://travis-ci.org/aloframework/handlers)                             |                        [![Release Build Status](https://travis-ci.org/aloframework/handlers.svg?branch=master)](https://travis-ci.org/aloframework/handlers)                       |
+| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1/mini.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1) |                        [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/36b22482-e36a-44e3-a7de-ccf6e27999d1)                       |
+| [![Coverage Status](https://coveralls.io/repos/aloframework/handlers/badge.svg?branch=develop&amp;service=github)](https://coveralls.io/github/aloframework/handlers?branch=develop)        | [![Coverage Status](https://coveralls.io/repos/aloframework/handlers/badge.svg?branch=master&amp;service=github)](https://coveralls.io/github/aloframework/handlers?branch=master) |
 
 ## Installation ##
 Installation is available via Composer:
@@ -39,7 +40,6 @@ Configuration is done via the classes in the `AloFramework\Handlers\Config` name
  - `CFG_FOREGROUND_WARNING` - CLI output warning level foreground colour [**yellow**]
  - `CFG_FOREGROUND_ERROR` - CLI output error/exception level foreground colour [**red**]
  - `CFG_FORCE_HTML` - Whether to force HTML output even in CLI mode [**false**]
- - `CFG_REGISTER_SHUTDOWN_HANDLER` - **deprecated**, whether to register the shutdown handler when calling the deprecated `AbstractHandler::register()` method [**false**]
 
 ### Error Handlers' Config ###
 
@@ -50,12 +50,3 @@ Configuration is done via the classes in the `AloFramework\Handlers\Config` name
 
  - `CFG_EXCEPTION_DEPTH` - Maximum number previous exceptions to output in the exception handler [**10**]
  - `CFG_LOG_EXCEPTION_LOCATION` Whether to include the exception location in the log [**true**]
-
-## Sample Output ###
-
-| **HTML**                                                                                              | **CLI**                                                                                              |
-|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| [Error](https://github.com/aloframework/handlers/blob/master/output-examples/error-html.png)         | [Error](https://github.com/aloframework/handlers/blob/master/output-examples/error-cli.png)         |
-| [Exception](https://github.com/aloframework/handlers/blob/master/output-examples/exception-html.png) | [Exception](https://github.com/aloframework/handlers/blob/master/output-examples/exception-cli.png) |
-| [Warning](https://github.com/aloframework/handlers/blob/master/output-examples/warning-html.png)     | [Warning](https://github.com/aloframework/handlers/blob/master/output-examples/warning-cli.png)     |
-| [Notice](https://github.com/aloframework/handlers/blob/master/output-examples/notice-html.png)       | [Notice](https://github.com/aloframework/handlers/blob/master/output-examples/notice-cli.png)       |
