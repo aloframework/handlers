@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class ArrayObject | AloFramework Handlers 1.4.1 API</title>
+	<title>Class ArrayObject | AloFramework Handlers 2.0 API</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -37,15 +37,21 @@
 						</li>
 				<li>
 					<a href="namespace-AloFramework.Handlers.Output.html">
-						Output					</a>
+						Output<span></span>
+					</a>
 
-						</li>
+					<ul>
 				<li>
-					<a href="namespace-AloFramework.Handlers.OutputFormatters.html">
-						OutputFormatters					</a>
+					<a href="namespace-AloFramework.Handlers.Output.Styles.html">
+						Styles </a>
 
 						</li>
-							</ul></li></ul></li>
+					</ul>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
 				<li class="active">
 					<a href="namespace-PHP.html">
 						PHP					</a>
@@ -76,8 +82,6 @@
 			<h3>Exceptions</h3>
 			<ul>
 				<li><a href="class-Exception.html">Exception</a></li>
-				<li><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></li>
-				<li><a href="class-LogicException.html">LogicException</a></li>
 			</ul>
 
 
@@ -132,19 +136,19 @@
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-<b><span>ArrayObject</span></b>			
-			 implements 
-				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>, 
-			
-				<a href="class-Traversable.html"><span>Traversable</span></a>, 
-			
-				<a href="class-ArrayAccess.html"><span>ArrayAccess</span></a>, 
-			
-				<a href="class-Serializable.html"><span>Serializable</span></a>, 
-			
+<b><span>ArrayObject</span></b>
+			 implements
+				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>,
+
+				<a href="class-Traversable.html"><span>Traversable</span></a>,
+
+				<a href="class-ArrayAccess.html"><span>ArrayAccess</span></a>,
+
+				<a href="class-Serializable.html"><span>Serializable</span></a>,
+
 				<a href="class-Countable.html"><span>Countable</span></a>
-			
-			
+
+
 		</dd>
 	</dl>
 
@@ -160,10 +164,10 @@
 
 
 	<div class="info">
-		
+
 		<b>PHP Extension:</b> <a href="http://php.net/manual/en/book.spl.php" title="Go to PHP documentation">SPL</a><br>
-		
-		
+
+
 
 			<b>Documented at</b> <a href="http://php.net/manual/en/class.arrayobject.php" title="Go to PHP documentation">php.net</a>
 		<br>
@@ -176,10 +180,10 @@
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -188,11 +192,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.construct.php" title="Go to PHP documentation">__construct</a>( <span> <var>$array</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -206,10 +210,10 @@
 	<tr data-order="offsetExists" id="_offsetExists">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -218,11 +222,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.offsetexists.php" title="Go to PHP documentation">offsetExists</a>( <span> <var>$index</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -238,10 +242,10 @@
 	<tr data-order="offsetGet" id="_offsetGet">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -250,11 +254,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.offsetget.php" title="Go to PHP documentation">offsetGet</a>( <span> <var>$index</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -270,10 +274,10 @@
 	<tr data-order="offsetSet" id="_offsetSet">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -282,11 +286,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.offsetset.php" title="Go to PHP documentation">offsetSet</a>( <span> <var>$index</var></span>, <span> <var>$newval</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -302,10 +306,10 @@
 	<tr data-order="offsetUnset" id="_offsetUnset">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -314,11 +318,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.offsetunset.php" title="Go to PHP documentation">offsetUnset</a>( <span> <var>$index</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -334,10 +338,10 @@
 	<tr data-order="append" id="_append">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -346,11 +350,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.append.php" title="Go to PHP documentation">append</a>( <span> <var>$value</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -364,10 +368,10 @@
 	<tr data-order="getArrayCopy" id="_getArrayCopy">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -376,11 +380,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.getarraycopy.php" title="Go to PHP documentation">getArrayCopy</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -394,10 +398,10 @@
 	<tr data-order="count" id="_count">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -406,11 +410,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.count.php" title="Go to PHP documentation">count</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -426,10 +430,10 @@
 	<tr data-order="getFlags" id="_getFlags">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -438,11 +442,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.getflags.php" title="Go to PHP documentation">getFlags</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -456,10 +460,10 @@
 	<tr data-order="setFlags" id="_setFlags">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -468,11 +472,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.setflags.php" title="Go to PHP documentation">setFlags</a>( <span> <var>$flags</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -486,10 +490,10 @@
 	<tr data-order="asort" id="_asort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -498,11 +502,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.asort.php" title="Go to PHP documentation">asort</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -516,10 +520,10 @@
 	<tr data-order="ksort" id="_ksort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -528,11 +532,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.ksort.php" title="Go to PHP documentation">ksort</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -546,10 +550,10 @@
 	<tr data-order="uasort" id="_uasort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -558,11 +562,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.uasort.php" title="Go to PHP documentation">uasort</a>( <span> <var>$cmp_function</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -576,10 +580,10 @@
 	<tr data-order="uksort" id="_uksort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -588,11 +592,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.uksort.php" title="Go to PHP documentation">uksort</a>( <span> <var>$cmp_function</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -606,10 +610,10 @@
 	<tr data-order="natsort" id="_natsort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -618,11 +622,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.natsort.php" title="Go to PHP documentation">natsort</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -636,10 +640,10 @@
 	<tr data-order="natcasesort" id="_natcasesort">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -648,11 +652,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.natcasesort.php" title="Go to PHP documentation">natcasesort</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -666,10 +670,10 @@
 	<tr data-order="unserialize" id="_unserialize">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -678,11 +682,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.unserialize.php" title="Go to PHP documentation">unserialize</a>( <span> <var>$serialized</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -698,10 +702,10 @@
 	<tr data-order="serialize" id="_serialize">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -710,11 +714,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.serialize.php" title="Go to PHP documentation">serialize</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -730,10 +734,10 @@
 	<tr data-order="getIterator" id="_getIterator">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -742,11 +746,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.getiterator.php" title="Go to PHP documentation">getIterator</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -762,10 +766,10 @@
 	<tr data-order="exchangeArray" id="_exchangeArray">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -774,11 +778,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.exchangearray.php" title="Go to PHP documentation">exchangeArray</a>( <span> <var>$array</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -792,10 +796,10 @@
 	<tr data-order="setIteratorClass" id="_setIteratorClass">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -804,11 +808,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.setiteratorclass.php" title="Go to PHP documentation">setIteratorClass</a>( <span> <var>$iteratorClass</var></span> )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -822,10 +826,10 @@
 	<tr data-order="getIteratorClass" id="_getIteratorClass">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -834,11 +838,11 @@
 		<code><a href="http://php.net/manual/en/arrayobject.getiteratorclass.php" title="Go to PHP documentation">getIteratorClass</a>( )</code>
 
 		<div class="description short">
-			
+
 		</div>
 
 		<div class="description detailed hidden">
-			
+
 
 
 
@@ -869,11 +873,11 @@
 			</code>
 
 			<div class="description short">
-				
+
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
@@ -893,11 +897,11 @@
 			</code>
 
 			<div class="description short">
-				
+
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
@@ -922,7 +926,7 @@
 </div>
 
 	<div id="footer">
-		AloFramework Handlers 1.4.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Handlers 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Handlers\Error | AloFramework Handlers 1.4.1 API</title>
+	<title>Class AloFramework\Handlers\Error | AloFramework Handlers 2.0 API</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -37,15 +37,21 @@
 						</li>
 				<li>
 					<a href="namespace-AloFramework.Handlers.Output.html">
-						Output					</a>
+						Output<span></span>
+					</a>
 
-						</li>
+					<ul>
 				<li>
-					<a href="namespace-AloFramework.Handlers.OutputFormatters.html">
-						OutputFormatters					</a>
+					<a href="namespace-AloFramework.Handlers.Output.Styles.html">
+						Styles </a>
 
 						</li>
-							</ul></li></ul></li>
+					</ul>
+				</li>
+						</ul>
+				</li>
+						</ul>
+				</li>
 				<li>
 					<a href="namespace-PHP.html">
 						PHP					</a>
@@ -126,25 +132,25 @@
 	<dl class="tree">
 		<dd style="padding-left:0px">
 			<a href="class-ArrayObject.html"><span>ArrayObject</span></a>
-			
-			 implements 
-				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>, 
-			
-				<a href="class-Traversable.html"><span>Traversable</span></a>, 
-			
-				<a href="class-ArrayAccess.html"><span>ArrayAccess</span></a>, 
-			
-				<a href="class-Serializable.html"><span>Serializable</span></a>, 
-			
+
+			 implements
+				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>,
+
+				<a href="class-Traversable.html"><span>Traversable</span></a>,
+
+				<a href="class-ArrayAccess.html"><span>ArrayAccess</span></a>,
+
+				<a href="class-Serializable.html"><span>Serializable</span></a>,
+
 				<a href="class-Countable.html"><span>Countable</span></a>
-			
-			
+
+
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>AloFramework\Handlers\Error</span></b>			
-			
-			
+<b><span>AloFramework\Handlers\Error</span></b>
+
+
 		</dd>
 	</dl>
 
@@ -156,10 +162,10 @@
 
 
 	<div class="info">
-		
-		
+
+
 		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Handlers.html">Handlers</a><br>
-		
+
 
 				<b>Author:</b>
 				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
@@ -177,10 +183,10 @@
 	<tr data-order="__construct" id="___construct">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
-			
-			
+
+
 			</code>
 		</td>
 
@@ -227,7 +233,7 @@
 			 public static
 
 			boolean
-			
+
 			</code>
 		</td>
 
@@ -274,10 +280,10 @@
 	<tr data-order="__get" id="___get">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			mixed
-			
+
 			</code>
 		</td>
 
@@ -317,10 +323,10 @@
 	<tr data-order="isEmpty" id="_isEmpty">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			boolean
-			
+
 			</code>
 		</td>
 
@@ -355,10 +361,10 @@
 	<tr data-order="getType" id="_getType">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			integer
-			
+
 			</code>
 		</td>
 
@@ -393,10 +399,10 @@
 	<tr data-order="getMessage" id="_getMessage">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			string
-			
+
 			</code>
 		</td>
 
@@ -431,10 +437,10 @@
 	<tr data-order="getFile" id="_getFile">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			string
-			
+
 			</code>
 		</td>
 
@@ -469,10 +475,10 @@
 	<tr data-order="getLine" id="_getLine">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			integer
-			
+
 			</code>
 		</td>
 
@@ -507,10 +513,10 @@
 	<tr data-order="equals" id="_equals">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			boolean
-			
+
 			</code>
 		</td>
 
@@ -550,10 +556,10 @@
 	<tr data-order="__toString" id="___toString">
 
 		<td class="attributes"><code>
-			 public 
+			 public
 
 			string
-			
+
 			</code>
 		</td>
 
@@ -591,26 +597,26 @@
 	<caption>Methods inherited from <a href="class-ArrayObject.html#methods">ArrayObject</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-ArrayObject.html#_append">append()</a>, 
-			<a href="class-ArrayObject.html#_asort">asort()</a>, 
-			<a href="class-ArrayObject.html#_count">count()</a>, 
-			<a href="class-ArrayObject.html#_exchangeArray">exchangeArray()</a>, 
-			<a href="class-ArrayObject.html#_getArrayCopy">getArrayCopy()</a>, 
-			<a href="class-ArrayObject.html#_getFlags">getFlags()</a>, 
-			<a href="class-ArrayObject.html#_getIterator">getIterator()</a>, 
-			<a href="class-ArrayObject.html#_getIteratorClass">getIteratorClass()</a>, 
-			<a href="class-ArrayObject.html#_ksort">ksort()</a>, 
-			<a href="class-ArrayObject.html#_natcasesort">natcasesort()</a>, 
-			<a href="class-ArrayObject.html#_natsort">natsort()</a>, 
-			<a href="class-ArrayObject.html#_offsetExists">offsetExists()</a>, 
-			<a href="class-ArrayObject.html#_offsetGet">offsetGet()</a>, 
-			<a href="class-ArrayObject.html#_offsetSet">offsetSet()</a>, 
-			<a href="class-ArrayObject.html#_offsetUnset">offsetUnset()</a>, 
-			<a href="class-ArrayObject.html#_serialize">serialize()</a>, 
-			<a href="class-ArrayObject.html#_setFlags">setFlags()</a>, 
-			<a href="class-ArrayObject.html#_setIteratorClass">setIteratorClass()</a>, 
-			<a href="class-ArrayObject.html#_uasort">uasort()</a>, 
-			<a href="class-ArrayObject.html#_uksort">uksort()</a>, 
+			<a href="class-ArrayObject.html#_append">append()</a>,
+			<a href="class-ArrayObject.html#_asort">asort()</a>,
+			<a href="class-ArrayObject.html#_count">count()</a>,
+			<a href="class-ArrayObject.html#_exchangeArray">exchangeArray()</a>,
+			<a href="class-ArrayObject.html#_getArrayCopy">getArrayCopy()</a>,
+			<a href="class-ArrayObject.html#_getFlags">getFlags()</a>,
+			<a href="class-ArrayObject.html#_getIterator">getIterator()</a>,
+			<a href="class-ArrayObject.html#_getIteratorClass">getIteratorClass()</a>,
+			<a href="class-ArrayObject.html#_ksort">ksort()</a>,
+			<a href="class-ArrayObject.html#_natcasesort">natcasesort()</a>,
+			<a href="class-ArrayObject.html#_natsort">natsort()</a>,
+			<a href="class-ArrayObject.html#_offsetExists">offsetExists()</a>,
+			<a href="class-ArrayObject.html#_offsetGet">offsetGet()</a>,
+			<a href="class-ArrayObject.html#_offsetSet">offsetSet()</a>,
+			<a href="class-ArrayObject.html#_offsetUnset">offsetUnset()</a>,
+			<a href="class-ArrayObject.html#_serialize">serialize()</a>,
+			<a href="class-ArrayObject.html#_setFlags">setFlags()</a>,
+			<a href="class-ArrayObject.html#_setIteratorClass">setIteratorClass()</a>,
+			<a href="class-ArrayObject.html#_uasort">uasort()</a>,
+			<a href="class-ArrayObject.html#_uksort">uksort()</a>,
 			<a href="class-ArrayObject.html#_unserialize">unserialize()</a>
 		</code></td>
 	</tr>
@@ -627,7 +633,7 @@
 	<caption>Constants inherited from <a href="class-ArrayObject.html#constants">ArrayObject</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-ArrayObject.html#ARRAY_AS_PROPS"><b>ARRAY_AS_PROPS</b></a>, 
+			<a href="class-ArrayObject.html#ARRAY_AS_PROPS"><b>ARRAY_AS_PROPS</b></a>,
 			<a href="class-ArrayObject.html#STD_PROP_LIST"><b>STD_PROP_LIST</b></a>
 		</code></td>
 	</tr>
@@ -639,7 +645,7 @@
 	<caption>Properties summary</caption>
 	<tr data-order="map" id="$map">
 		<td class="attributes"><code>
-			public static 
+			public static
 			array
 		</code></td>
 
@@ -685,7 +691,7 @@
 	<caption>Magic properties summary</caption>
 	<tr data-order="line" id="m$line">
 		<td class="attributes"><code>
-			public  
+			public
 			integer
 		</code></td>
 
@@ -696,14 +702,14 @@
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
 	</tr>
 	<tr data-order="file" id="m$file">
 		<td class="attributes"><code>
-			public  
+			public
 			string
 		</code></td>
 
@@ -714,14 +720,14 @@
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
 	</tr>
 	<tr data-order="message" id="m$message">
 		<td class="attributes"><code>
-			public  
+			public
 			string
 		</code></td>
 
@@ -732,14 +738,14 @@
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
 	</tr>
 	<tr data-order="type" id="m$type">
 		<td class="attributes"><code>
-			public  
+			public
 			integer
 		</code></td>
 
@@ -750,7 +756,7 @@
 			</div>
 
 			<div class="description detailed hidden">
-				
+
 
 			</div>
 		</td>
@@ -762,7 +768,7 @@
 </div>
 
 	<div id="footer">
-		AloFramework Handlers 1.4.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Handlers 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
