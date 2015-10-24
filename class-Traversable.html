@@ -5,62 +5,93 @@
 
 	<title>Interface Traversable | AloFramework Handlers 2.0 API</title>
 
-	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
 
 </head>
 
 <body>
-<div id="left">
-	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">AloFramework Handlers 2.0 API</a>
+			</div>
+			<div class="collapse navbar-collapse">
 
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+					<li>
+						<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+					</li>
+
+						<li>
+							<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+								<span>Deprecated</span>
+							</a>
+						</li>
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
 
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-				<li>
-					<a href="namespace-AloFramework.html">
-						AloFramework<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-AloFramework.Handlers.html">
-						Handlers<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-AloFramework.Handlers.Config.html">
-						Config					</a>
-
-						</li>
-				<li>
-					<a href="namespace-AloFramework.Handlers.Output.html">
-						Output<span></span>
-					</a>
-
-					<ul>
-				<li>
-					<a href="namespace-AloFramework.Handlers.Output.Styles.html">
-						Styles </a>
-
-						</li>
-					</ul>
-				</li>
-						</ul>
-				</li>
-						</ul>
-				</li>
-				<li class="active">
-					<a href="namespace-PHP.html">
-						PHP					</a>
-
-						</li>
+					<li>
+						<a href="namespace-AloFramework.html">
+							AloFramework<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-AloFramework.Handlers.html">
+							Handlers<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-AloFramework.Handlers.Config.html">
+							Config						</a>
+							</li>
+					<li>
+						<a href="namespace-AloFramework.Handlers.Output.html">
+							Output<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-AloFramework.Handlers.Output.Styles.html">
+							Styles						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+					<li class="active">
+						<a href="namespace-PHP.html">
+							PHP						</a>
+							</li>
 			</ul>
 		</div>
-
-		<hr>
 
 
 		<div id="elements">
@@ -92,43 +123,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search">
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-PHP.html" title="Summary of PHP"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-				<li>
-					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
-						<span>Deprecated</span>
-					</a>
-				</li>
-				<li>
-					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
-						<span>Todo</span>
-					</a>
-				</li>
-		</ul>
-		<ul>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Interface Traversable</h1>
 
@@ -139,23 +134,27 @@
 
 
 	<div>
-		<h4>Direct known implementers</h4>
-			<a href="class-ArrayObject.html">ArrayObject</a>,
-			<a href="class-IteratorAggregate.html">IteratorAggregate</a>
+		<h3>Direct known implementers</h3>
+		<p class="elementList">
+			<code><a href="class-ArrayObject.html">ArrayObject</a></code>, 
+			<code><a href="class-IteratorAggregate.html">IteratorAggregate</a></code>
+		</p>
 	</div>
 
 	<div>
-		<h4>Indirect known implementers</h4>
-			<a href="class-AloFramework.Handlers.Error.html">AloFramework\Handlers\Error</a>
+		<h3>Indirect known implementers</h3>
+		<p class="elementList">
+			<code><a href="class-AloFramework.Handlers.Error.html">AloFramework\Handlers\Error</a></code>
+		</p>
 	</div>
 
 
 
-	<div class="info">
-
+	<div class="alert alert-info">
+		
 		<b>PHP Extension:</b> <a href="http://php.net/manual/en" title="Go to PHP documentation">Core</a><br>
-
-
+		
+		
 
 			<b>Documented at</b> <a href="http://php.net/manual/en/class.traversable.php" title="Go to PHP documentation">php.net</a>
 		<br>
@@ -168,25 +167,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
+	</div>
 
 	<div id="footer">
 		AloFramework Handlers 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
-</div>
 </div>
 <script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>
