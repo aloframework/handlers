@@ -247,8 +247,6 @@
             switch ($errcode) {
                 case E_NOTICE:
                 case E_USER_NOTICE:
-                    $method = 'notice';
-                    break;
                 case E_WARNING:
                 case E_USER_WARNING:
                 case E_CORE_WARNING:
