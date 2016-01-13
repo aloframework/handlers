@@ -7,7 +7,6 @@
   "homepage": "https://github.com/aloframework/handlers",
   "keywords": [
     "PHP",
-    "5.4",
     "error",
     "exception",
     "shutdown",
@@ -26,8 +25,8 @@
     "issues": "https://github.com/aloframework/handlers/issues"
   },
   "require": {
-    "php": ">=5.4",
-    "symfony/var-dumper": "^2.7",
+    "php": ">=5.5.9",
+    "symfony/var-dumper": "^2.7 || ^3.0",
     "symfony/console": "^2.7",
     "aloframework/log": "^1.0 || ^2.0",
     "aloframework/common": "^1.1",
