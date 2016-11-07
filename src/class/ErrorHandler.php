@@ -24,6 +24,7 @@
 
     /**
      * Handles PHP errors
+     *
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.2 Tracks the last reported error<br/>
      *         1.1 log() accepts the $file and $line parameters
@@ -33,30 +34,35 @@
 
         /**
          * Whether this handler has been enabled
+         *
          * @var bool
          */
         private static $registered = false;
 
         /**
          * Last reported error
+         *
          * @var null|Error
          */
         private static $lastReported = null;
 
         /**
          * The last registered handler
+         *
          * @var self
          */
         private static $lastRegisteredHandler = null;
 
         /**
          * Makes sure error reporting is a valid int
+         *
          * @var int
          */
         private $errorReporting;
 
         /**
          * Constructor
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log exceptions.
@@ -64,42 +70,46 @@
          *
          * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+        public function __construct(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             parent::__construct($logger, Alo::ifnull($cfg, new ErrorConfig()));
             $this->errorReporting = (int)$this->config->errorLevel;
         }
 
         /**
          * Checks whether the handler has been registered
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return bool
          */
-        static function isRegistered() {
+        public static function isRegistered() {
             return self::$registered;
         }
 
         /**
          * Returns the last registered handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return self|null
          * @since  1.2
          */
-        static function getLastRegisteredHandler() {
+        public static function getLastRegisteredHandler() {
             return self::$lastRegisteredHandler;
         }
 
         /**
          * Returns the last reported error
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return Error|null The last reported error or NULL if none have been reported
          * @since  1.2
          */
-        static function getLastReportedError() {
+        public static function getLastReportedError() {
             return self::$lastReported;
         }
 
         /**
          * Registers the error handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
@@ -110,14 +120,15 @@
          *         1.0.4 Checks what class has called the method instead of explicitly registering ErrorHandler -
          *         allows easy class extendability.
          */
-        static function register(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
+        public static function register(LoggerInterface $logger = null, ErrorConfig $cfg = null) {
             self::$registered = true;
 
             /**
              * To allow easy extending.
+             *
              * @var self $handler
              */
-            $class   = get_called_class();
+            $class = get_called_class();
             $handler = new $class($logger, $cfg);
 
             self::$lastRegisteredHandler = &$handler;
@@ -129,10 +140,11 @@
 
         /**
          * Returns what errors are being reported
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return int
          */
-        function getErrorReporting() {
+        public function getErrorReporting() {
             return $this->errorReporting;
         }
 
@@ -149,11 +161,11 @@
          * @since  1.2 Tracks the last reported error
          * @codeCoverageIgnore
          */
-        function handle($errno, $errstr, $errfile, $errline) {
+        public function handle($errno, $errstr, $errfile, $errline) {
             self::$lastReported = new Error($errno, $errstr, $errfile, $errline);
 
-            $this->injectCss();
-            $type  = Alo::ifnull(Error::$map[$errno], $errno);
+            $this->injectCSS();
+            $type = Alo::ifnull(Error::$map[$errno], $errno);
             $label = 'danger';
 
             switch ($errno) {
@@ -188,6 +200,7 @@
 
         /**
          * Generates console output for errors
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $type    Error type
@@ -201,19 +214,20 @@
          */
         protected function handleCLI($type, $label, $errno, $errstr, $errfile, $errline) {
             $this->console->write('<' . $label . 'b>' . $type . '</>')
-                ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
-                        true)
-                ->write('<' . $label . '>Raised in </>')
-                ->write('<' . $label . 'u>' . $errfile . '</>')
-                ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
-                ->write('<' . $label . 'b>Debug backtrace:</>', true)
-                ->writeln('');
+                          ->write('<' . $label . '>: [' . $errno . '] ' . $errstr . '</>',
+                                  true)
+                          ->write('<' . $label . '>Raised in </>')
+                          ->write('<' . $label . 'u>' . $errfile . '</>')
+                          ->write('<' . $label . '> @ line </><' . $label . 'u>' . $errline . '</>', true)
+                          ->write('<' . $label . 'b>Debug backtrace:</>', true)
+                          ->writeln('');
 
             $this->getTrace(array_slice(debug_backtrace(), 2), $label);
         }
 
         /**
          * Generates HTML output for errors
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $type    Error type
@@ -249,6 +263,7 @@
 
         /**
          * Logs an error
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param int    $errcode The error's code
@@ -286,10 +301,11 @@
 
         /**
          * Returns a string representation of the handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function __toString() {
+        public function __toString() {
             return parent::__toString() . self::EOL . 'Registered: ' . (self::$registered ? 'Yes' : 'No') . self::EOL .
                    'Last reported error: ' . (self::$lastReported ? self::$lastReported->__toString() : '<<none>>');
         }

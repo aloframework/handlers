@@ -24,6 +24,7 @@
 
     /**
      * Object representation of an error
+     *
      * @author Art <a.molcanovas@gmail.com>
      * @property int    $line    Error line
      * @property string $file    Error file
@@ -37,6 +38,7 @@
 
         /**
          * Error code/label map
+         *
          * @var array
          * @since 1.3
          */
@@ -56,6 +58,7 @@
 
         /**
          * Constructor
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param int|array $typeOrData The error code or array of error_get_last()
@@ -63,7 +66,7 @@
          * @param string    $file       The error file
          * @param int       $line       The error line
          */
-        function __construct($typeOrData, $message = null, $file = null, $line = null) {
+        public function __construct($typeOrData, $message = null, $file = null, $line = null) {
             if (empty($typeOrData)) {
                 parent::__construct(['type'    => null,
                                      'message' => null,
@@ -71,9 +74,9 @@
                                      'line'    => null]);
             } else {
                 if (is_array($typeOrData)) {
-                    $message    = Alo::get($typeOrData['message']);
-                    $file       = Alo::get($typeOrData['file']);
-                    $line       = Alo::get($typeOrData['line']);
+                    $message = Alo::get($typeOrData['message']);
+                    $file = Alo::get($typeOrData['file']);
+                    $line = Alo::get($typeOrData['line']);
                     $typeOrData = Alo::get($typeOrData['type']);
                 }
 
@@ -100,7 +103,7 @@
          * @return bool
          * @since  1.3
          */
-        static function shouldBeReported($errcode, $reportingSettings = null) {
+        public static function shouldBeReported($errcode, $reportingSettings = null) {
             if (!$reportingSettings || !is_numeric($reportingSettings)) {
                 $reportingSettings = (int)((new ErrorConfig())->get(ErrorConfig::CFG_ERROR_LEVEL));
             }
@@ -112,79 +115,87 @@
 
         /**
          * Alias of offsetGet()
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $var Variable to get
          *
          * @return mixed
          */
-        function __get($var) {
+        public function __get($var) {
             return $this->offsetGet($var);
         }
 
         /**
          * Checks if the error is actually empty
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return bool
          */
-        function isEmpty() {
+        public function isEmpty() {
             return !($this->getType() && $this->getMessage() && $this->getFile() && $this->getLine());
         }
 
         /**
          * Returns the error code
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return int
          */
-        function getType() {
+        public function getType() {
             return $this->offsetGet('type');
         }
 
         /**
          * Returns the error message
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function getMessage() {
+        public function getMessage() {
             return $this->offsetGet('message');
         }
 
         /**
          * Returns the error file
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function getFile() {
+        public function getFile() {
             return $this->offsetGet('file');
         }
 
         /**
          * Returns the error line
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return int
          */
-        function getLine() {
+        public function getLine() {
             return $this->offsetGet('line');
         }
 
         /**
          * Checks if the two errors are equal
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param Error $e The other error
          *
          * @return bool
          */
-        function equals(Error $e) {
+        public function equals(Error $e) {
             return $e->__toString() === $this->__toString();
         }
 
         /**
          * Returns a string representation of $this
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function __toString() {
+        public function __toString() {
             return '[' . $this->getType() . '] ' . $this->getMessage() . ' @ ' . $this->getFile() . ' @ line ' .
                    $this->getLine();
         }

@@ -30,6 +30,7 @@
 
     /**
      * Abstract error/exception handling things
+     *
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.4 Implements Configurable
      * @property AbstractConfig $config Abstract handler configuration
@@ -40,6 +41,7 @@
 
         /**
          * The line ender for __toString()
+         *
          * @var string
          */
         const EOL = " \n";
@@ -53,24 +55,28 @@
 
         /**
          * Logger instance
+         *
          * @var LoggerInterface
          */
         protected $logger;
 
         /**
          * Whether we're dealing with a command-line request
+         *
          * @var bool
          */
         protected $isCLI;
 
         /**
          * ConsoleOutput object
+         *
          * @var ConsoleOutput
          */
         protected $console;
 
         /**
          * Constructor
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param LoggerInterface $logger If provided, this will be used to log errors and exceptions.
@@ -78,20 +84,21 @@
          *
          * @since  1.4 $cfg added. This will become the first parameter in the constructor in 2.0
          */
-        function __construct(LoggerInterface $logger = null, AbstractConfig $cfg = null) {
+        public function __construct(LoggerInterface $logger = null, AbstractConfig $cfg = null) {
             if (!$logger) {
                 $logger = new Log();
             }
 
             $this->config = Alo::ifnull($cfg, new AbstractConfig());
             $this->logger = $logger;
-            $this->isCLI  = !$this->config->forceHTML && Alo::isCliRequest();
+            $this->isCLI = !$this->config->forceHTML && Alo::isCliRequest();
 
             $this->initSymfony();
         }
 
         /**
          * Initialises Symfony's components
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return self
          */
@@ -105,10 +112,11 @@
 
         /**
          * Returns a string representation of the object
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function __toString() {
+        public function __toString() {
             return 'CSS injected: ' . (self::$cssInjected ? 'Yes' : 'No') . self::EOL . 'Logger: ' .
                    ($this->logger ? get_class($this->logger) : 'Not set') . self::EOL . 'Max stack trace size: ' .
                    ($this->config->traceDepth);
@@ -116,6 +124,7 @@
 
         /**
          * Injects the error handler CSS if it hasn't been injected yet
+         *
          * @author Art <a.molcanovas@gmail.com>
          */
         protected function injectCSS() {
@@ -123,6 +132,7 @@
                 self::$cssInjected = true;
                 if (file_exists($this->config->cssPath)) {
                     echo '<style type="text/css">';
+                    /** @noinspection PhpIncludeInspection */
                     include $this->config->cssPath;
                     echo '</style>';
                 } else {
@@ -158,6 +168,7 @@
 
         /**
          * CLI output of the debug backtrace
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array  $trace The debug backtrace
@@ -167,16 +178,16 @@
          */
         private function traceCLI(array $trace, $label) {
             foreach ($trace as $k => $v) {
-                $func        = $loc = $line = '';
+                $func = $loc = $line = '';
                 $argsPresent = isset($v['args']) && !empty($v['args']);
 
                 self::formatTraceLine($v, $func, $loc, $line);
 
                 $this->console->write('<' . $label . 'b>#' . $k . ': </>')
-                    ->write('<' . $label . '>' . ($loc ? $loc : '<<unknown file>>') . '</> ')
-                    ->write('<' . $label . '>(' . ($line ? 'line ' . $line : 'unknown line') . ')</>')
-                    ->write('<' . $label . '> | </>')
-                    ->write('<' . $label . '>' . $func . '</>', true);
+                              ->write('<' . $label . '>' . ($loc ? $loc : '<<unknown file>>') . '</> ')
+                              ->write('<' . $label . '>(' . ($line ? 'line ' . $line : 'unknown line') . ')</>')
+                              ->write('<' . $label . '> | </>')
+                              ->write('<' . $label . '>' . $func . '</>', true);
 
                 if ($argsPresent) {
                     $this->console->write('<' . $label . 'b>Arguments:</>', true);
@@ -189,6 +200,7 @@
 
         /**
          * Formats the debug backtrace row
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $traceLine The row
@@ -228,6 +240,7 @@
 
         /**
          * Echoes a HTML debug backtrace
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $trace The debug backtrace

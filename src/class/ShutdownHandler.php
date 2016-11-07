@@ -40,6 +40,7 @@
 
         /**
          * The last registered handler
+         *
          * @var self
          */
         private static $lastRegisteredHandler = null;
@@ -50,17 +51,18 @@
          * @author Art <a.molcanovas@gmail.com>
          * @return bool
          */
-        static function isRegistered() {
+        public static function isRegistered() {
             return self::$registered;
         }
 
         /**
          * Returns the last registered handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return self|null
          * @since  1.3
          */
-        static function getLastRegisteredHandler() {
+        public static function getLastRegisteredHandler() {
             return self::$lastRegisteredHandler;
         }
 
@@ -74,10 +76,10 @@
          *
          * @return self
          */
-        static function register(LoggerInterface $logger = null, $cfg = null) {
+        public static function register(LoggerInterface $logger = null, $cfg = null) {
             self::$registered = true;
-            $class            = get_called_class();
-            $handler          = new $class($logger, $cfg);
+            $class = get_called_class();
+            $handler = new $class($logger, $cfg);
 
             register_shutdown_function([$handler, 'handle']);
             self::$lastRegisteredHandler = &$handler;
@@ -92,7 +94,7 @@
          * @since  1.2.1 Should now report fatal errors if no errors had been raised beforehand.
          * @codeCoverageIgnore
          */
-        function handle() {
+        public function handle() {
             if (ErrorHandler::isRegistered()) {
                 $e = new Error(error_get_last());
 
@@ -112,10 +114,11 @@
 
         /**
          * Returns a string representation of the object
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return string
          */
-        function __toString() {
+        public function __toString() {
             return parent::__toString() . self::EOL . 'Registered: Yes';
         }
     }

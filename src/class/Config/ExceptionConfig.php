@@ -20,6 +20,7 @@
 
     /**
      * Error config class
+     *
      * @author Art <a.molcanovas@gmail.com>
      * @since  1.4.1 property PHPdocs added
      * @property int  $prevExceptionDepth   How many previous exceptions to output
@@ -29,35 +30,40 @@
 
         /**
          * [INT] How many previous exceptions to echo configuration key
+         *
          * @var string
          */
         const CFG_EXCEPTION_DEPTH = 'prevExceptionDepth';
 
         /**
          * [BOOL] Whether to log where the exception occurred configuration key
+         *
          * @var string
          */
         const CFG_LOG_EXCEPTION_LOCATION = 'logExceptionLocation';
 
         /**
          * Default config array
+         *
          * @var array
          */
         private static $defaults;
 
         /**
          * Constructor
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param array $cfg Default configuration overrides
          */
-        function __construct(array $cfg = []) {
+        public function __construct(array $cfg = []) {
             self::setDefaultConfig();
             parent::__construct(self::$defaults, $cfg);
         }
 
         /**
          * Sets the default configuration
+         *
          * @author Art <a.molcanovas@gmail.com>
          */
         private static function setDefaultConfig() {

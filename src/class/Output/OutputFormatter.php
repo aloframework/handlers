@@ -22,18 +22,21 @@
 
     /**
      * The handlers' output formatter
+     *
      * @author Art <a.molcanovas@gmail.com>
      */
     class OutputFormatter extends TheClass {
 
         /**
          * Styles to set
+         *
          * @var array
          */
         private static $styles = [];
 
         /**
          * Colours to initialise
+         *
          * @var array
          */
         private static $styleColours = ['e' => '\AloFramework\Handlers\Output\Styles\Error',
@@ -42,6 +45,7 @@
 
         /**
          * Variants to initialise
+         *
          * @var array
          */
         private static $styleVariants = ['b' => 'bold',
@@ -49,9 +53,10 @@
 
         /**
          * Constructor
+         *
          * @author Art <a.molcanovas@gmail.com>
          */
-        function __construct() {
+        public function __construct() {
             parent::__construct();
             self::initStyles();
 
@@ -62,6 +67,7 @@
 
         /**
          * Initialises the style objects
+         *
          * @author Art <a.molcanovas@gmail.com>
          */
         private static function initStyles() {
