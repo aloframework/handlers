@@ -42,19 +42,19 @@
          * @var array
          * @since 1.3
          */
-        static $map = [E_NOTICE            => 'NOTICE',
-                       E_USER_NOTICE       => 'USER NOTICE',
-                       E_CORE_ERROR        => 'CORE ERROR',
-                       E_ERROR             => 'ERROR',
-                       E_USER_ERROR        => 'USER ERROR',
-                       E_COMPILE_ERROR     => 'COMPILE ERROR',
-                       E_RECOVERABLE_ERROR => 'RECOVERABLE ERROR',
-                       E_DEPRECATED        => 'DEPRECATED',
-                       E_USER_DEPRECATED   => 'USER DEPRECATED',
-                       E_WARNING           => 'WARNING',
-                       E_USER_WARNING      => 'USER WARNING',
-                       E_STRICT            => 'STRICT',
-                       E_CORE_WARNING      => 'CORE WARNING'];
+        public static $map = [E_NOTICE            => 'NOTICE',
+                              E_USER_NOTICE       => 'USER NOTICE',
+                              E_CORE_ERROR        => 'CORE ERROR',
+                              E_ERROR             => 'ERROR',
+                              E_USER_ERROR        => 'USER ERROR',
+                              E_COMPILE_ERROR     => 'COMPILE ERROR',
+                              E_RECOVERABLE_ERROR => 'RECOVERABLE ERROR',
+                              E_DEPRECATED        => 'DEPRECATED',
+                              E_USER_DEPRECATED   => 'USER DEPRECATED',
+                              E_WARNING           => 'WARNING',
+                              E_USER_WARNING      => 'USER WARNING',
+                              E_STRICT            => 'STRICT',
+                              E_CORE_WARNING      => 'CORE WARNING'];
 
         /**
          * Constructor
