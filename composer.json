@@ -3,7 +3,7 @@
   "description": "The error and exception handlers of AloFramework",
   "prefer-stable": true,
   "type": "library",
-  "license": "GPL-3.0+",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/aloframework/handlers",
   "keywords": [
     "PHP",
@@ -28,9 +28,9 @@
     "php": ">=5.5.9",
     "symfony/var-dumper": "^2.7 || ^3.0",
     "symfony/console": "^2.7 || ^3.0",
-    "aloframework/log": "^1.0 || ^2.0",
-    "aloframework/common": "^1.1",
-    "aloframework/config": "^1.0",
+    "aloframework/log": "^3.0",
+    "aloframework/common": "^2.0",
+    "aloframework/config": "^2.0",
     "raveren/kint": "^1.0"
   },
   "autoload": {

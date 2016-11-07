@@ -4,7 +4,7 @@ A powerful error and exception handler of [AloFramework](https://github.com/alof
 
 Latest release API documentation: [https://aloframework.github.io/handlers/](https://aloframework.github.io/handlers/)
 
-[![License](https://poser.pugx.org/aloframework/handlers/license?format=plastic)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+![License](https://poser.pugx.org/aloframework/handlers/license?format=plastic)
 [![Latest Stable Version](https://poser.pugx.org/aloframework/handlers/v/stable?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 [![Total Downloads](https://poser.pugx.org/aloframework/handlers/downloads?format=plastic)](https://packagist.org/packages/aloframework/handlers)
 
